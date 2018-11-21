@@ -1,29 +1,33 @@
 import React, { Component } from 'react';
-import { Button, FormControl, FormGroup } from 'react-bootstrap'
+import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
   render() {
-    return (
-      <div class="container">
-        <div class="container">
-          <h1 class="page-header">Open Book. <small> we're with you.</small></h1>
+    if (this.props.userID) {
+      return <Redirect push to={'/home'}/>
+    } else {
+      return (
+        <div className="container">
+        <div className="container">
+        <h1 className="page-header">Open Book. <small> we're with you.</small></h1>
         </div>
-        <div class="container">
-          <div class="col-sm-4">
-            <form>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="username"/>
-              </div>
-
-              <div class="form-group">
-                <button type="submit" class="btn btn-default">Log In</button>
-              </div>
-            </form>
-          </div>
+        <div className="container">
+        <div className="col-sm-4">
+        <form onSubmit={this.props.handleLogin}>
+        <div className="form-group">
+        <input type="text" className="form-control" placeholder="username"/>
         </div>
 
-      </div>
-    )
+        <div className="form-group">
+        <button type="submit" className="btn btn-default">Log In</button>
+        </div>
+        </form>
+        </div>
+        </div>
+
+        </div>
+      )
+    }
   }
 }
 
