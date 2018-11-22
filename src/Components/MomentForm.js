@@ -38,11 +38,40 @@ class MomentForm extends Component {
 
   }
 
+  showRank = () => {
+    switch (this.state.rank){
+      case '1':
+        return "absolutely terrible";
+      case '2':
+        return 'terrible'
+      case '3':
+        return 'very bad';
+      case '4':
+        return 'bad';
+      case '5':
+        return 'a bit off';
+      case '6':
+        return 'okay';
+      case '7':
+        return 'good';
+      case '8':
+        return 'very good';
+      case '9':
+        return 'great';
+      case '10':
+        return 'excellent';
+      case '11':
+        return 'absolutely amazing';
+      default:
+        return "absolutely amazing"
+    }
+  }
+
   render(){
     return (
       <>
         <form onSubmit={this.handleSubmit} className="snapshot">
-          <label>How I'm Feeling Right Now:</label>
+          <h3>How I'm Feeling Right Now:</h3>
 
             <div className="form-group ">
               <input
@@ -54,7 +83,8 @@ class MomentForm extends Component {
             </div>
 
             <div className="form-group">
-              <button type="submit" className="btn btn-default">pin it</button>
+              <p>{this.showRank()}</p>
+              <button type="submit" className="btn btn-primary">pin it</button>
             </div>
 
         </form>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import MomentForm from './MomentForm'
+import EntryForm from './EntryForm'
 
 class Home extends Component {
   state={
@@ -59,6 +60,7 @@ class Home extends Component {
                 <div className="col-xs-6">
                   <div className="Box-1">
                     <div className="container Box-2">
+                      <EntryForm/>
                     </div>
                   </div>
                 </div>

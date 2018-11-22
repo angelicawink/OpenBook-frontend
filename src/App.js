@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 
 class App extends Component {
   state={
-    userID: null,
+    userID: 1,
     entries: null
     //^^ hardcoded this here because im not using sessions, otherwise line 31 should setState userID: data
   }

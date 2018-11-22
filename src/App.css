@@ -38,12 +38,21 @@ input[type="range"]{
 }
 
 .Box-2 {
-  padding: 30px;
+  padding: 10px;
   height: 100%;
+  width: 70%;
   /* height: 100%; */
   /* background-color: grey; */
 }
 
+textarea.form-control {
+height: 100%;
+}
+
+div.form-group.new-entry-container{
+  width: 100%;
+  min-height: 100%;
+}
 /* .App {
   text-align: center;
 }
