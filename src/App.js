@@ -7,7 +7,9 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 
 class App extends Component {
   state={
-    userID: null
+    userID: null,
+    entries: null
+    //^^ hardcoded this here because im not using sessions, otherwise line 31 should setState userID: data
   }
 
   handleLogin = (event) => {
@@ -35,11 +37,13 @@ class App extends Component {
     })
   }
 
-  fetchEntries = () => {
 
+  fetchEntries = () => {
     fetch(`http://localhost:3000/api/v1/users/${this.state.userID}`)
     .then(res => res.json())
-    .then(entries => console.log(entries))
+    .then(data => this.setState({
+      entries: data.entries
+    }))
   }
 
   render() {
@@ -48,7 +52,7 @@ class App extends Component {
         <Router>
           <React.Fragment>
             <Route exact path='/' render={(props) => <Login {...props} userID={this.state.userID} handleLogin={this.handleLogin} />}/>
-            <Route exact path='/home' render={(props) => <Home {...props} currentUserID={this.state.userID} fetchEntries={this.fetchEntries}/>}/>
+            <Route exact path='/home' render={(props) => <Home {...props} userID={this.state.userID} fetchEntries={this.fetchEntries}/>}/>
         </React.Fragment>
         </Router>
       </div>

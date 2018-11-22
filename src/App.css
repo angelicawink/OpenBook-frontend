@@ -1,3 +1,49 @@
+.Box-1 {
+  /* margin: 5px; */
+  border-radius: 5px;
+  height: 45vh;
+  background-color: rgb(187,221,206)
+}
+
+.box-row {
+  height: 50%;
+}
+
+.home-container {
+  /* background-color: grey; */
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  /* padding-top: 20px; */
+}
+
+.home-body {
+  width: 100vw;
+}
+
+body {
+  /* background-image: url('https://secure.img1-fg.wfcdn.com/im/00298773/resize-h800%5Ecompr-r85/3636/36366374/Modern+Luxe+Palladian+Geometric+33%2527+x+20.5%2522+Wallpaper+Roll.jpg') */
+}
+
+#checkmark {
+  height: 50%;
+}
+
+input[type="range"]{
+  width: 30%;
+}
+
+.snapshot{
+  height: 100%;
+}
+
+.Box-2 {
+  padding: 30px;
+  height: 100%;
+  /* height: 100%; */
+  /* background-color: grey; */
+}
+
 /* .App {
   text-align: center;
 }
