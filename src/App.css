@@ -9,6 +9,16 @@
   height: 50%;
 }
 
+.diary-page {
+  background-color: lightgrey;
+  border-radius: 10px;
+  border-color: white;
+  border-style: solid;
+  color: darkblue;
+  padding: 10px;
+
+}
+
 .home-container {
   /* background-color: grey; */
   height: 100vh;
@@ -35,6 +45,7 @@ input[type="range"]{
 
 .snapshot{
   height: 100%;
+  color: darkblue;
 }
 
 .Box-2 {

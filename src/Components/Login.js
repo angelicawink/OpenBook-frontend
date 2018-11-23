@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
   render() {
-    if (this.props.userID) {
+    if (this.props.user) {
       return <Redirect push to={'/home'}/>
     } else {
       return (

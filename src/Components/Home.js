@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import MomentForm from './MomentForm'
-import EntryForm from './EntryForm'
+import MomentForm from './MomentForm';
+import EntryForm from './EntryForm';
+import Diary from './Diary';
 
 class Home extends Component {
   state={
-    snapshotLogged: false
+    snapshotLogged: false,
+    showNewEntryForm: false
   }
 
-  componentDidMount(){
-    if (this.props.userID){
-      this.props.fetchEntries()
-    }
-  }
-
-  renderContents = () => {
+  renderSnapshotContents = () => {
     if (this.state.snapshotLogged){
       return <img src="https://img.icons8.com/cotton/2x/checkmark.png" alt="checkmark" id="checkmark"/>
     } else {
-      return <MomentForm snapshotLogged={this.snapshotLogged} userID={this.props.userID}/>
+      return <MomentForm snapshotLogged={this.snapshotLogged} user={this.props.user}/>
+    }
+  }
+
+  renderDiaryContents = () => {
+    if (!this.state.showNewEntryForm) {
+      return <Diary user={this.props.user} entryLogged={this.entryLogged}/>
+    }else {
+      return <EntryForm user={this.props.user} entryLogged={this.entryLogged}/>
     }
   }
 
@@ -28,8 +32,15 @@ class Home extends Component {
     })
   }
 
+  entryLogged = () => {
+    
+    this.setState({
+      showNewEntryForm: !this.state.showNewEntryForm
+    })
+  }
+
   render(){
-    if (!this.props.userID){
+    if (!this.props.user){
       return <Redirect push to={'/'}/>
     }else {
       return(
@@ -47,7 +58,7 @@ class Home extends Component {
                 <div className="col-xs-6">
                   <div className="Box-1">
                     <div className="container Box-2">
-                      {this.renderContents()}
+                      {this.renderSnapshotContents()}
                     </div>
                   </div>
 
@@ -60,7 +71,7 @@ class Home extends Component {
                 <div className="col-xs-6">
                   <div className="Box-1">
                     <div className="container Box-2">
-                      <EntryForm/>
+                      {this.renderDiaryContents()}
                     </div>
                   </div>
                 </div>
@@ -68,6 +79,7 @@ class Home extends Component {
                 <div className="col-xs-6">
                   <div className="Box-1">
                     <div className="container Box-2">
+
                     </div>
                   </div>
                 </div>

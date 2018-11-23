@@ -14,7 +14,7 @@ class MomentForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     let feelingsID = this.state.rank;
-    let userID = this.props.userID
+    let userID = this.props.user.id
 
     console.log(feelingsID)
     console.log(userID)
@@ -41,7 +41,7 @@ class MomentForm extends Component {
   showRank = () => {
     switch (this.state.rank){
       case '1':
-        return "absolutely terrible";
+        return "absolutely horrible";
       case '2':
         return 'terrible'
       case '3':
