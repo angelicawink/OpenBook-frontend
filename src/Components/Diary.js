@@ -7,23 +7,20 @@ class Diary extends Component {
   }
 
   getDate = () => {
-    let timestamp = this.props.user.entries[this.state.currentEntryIndex].created_at
-    let wholeDate = timestamp.slice(0, 10);
-    let monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+    let date = new Date(this.props.user.entries[this.state.currentEntryIndex].created_at).toString().split(" ")
 
-    let year = wholeDate.slice(0,4);
-    let date = wholeDate.slice(8,10);
-    let month = monthsArray[wholeDate.slice(5,7) -1]
-
-    return (month + " " + date + ", " + year)
-
+    let displayDate = date[0] + ", " + date[1]+ " " + date[2] + " " + date[3];
+    return displayDate;
   }
 
   getTime = () => {
-    let timestamp = this.props.user.entries[this.state.currentEntryIndex].created_at
-    let wholeTime = timestamp.slice(11, -8);
-    let hour = wholeTime.slice(0,2);
-    let min = wholeTime.slice(3);
+    let date = new Date(this.props.user.entries[this.state.currentEntryIndex].created_at).toString().split(" ");
+
+    let time = date[4].split(":")
+    debugger
+
+    let hour = time[0]
+    let min = time[1]
     let am_pm;
 
     if (hour > 12){
@@ -32,13 +29,12 @@ class Diary extends Component {
     } else {
       am_pm = 'am'
     }
-   let time = hour + ":" + min + " " + am_pm;
 
-   return time
+   let displayTime = hour + ":" + min + " " + am_pm;
+   return displayTime;
   }
 
   getPreviousEntry = () => {
-    // let index = this.props.user.entries.length-1;
     if (this.state.currentEntryIndex !== 0){
       this.setState({
         currentEntryIndex: this.state.currentEntryIndex -1
@@ -63,12 +59,13 @@ class Diary extends Component {
 
             <CardBody>{this.props.user.entries[this.state.currentEntryIndex].content}</CardBody>
 
-            <Button onClick={this.getPreviousEntry}>Previous</Button>
-            <Button onClick={this.getNextEntry}>Next</Button>
-
           </Card>
 
-          <button onClick={this.props.entryLogged} type="submit" className="btn btn-primary">write new entry</button>
+            <img onClick={this.getPreviousEntry} src="http://www.iconninja.com/files/184/20/51/direction-back-arrow-left-arrows-chevron-icon.png" alt="back-arrow" className="arrow"/>
+
+            <img onClick={this.getNextEntry} src="https://www.shareicon.net/download/2016/07/10/120016_arrows.svg" alt="back-arrow" className="arrow"/>
+
+          <p><button onClick={this.props.entryLogged} type="submit" className="btn btn-primary">new entry</button></p>
       </div>
     )
   }

@@ -10,7 +10,6 @@ import { fetchedUser } from './actions/openBookActions'
 class App extends Component {
   state={
     user: null
-    //^^ hardcoded this here because im not using sessions, otherwise line 31 should setState userID: data
   }
 
   handleLogin = (event) => {
