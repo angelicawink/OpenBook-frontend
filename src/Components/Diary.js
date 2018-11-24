@@ -17,7 +17,6 @@ class Diary extends Component {
     let date = new Date(this.props.user.entries[this.state.currentEntryIndex].created_at).toString().split(" ");
 
     let time = date[4].split(":")
-    debugger
 
     let hour = time[0]
     let min = time[1]

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Login from './Components/Login';
 import Home from './Components/Home'
+import Vent from './Components/Vent'
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchedUser } from './actions/openBookActions'
@@ -41,6 +42,7 @@ class App extends Component {
           <React.Fragment>
             <Route exact path='/' render={(props) => <Login {...props} user={this.state.user} handleLogin={this.handleLogin} />}/>
             <Route exact path='/home' render={(props) => <Home {...props} user={this.state.user}/>}/>
+            <Route exact path='/vent' render={(props) => <Vent {...props} user={this.state.user}/>}/>
         </React.Fragment>
         </Router>
       </div>

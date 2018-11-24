@@ -7,7 +7,8 @@ import Diary from './Diary';
 class Home extends Component {
   state={
     snapshotLogged: false,
-    showNewEntryForm: false
+    showNewEntryForm: false,
+    vent: false
   }
 
   renderSnapshotContents = () => {
@@ -33,16 +34,24 @@ class Home extends Component {
   }
 
   entryLogged = () => {
-    
+
     this.setState({
       showNewEntryForm: !this.state.showNewEntryForm
+    })
+  }
+
+  redirectToVent = () => {
+    this.setState({
+      vent: true
     })
   }
 
   render(){
     if (!this.props.user){
       return <Redirect push to={'/'}/>
-    }else {
+    }else if (this.state.vent) {
+      return <Redirect push to={'/vent'}/>
+    } else  {
       return(
         <div className="home-body">
           <div className="home-container container">
@@ -51,6 +60,7 @@ class Home extends Component {
                 <div className="col-xs-6">
                   <div className="Box-1">
                     <div className="container Box-2">
+                      Chart of Moments!!!!
                     </div>
                   </div>
                 </div>
@@ -71,15 +81,16 @@ class Home extends Component {
                 <div className="col-xs-6">
                   <div className="Box-1">
                     <div className="container Box-2">
+                      <h3>JOURNAL</h3>
                       {this.renderDiaryContents()}
                     </div>
                   </div>
                 </div>
 
                 <div className="col-xs-6">
-                  <div className="Box-1">
-                    <div className="container Box-2">
-
+                  <div className="Box-1 vent">
+                    <div className="container Box-2 vent">
+                      <div id="vent" onClick={this.redirectToVent}>VENT</div>
                     </div>
                   </div>
                 </div>
