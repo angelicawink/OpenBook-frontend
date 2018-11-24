@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardText, CardBody, Button } from 'reactstrap';
+import { Card, CardBody } from 'reactstrap';
 
 class Diary extends Component {
   state={
@@ -49,6 +49,10 @@ class Diary extends Component {
     }
   }
 
+  redirectToJournalSearch = () => {
+      this.props.history.push(`/search`)
+  }
+
   render(){
     return(
       <div>
@@ -64,7 +68,9 @@ class Diary extends Component {
 
             <img onClick={this.getNextEntry} src="https://www.shareicon.net/download/2016/07/10/120016_arrows.svg" alt="back-arrow" className="arrow"/>
 
-          <p><button onClick={this.props.entryLogged} type="submit" className="btn btn-primary">new entry</button></p>
+          <p><button onClick={this.props.entryLogged} type="submit" className="btn btn-default">new entry</button></p>
+          <button onClick={this.redirectToJournalSearch} type="submit" className="btn btn-success">commiserate</button>
+
       </div>
     )
   }

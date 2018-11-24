@@ -3,9 +3,10 @@ import './App.css';
 import Login from './Components/Login';
 import Home from './Components/Home'
 import Vent from './Components/Vent'
+import JournalSearch from './Components/JounralSearch'
 import { BrowserRouter as Router, Route} from 'react-router-dom';
-import { connect } from 'react-redux';
-import { fetchedUser } from './actions/openBookActions'
+// import { connect } from 'react-redux';
+// import { fetchedUser } from './actions/openBookActions'
 
 
 class App extends Component {
@@ -43,6 +44,8 @@ class App extends Component {
             <Route exact path='/' render={(props) => <Login {...props} user={this.state.user} handleLogin={this.handleLogin} />}/>
             <Route exact path='/home' render={(props) => <Home {...props} user={this.state.user}/>}/>
             <Route exact path='/vent' render={(props) => <Vent {...props} user={this.state.user}/>}/>
+            <Route exact path='/search' render={(props) => <JournalSearch {...props} user={this.state.user}/>}/>
+
         </React.Fragment>
         </Router>
       </div>

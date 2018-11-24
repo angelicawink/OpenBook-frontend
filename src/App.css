@@ -1,7 +1,26 @@
+.page-header{
+  color: lightgrey;
+}
+
+.form-control, .btn-default{
+  background-color: lightgrey;
+}
+
 .Box-1 {
   border-radius: 5px;
   height: 45vh;
-  background-color: rgb(187,221,206)
+  opacity: 0.8;
+  background-color: grey;
+  text-align: center;
+  justify-content: center;
+}
+
+.card-body, p{
+  color: white;
+}
+
+h5, h4, h3{
+  color: white;
 }
 
 .box-row {
@@ -9,12 +28,14 @@
 }
 
 .diary-page {
-  background-color: lightgrey;
+  /* background-color: lightgrey; */
+  /* opacity:2; */
   border-radius: 10px;
   border-color: white;
   border-style: solid;
   color: darkblue;
   padding: 10px;
+  padding-top: 0;
 
 }
 
@@ -29,6 +50,7 @@
 }
 
 body {
+  background-image: url('https://images.unsplash.com/photo-1462721206848-c6bdea1a8d61?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2ff920e32dd67b91d27e1d4867a41e4d&auto=format&fit=crop&w=1334&q=80')
 }
 
 #checkmark {
@@ -36,7 +58,7 @@ body {
 }
 
 input[type="range"]{
-  width: 30%;
+  width: 105%;
 }
 
 .snapshot{
@@ -70,24 +92,19 @@ div.form-group.new-entry-container{
 }
 
 div.diary-page.card{
+  height: 100%;
 }
 
-.vent{
-  text-align: center;
+#vent{
+  margin-top: 25%;
 }
-
-/* .vent:hover{
-  text-align: center;
-  border-style: solid;
-  border-color: white;
-} */
 
 div.Box-1.vent:hover{
   text-align: center;
-    border-style: solid;
-    border-width: 5px;
-    border-color: white;
-    border-radius: 10px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: none;
+  border-radius: 10px;
 }
 
 div#vent {
@@ -95,7 +112,6 @@ div#vent {
   color: white;
   font-size: 60px;
   display: inline-block;
-  margin-top: 25%;
 }
 
 div#vent:active {

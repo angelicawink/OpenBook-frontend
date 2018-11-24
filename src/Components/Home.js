@@ -7,21 +7,25 @@ import Diary from './Diary';
 class Home extends Component {
   state={
     snapshotLogged: false,
-    showNewEntryForm: false,
-    vent: false
+    showNewEntryForm: false
   }
 
   renderSnapshotContents = () => {
     if (this.state.snapshotLogged){
-      return <img src="https://img.icons8.com/cotton/2x/checkmark.png" alt="checkmark" id="checkmark"/>
+      return (
+        <div className="moment-box">
+          <img src="https://img.icons8.com/cotton/2x/checkmark.png" alt="checkmark" id="checkmark"/>
+          <div><button className="btn btn-default" onClick={this.snapshotLogged}>chart another</button></div>
+        </div>
+      )
     } else {
-      return <MomentForm snapshotLogged={this.snapshotLogged} user={this.props.user}/>
+      return <MomentForm className="moment-box" snapshotLogged={this.snapshotLogged} user={this.props.user}/>
     }
   }
 
   renderDiaryContents = () => {
     if (!this.state.showNewEntryForm) {
-      return <Diary user={this.props.user} entryLogged={this.entryLogged}/>
+      return <Diary {...this.props} user={this.props.user} entryLogged={this.entryLogged}/>
     }else {
       return <EntryForm user={this.props.user} entryLogged={this.entryLogged}/>
     }
@@ -29,7 +33,7 @@ class Home extends Component {
 
   snapshotLogged = () => {
     this.setState({
-      snapshotLogged: true
+      snapshotLogged: !this.state.snapshotLogged
     })
   }
 
@@ -41,16 +45,12 @@ class Home extends Component {
   }
 
   redirectToVent = () => {
-    this.setState({
-      vent: true
-    })
+    this.props.history.push('/vent');
   }
 
   render(){
     if (!this.props.user){
       return <Redirect push to={'/'}/>
-    }else if (this.state.vent) {
-      return <Redirect push to={'/vent'}/>
     } else  {
       return(
         <div className="home-body">
@@ -81,16 +81,15 @@ class Home extends Component {
                 <div className="col-xs-6">
                   <div className="Box-1">
                     <div className="container Box-2">
-                      <h3>JOURNAL</h3>
                       {this.renderDiaryContents()}
                     </div>
                   </div>
                 </div>
 
                 <div className="col-xs-6">
-                  <div className="Box-1 vent">
+                  <div className="Box-1 vent" onClick={this.redirectToVent}>
                     <div className="container Box-2 vent">
-                      <div id="vent" onClick={this.redirectToVent}>VENT</div>
+                      <div id="vent">VENT</div>
                     </div>
                   </div>
                 </div>

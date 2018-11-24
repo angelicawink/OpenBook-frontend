@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class MomentForm extends Component {
   state={
-    rank: null
+    rank: '11'
   }
 
   handleChange = (event) => {
@@ -84,7 +84,7 @@ class MomentForm extends Component {
 
             <div className="form-group">
               <p>{this.showRank()}</p>
-              <button type="submit" className="btn btn-primary">pin it</button>
+              <button type="submit" className="btn btn-success">chart it</button>
             </div>
 
         </form>

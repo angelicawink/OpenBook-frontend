@@ -56,6 +56,8 @@ class EntryForm extends Component {
 
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
+
+        <button className="btn btn-default" onClick={this.props.entryLogged}>Cancel</button>
       </>
     )
   }
