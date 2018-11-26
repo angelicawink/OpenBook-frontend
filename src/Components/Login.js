@@ -16,6 +16,8 @@ class Login extends Component {
               <form onSubmit={this.props.handleLogin}>
                 <div className="form-group">
                   <input type="text" className="form-control" placeholder="username"/>
+                  <input type="text" className="form-control" placeholder="password"/>
+
                 </div>
 
                 <div className="form-group">

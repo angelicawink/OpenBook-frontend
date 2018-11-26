@@ -16,12 +16,14 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 
 class App extends Component {
   state={
-    user: null
+    user: null,
+    jwt: null
   }
 
   handleLogin = (event) => {
     event.preventDefault()
-    let username = event.target.children[0].children[0].value
+    let usernameInput = event.target.children[0].children[0].value
+    let passwordInput = event.target.children[0].children[1].value
 
     fetch('http://localhost:3000/api/v1/login', {
       method: "POST",
@@ -30,12 +32,17 @@ class App extends Component {
           "Accept" : "application/json"
         },
         body: JSON.stringify({
-          name: username
+          user: {
+            username: usernameInput,
+            password: passwordInput
+          }
         })
     }).then(res => res.json())
     .then(data => {
+      console.log(data)
       this.setState({
-        user: data
+        user: data.user,
+        jwt: data.jwt
       })
     })
   }
