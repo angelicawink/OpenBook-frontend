@@ -46,7 +46,7 @@ class Chart extends Component {
           {
             label: "feelings rank",
             data: ranksArray,
-            backgroundColor: 'rgba(25, 99, 130, 0.6)'
+            backgroundColor: 'rgba(106, 194, 139, 1)'
           }
         ]
       }
