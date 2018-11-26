@@ -6,18 +6,19 @@ class JournalSearchDisplay extends Component {
     return(
       <div>
         <div className="container">
-          <ResultsMaster results={this.props.results} setSelectedEntry={this.props.setSelectedEntry}/>
+          <ResultsMaster results={this.props.results} setSelectedEntry={(entry) => this.props.setSelectedEntry(entry)}/>
         </div>
 
         <div className="container">
           <h3>Search Result Detail</h3>
-          <h5>{this.props.selectedEntry}</h5>
-          //
-          //
-          //
-          //
-          // neeed to make an actual Result Detail component, for line 14 ^, probably display the entry's date as well
-
+          {this.props.selectedEntry ?
+            <>
+              <h4>{this.props.selectedEntry.created_at.slice(0,9)}</h4>
+              <h5>{this.props.selectedEntry.content}</h5>
+            </>
+            :
+            null
+          }
         </div>
       </div>
     )

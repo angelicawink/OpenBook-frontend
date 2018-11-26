@@ -6,7 +6,7 @@ class ResultstMaster extends Component{
       <div>
         <h5>Search Result Master</h5>
         {this.props.results ?
-          this.props.results.map((result, index) => <h5 onClick={this.props.setSelectedEntry} key={index}>{result.content.slice(0, 100)+'...'}</h5>)
+          this.props.results.map((result, index) => <h5 onClick={(entry) => this.props.setSelectedEntry(result)} key={index}>{result.created_at.slice(0,9)} {result.content.slice(0, 100)+'...'}</h5>)
           :
           null
         }

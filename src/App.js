@@ -9,6 +9,11 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 // import { fetchedUser } from './actions/openBookActions'
 
 
+    // TO DO :
+    //  - neeed to make an actual Result Detail component, for line 14 ^, probably display the entry's date as well
+    // - make MY past journal entries searchable by date
+    // - add "back to home" button from Journal Search page
+
 class App extends Component {
   state={
     user: null

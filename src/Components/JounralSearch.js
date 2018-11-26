@@ -15,9 +15,9 @@ class JounralSearch extends Component {
     })
   }
 
-  setSelectedEntry = (event) => {
+  setSelectedEntry = (entry) => {
     this.setState({
-      selectedEntry: event.currentTarget.innerText
+      selectedEntry: entry
     })
   }
 

@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import MomentForm from './MomentForm';
 import EntryForm from './EntryForm';
 import Diary from './Diary';
+import Chart from './Chart';
 
 class Home extends Component {
   state={
@@ -60,7 +61,7 @@ class Home extends Component {
                 <div className="col-xs-6">
                   <div className="Box-1">
                     <div className="container Box-2">
-                      Chart of Moments!!!!
+                      <Chart user={this.props.user}/>
                     </div>
                   </div>
                 </div>
