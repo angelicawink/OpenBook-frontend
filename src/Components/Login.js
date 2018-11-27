@@ -48,15 +48,14 @@ componentDidMount(){
       })
     }).then(res => res.json())
     .then(data => {
-
+      console.log(data)
       if (data.error){
         alert('Invalid username or password')
 
       } else {
 
         localStorage.setItem('token', data.jwt)
-
-        this.props.history.push('/home')
+        this.props.setUser(data.user_info)
       }
     })
   }
@@ -75,7 +74,7 @@ componentDidMount(){
               <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                   <input type="text" className="form-control" name="username" placeholder="username" onChange={this.handleChange}/>
-                  <input type="password" className="form-control" name="password" placeholder="password" onChange={this.handleChange}/>
+                  <input type="text" className="form-control" name="password" placeholder="password" onChange={this.handleChange}/>
 
                 </div>
 

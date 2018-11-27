@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'reactx-router-dom';
 import MomentForm from './MomentForm';
 import EntryForm from './EntryForm';
 import Diary from './Diary';
 import Chart from './Chart';
-import Login from './Login'
 
 class Home extends Component {
   constructor(props){
@@ -49,9 +48,9 @@ class Home extends Component {
     })
   }
 
-  redirectToVent = () => {
-    this.props.history.push('/vent');
-  }
+  // redirectToVent = () => {
+  //   this.props.history.push('/vent');
+  // }
 
 
 
@@ -63,7 +62,7 @@ class Home extends Component {
               <div className="box-row row">
 
                 <div className="col-xs-6">
-                  <div className="Box-1">
+                  <div className="Box-1 top-left">
                     <div className="container Box-2">
                       <Chart user={this.props.user}/>
                     </div>
@@ -71,7 +70,7 @@ class Home extends Component {
                 </div>
 
                 <div className="col-xs-6">
-                  <div className="Box-1">
+                  <div className="Box-1 top-right">
                     <div className="container Box-2">
                       {this.renderSnapshotContents()}
                     </div>
@@ -84,7 +83,7 @@ class Home extends Component {
               <div className="row">
 
                 <div className="col-xs-6">
-                  <div className="Box-1">
+                  <div className="Box-1 bottom-left">
                     <div className="container Box-2">
                       {this.renderDiaryContents()}
                     </div>
@@ -92,15 +91,16 @@ class Home extends Component {
                 </div>
 
                 <div className="col-xs-6">
-                  <div className="Box-1 vent" onClick={this.redirectToVent}>
-                    <div className="container Box-2 vent">
-                      <div id="vent">VENT</div>
+                  <div className="Box-1 bottom-right">
+                    <div className="container Box-2">
+                      <div id="vent">
+                        ** pie chart to come **
+                      </div>
                     </div>
                   </div>
                 </div>
 
               </div>
-              <button className="btn btn-default" onClick={this.props.logout}>Logout</button>
             </div>
           </div>
 </React.Fragment>

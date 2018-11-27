@@ -4,7 +4,8 @@ import Login from './Components/Login';
 import Home from './Components/Home'
 import Vent from './Components/Vent'
 import JournalSearch from './Components/JounralSearch'
-import { BrowserRouter as Router, Route, withRouter, Switch, Redirect} from 'react-router-dom';
+import { Route, withRouter, Switch } from 'react-router-dom';
+import MyNavBar from './Components/MyNavBar'
 // import { connect } from 'react-redux';
 // import { fetchedUser } from './actions/openBookActions'
 
@@ -43,20 +44,40 @@ class App extends Component {
     )
   }
 
+  setUser = (userInfo) => {
+    console.log(userInfo)
+    this.setState({
+      user: userInfo
+    }, () => this.props.history.push('/home'))
+  }
+
   logout = () => {
    localStorage.clear()
    this.setState({user: null})
    this.props.history.push('/')
   }
 
+  toVent = () => {
+    this.props.history.push('/vent');
+  }
+
+  toSearch = () => {
+    this.props.history.push('/search');
+  }
+
   render() {
     return (
       <Fragment>
+        {this.state.user ?
+          <MyNavBar logout={this.logout} toVent={this.toVent} toSearch={this.toSearch}/>
+          :
+          null
+        }
           <Switch>
-            <Route exact path={'/'} render={(props) => <Login {...props} user={this.state.user}/>}/>
-            <Route exact path={'/home'} render={(props) => <Home {...props} logout={this.logout} user={this.state.user}/>}/>
-            <Route exact path={'/vent'} render={(props) => <Vent {...props} user={this.state.user}/>}/>
-            <Route exact path={'/search'} render={(props) => <JournalSearch {...props} user={this.state.user}/>}/>
+            <Route exact path='/' render={(props) => <Login {...props} user={this.state.user} setUser={this.setUser}/>}/>
+            <Route exact path='/home' render={(props) => <Home {...props} logout={this.logout} user={this.state.user}/>}/>
+            <Route exact path='/vent' render={(props) => <Vent {...props} user={this.state.user}/>}/>
+            <Route exact path='/search' render={(props) => <JournalSearch {...props} user={this.state.user}/>}/>
           </Switch>
       </Fragment>
     );
@@ -67,27 +88,3 @@ class App extends Component {
 
 
 export default withRouter(App);
-
-//   render() {
-//     return (
-//       <Fragment>
-//         <Router>
-//           <Switch>
-//             <Route exact path={'/'} render={(props) => <Login {...props} user={this.state.user}/>}/>
-//
-//             {this.state.user ?
-//               <React.Fragment>
-//                 <Route exact path={'/home'} render={(props) => <Home {...props} logout={this.logout} user={this.state.user}/>}/>
-//                 <Route exact path={'/vent'} render={(props) => <Vent {...props} user={this.state.user}/>}/>
-//                 <Route exact path={'/search'} render={(props) => <JournalSearch {...props} user={this.state.user}/>}/>
-//               </React.Fragment>
-//               :
-//               null
-//             }
-//
-//           </Switch>
-//         </Router>
-//       </Fragment>
-//     );
-//   }
-// }

@@ -13,8 +13,13 @@ class JournalSearchForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    let token = localStorage.getItem('token')
 
-    fetch(`http://localhost:3000/api/v1/entries`)
+    fetch(`http://localhost:3000/api/v1/entries`, {
+      headers: {
+        "Authorization" : `Bearer ${token}`
+      }
+    })
     .then(res => res.json())
     .then(entries => {
       console.log(entries)
@@ -38,7 +43,7 @@ class JournalSearchForm extends Component {
             <input
               type="text"
               className="form-control"
-              placeholder="keyword, ie: 'reunion', 'anxiety', 'boss'..."
+              placeholder="keyword, ie: 'sister', 'anxiety', 'boss'..."
               onChange={this.handleChange}
               ></input>
 

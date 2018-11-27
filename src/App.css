@@ -1,3 +1,40 @@
+div.home-container.container{
+
+}
+
+nav.navbar.navbar-default{
+  margin: 0px;
+  background-color: rgba(106, 194, 139, .6);
+}
+
+.col-xs-6{
+  padding: 0px;
+}
+
+.top-left{
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-color: lightgrey;
+}
+
+.top-right{
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+  border-color: lightgrey;
+}
+
+.bottom-left{
+  border-right: 1px solid;
+  border-top: 1px solid;
+  border-color: lightgrey;
+}
+
+.bottom-right{
+  border-left: 1px solid;
+  border-top: 1px solid;
+  border-color: lightgrey;
+}
+
 .page-header{
   color: lightgrey;
 }
@@ -11,10 +48,10 @@ canvas.chartjs-render-monitor{
 }
 
 .Box-1 {
-  border-radius: 5px;
+  /* border-radius: 5px; */
   height: 45vh;
   opacity: 0.8;
-  background-color: grey;
+  /* background-color: grey; */
   text-align: center;
   justify-content: center;
 }
@@ -24,11 +61,11 @@ canvas.chartjs-render-monitor{
 }
 
 h5, h4, h3{
-  color: lightgrey;
+  color: white;
 }
 
 .box-row {
-  height: 50%;
+  /* height: 50%; */
 }
 
 .diary-page {
@@ -53,8 +90,8 @@ h5, h4, h3{
   width: 100vw;
 }
 
-body {
-  /* background-image: url('https://images.unsplash.com/photo-1462721206848-c6bdea1a8d61?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2ff920e32dd67b91d27e1d4867a41e4d&auto=format&fit=crop&w=1334&q=80') */
+.home-body {
+  background: rgb(150, 177, 214)
 }
 
 #checkmark {
@@ -100,32 +137,33 @@ div.diary-page.card{
   overflow: auto;
 }
 
+
 #vent{
-  margin-top: 25%;
+  margin-top: 30%;
 }
 
-div.Box-1.vent:hover{
+/* div.Box-1.vent:hover{
   text-align: center;
   border-style: solid;
   border-width: 5px;
-  border-color: none;
+  border-color: white;
   border-radius: 10px;
-}
+} */
 
 div#vent {
   width: fit-content;
   color: white;
-  font-size: 60px;
+  font-size: 20px;
   display: inline-block;
 }
 
-div#vent:active {
+/* div#vent:active {
   width: fit-content;
   color: grey;
   font-size: 60px;
   display: inline-block;
   margin-top: 25%;
-}
+} */
 
 
 /* .App   text-align: center;

@@ -6,7 +6,7 @@ class Chart extends Component {
 
   componentDidMount(){
     let datesArray = []
-    this.props.user.moments.forEach(moment => datesArray.push(moment.created_at.slice(0,9)))
+    this.props.user.moments.forEach(moment => datesArray.push("Nov " + moment.created_at.slice(8,10)))
 
     let ranksArray = []
     this.props.user.moments.forEach(moment => ranksArray.push(moment.feeling.rank))
@@ -18,7 +18,7 @@ class Chart extends Component {
           {
             label: "feelings rank",
             data: ranksArray,
-            backgroundColor: 'rgba(106, 194, 139, 1)'
+            backgroundColor: 'rgba(106, 194, 139, .6)'
           }
         ]
       }
