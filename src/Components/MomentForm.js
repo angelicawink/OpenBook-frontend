@@ -15,6 +15,8 @@ class MomentForm extends Component {
     event.preventDefault();
     let feelingsID = this.state.rank;
     let userID = this.props.user.id
+    let token = localStorage.getItem('token')
+    
 
     console.log(feelingsID)
     console.log(userID)
@@ -22,6 +24,7 @@ class MomentForm extends Component {
     fetch('http://localhost:3000/api/v1/moments', {
       method: "POST",
         headers: {
+          "Authorization" : `Bearer ${token}`,
           "Content-Type" : "application/json",
           "Accept" : "application/json"
         },

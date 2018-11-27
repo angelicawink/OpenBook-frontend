@@ -7,6 +7,12 @@ class Login extends Component {
     password: ''
   }
 
+componentDidMount(){
+  let token = localStorage.getItem('token')
+  if (token) {
+     this.props.history.push('/home')
+    }
+  }
 
   handleChange = (event) => {
     this.setState({

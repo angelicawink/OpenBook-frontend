@@ -6,6 +6,10 @@
   background-color: lightgrey;
 }
 
+canvas.chartjs-render-monitor{
+  min-height: 300px;
+}
+
 .Box-1 {
   border-radius: 5px;
   height: 45vh;
@@ -20,7 +24,7 @@
 }
 
 h5, h4, h3{
-  color: white;
+  color: lightgrey;
 }
 
 .box-row {
@@ -50,7 +54,7 @@ h5, h4, h3{
 }
 
 body {
-  background-image: url('https://images.unsplash.com/photo-1462721206848-c6bdea1a8d61?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2ff920e32dd67b91d27e1d4867a41e4d&auto=format&fit=crop&w=1334&q=80')
+  /* background-image: url('https://images.unsplash.com/photo-1462721206848-c6bdea1a8d61?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2ff920e32dd67b91d27e1d4867a41e4d&auto=format&fit=crop&w=1334&q=80') */
 }
 
 #checkmark {
@@ -92,7 +96,8 @@ div.form-group.new-entry-container{
 }
 
 div.diary-page.card{
-  height: 100%;
+  height: 300px;
+  overflow: auto;
 }
 
 #vent{

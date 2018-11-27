@@ -14,13 +14,16 @@ class EntryForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     let entryContent = this.state.content;
-    let userID = this.props.user.id
+    let userID = this.props.user.id;
+    let token = localStorage.getItem('token');
+
 
     fetch(`http://localhost:3000/api/v1/entries`, {
       method: "POST",
         headers: {
           "Content-Type" : "application/json",
-          "Accept" : "application/json"
+          "Accept" : "application/json",
+          "Authorization" : `Bearer ${token}`
         },
         body: JSON.stringify({
           user_id: userID,

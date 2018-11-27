@@ -13,7 +13,6 @@ class Home extends Component {
       snapshotLogged: false,
       showNewEntryForm: false
     }
-
   }
 
   renderSnapshotContents = () => {
@@ -54,10 +53,11 @@ class Home extends Component {
     this.props.history.push('/vent');
   }
 
+
+
   render(){
-      return (
+      return this.props.user ? (
         <React.Fragment>
-        {this.props.user ?
           <div className="home-body">
             <div className="home-container container">
               <div className="box-row row">
@@ -100,13 +100,11 @@ class Home extends Component {
                 </div>
 
               </div>
+              <button className="btn btn-default" onClick={this.props.logout}>Logout</button>
             </div>
           </div>
-          :
-          <Login/>
-        }
 </React.Fragment>
-      )
+) : null
 
     }
     }
