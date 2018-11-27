@@ -5,6 +5,7 @@ div.home-container.container{
 nav.navbar.navbar-default{
   margin: 0px;
   background-color: rgba(106, 194, 139, .6);
+  color: white;
 }
 
 .col-xs-6{
@@ -44,13 +45,14 @@ nav.navbar.navbar-default{
 }
 
 canvas.chartjs-render-monitor{
-  min-height: 300px;
+  min-height: 270px;
 }
 
 .Box-1 {
   /* border-radius: 5px; */
   height: 45vh;
   opacity: 0.8;
+  padding: 30px;
   /* background-color: grey; */
   text-align: center;
   justify-content: center;
@@ -60,7 +62,11 @@ canvas.chartjs-render-monitor{
   color: white;
 }
 
-h5, h4, h3{
+h5, h4, h3, p{
+  color: grey;
+}
+
+h2{
   color: white;
 }
 
@@ -98,8 +104,41 @@ h5, h4, h3{
   height: 50%;
 }
 
+/*   SLIDER STYLING BELOW */
+
 input[type="range"]{
-  width: 105%;
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  /* width: 100%; /* Specific width is required for Firefox. */
+}
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* border: 1px solid rgba(106, 194, 139, .6); */
+  height: 35px;
+  width: 25px;
+  border-radius: 8px;
+  background: white;
+  cursor: col-resize;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: .5px .5px 1px #0d0d0d;
+  background: rgba(106, 194, 139, 1);
+  border-radius: 1.3px;
+  border: .4px solid green;
+}
+
+input[type=range] {
+  margin: 18px 0;
+}
+input[type=range]:focus {
+  outline: none;
 }
 
 .snapshot{
@@ -109,8 +148,9 @@ input[type="range"]{
 
 .Box-2 {
   padding: 10px;
-  height: 100%;
+  height: 90%;
   width: 85%;
+  display: block;
 }
 
 textarea.form-control {
@@ -133,22 +173,14 @@ div.form-group.new-entry-container{
 }
 
 div.diary-page.card{
-  height: 300px;
+  max-height: 30vh;
   overflow: auto;
+  display: inline-block;
 }
-
 
 #vent{
-  margin-top: 30%;
+  margin-top: 25%;
 }
-
-/* div.Box-1.vent:hover{
-  text-align: center;
-  border-style: solid;
-  border-width: 5px;
-  border-color: white;
-  border-radius: 10px;
-} */
 
 div#vent {
   width: fit-content;
@@ -156,44 +188,3 @@ div#vent {
   font-size: 20px;
   display: inline-block;
 }
-
-/* div#vent:active {
-  width: fit-content;
-  color: grey;
-  font-size: 60px;
-  display: inline-block;
-  margin-top: 25%;
-} */
-
-
-/* .App   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

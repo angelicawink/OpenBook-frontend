@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardBody } from 'reactstrap';
+import { Button } from 'semantic-ui-react'
 
 class Diary extends Component {
   state={
@@ -63,12 +64,12 @@ class Diary extends Component {
             <CardBody>{this.props.user.entries[this.state.currentEntryIndex].content}</CardBody>
 
           </Card>
+            <div>
+              <img onClick={this.getPreviousEntry} src="http://www.iconninja.com/files/184/20/51/direction-back-arrow-left-arrows-chevron-icon.png" alt="back-arrow" className="arrow"/>
+              <img onClick={this.getNextEntry} src="https://www.shareicon.net/download/2016/07/10/120016_arrows.svg" alt="back-arrow" className="arrow"/>
+            </div>
 
-            <img onClick={this.getPreviousEntry} src="http://www.iconninja.com/files/184/20/51/direction-back-arrow-left-arrows-chevron-icon.png" alt="back-arrow" className="arrow"/>
-
-            <img onClick={this.getNextEntry} src="https://www.shareicon.net/download/2016/07/10/120016_arrows.svg" alt="back-arrow" className="arrow"/>
-
-          <p><button onClick={this.props.entryLogged} type="submit" className="btn btn-default">new entry</button></p>
+          <Button basic onClick={this.props.entryLogged} type="submit">new entry</Button>
 
       </div>
     )

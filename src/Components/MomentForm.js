@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'semantic-ui-react'
 
 class MomentForm extends Component {
   state={
@@ -16,7 +17,7 @@ class MomentForm extends Component {
     let feelingsID = this.state.rank;
     let userID = this.props.user.id
     let token = localStorage.getItem('token')
-    
+
 
     console.log(feelingsID)
     console.log(userID)
@@ -44,29 +45,29 @@ class MomentForm extends Component {
   showRank = () => {
     switch (this.state.rank){
       case '1':
-        return "absolutely horrible";
+        return "Absolutely Horrible";
       case '2':
-        return 'terrible'
+        return 'Terrible'
       case '3':
-        return 'very bad';
+        return 'Very Bad';
       case '4':
-        return 'bad';
+        return 'Bad';
       case '5':
-        return 'a bit off';
+        return 'A Bit Off';
       case '6':
-        return 'okay';
+        return 'Okay';
       case '7':
-        return 'good';
+        return 'Good';
       case '8':
-        return 'very good';
+        return 'Very Good';
       case '9':
-        return 'great';
+        return 'Great';
       case '10':
-        return 'excellent';
+        return 'Excellent';
       case '11':
-        return 'absolutely amazing';
+        return 'Absolutely Amazing';
       default:
-        return "absolutely amazing"
+        return "Absolutely Amazing"
     }
   }
 
@@ -86,8 +87,8 @@ class MomentForm extends Component {
             </div>
 
             <div className="form-group">
-              <p>{this.showRank()}</p>
-              <button type="submit" className="btn btn-success">chart it</button>
+              <h2>{this.showRank()}</h2>
+              <Button basic type="submit">chart it</Button>
             </div>
 
         </form>

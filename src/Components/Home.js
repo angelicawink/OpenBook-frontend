@@ -63,17 +63,13 @@ class Home extends Component {
 
                 <div className="col-xs-6">
                   <div className="Box-1 top-left">
-                    <div className="container Box-2">
                       <Chart user={this.props.user}/>
-                    </div>
                   </div>
                 </div>
 
                 <div className="col-xs-6">
                   <div className="Box-1 top-right">
-                    <div className="container Box-2">
                       {this.renderSnapshotContents()}
-                    </div>
                   </div>
 
                 </div>
@@ -84,18 +80,14 @@ class Home extends Component {
 
                 <div className="col-xs-6">
                   <div className="Box-1 bottom-left">
-                    <div className="container Box-2">
                       {this.renderDiaryContents()}
-                    </div>
                   </div>
                 </div>
 
                 <div className="col-xs-6">
                   <div className="Box-1 bottom-right">
-                    <div className="container Box-2">
                       <div id="vent">
                         ** pie chart to come **
-                      </div>
                     </div>
                   </div>
                 </div>
