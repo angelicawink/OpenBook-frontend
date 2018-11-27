@@ -4,7 +4,7 @@ import Login from './Components/Login';
 import Home from './Components/Home'
 import Vent from './Components/Vent'
 import JournalSearch from './Components/JounralSearch'
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, withRouter, Switch} from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { fetchedUser } from './actions/openBookActions'
 
@@ -13,38 +13,28 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
     //  - neeed to make an actual Result Detail component, for line 14 ^, probably display the entry's date as well
     // - make MY past journal entries searchable by date
     // - add "back to home" button from Journal Search page
+    //add profile page?
 
 class App extends Component {
-  state={
-    user: null,
-    jwt: null
+  constructor(){
+    super()
+    this.state={
+      user: null
+    }
   }
 
-  handleLogin = (event) => {
-    event.preventDefault()
-    let usernameInput = event.target.children[0].children[0].value
-    let passwordInput = event.target.children[0].children[1].value
-
-    fetch('http://localhost:3000/api/v1/login', {
-      method: "POST",
+  componentDidMount(){
+    let token = localStorage.getItem('token')
+    if (token)
+      fetch(`http://localhost:3000/api/v1/home`, {
         headers: {
-          "Content-Type" : "application/json",
-          "Accept" : "application/json"
-        },
-        body: JSON.stringify({
-          user: {
-            username: usernameInput,
-            password: passwordInput
-          }
-        })
-    }).then(res => res.json())
-    .then(data => {
-      console.log(data)
-      this.setState({
-        user: data.user,
-        jwt: data.jwt
-      })
-    })
+          "Authorization" : `Bearer ${token}`
+        }
+      }).then(res => res.json())
+      .then(data => this.setState({
+        user: data.user
+      }, () => this.props.history.push('/home'))
+    )
   }
 
 
@@ -52,13 +42,18 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <React.Fragment>
-            <Route exact path='/' render={(props) => <Login {...props} user={this.state.user} handleLogin={this.handleLogin} />}/>
-            <Route exact path='/home' render={(props) => <Home {...props} user={this.state.user}/>}/>
-            <Route exact path='/vent' render={(props) => <Vent {...props} user={this.state.user}/>}/>
-            <Route exact path='/search' render={(props) => <JournalSearch {...props} user={this.state.user}/>}/>
-
-        </React.Fragment>
+          <Switch>
+            <Route exact path={'/'} render={(props) => <Login {...props} user={this.state.user}/>}/>
+            {this.state.user ?
+              <React.Fragment>
+                <Route exact path={'/home'} render={(props) => <Home {...props} user={this.state.user}/>}/>
+                <Route exact path={'/vent'} render={(props) => <Vent {...props} user={this.state.user}/>}/>
+                <Route exact path={'/search'} render={(props) => <JournalSearch {...props} user={this.state.user}/>}/>
+              </React.Fragment>
+              :
+              null
+            }
+          </Switch>
         </Router>
       </div>
     );
@@ -66,4 +61,6 @@ class App extends Component {
 }
 
 
-export default App;
+
+
+export default withRouter(App);

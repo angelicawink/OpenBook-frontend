@@ -4,11 +4,16 @@ import MomentForm from './MomentForm';
 import EntryForm from './EntryForm';
 import Diary from './Diary';
 import Chart from './Chart';
+import Login from './Login'
 
 class Home extends Component {
-  state={
-    snapshotLogged: false,
-    showNewEntryForm: false
+  constructor(props){
+    super(props)
+    this.state={
+      snapshotLogged: false,
+      showNewEntryForm: false
+    }
+
   }
 
   renderSnapshotContents = () => {
@@ -50,13 +55,12 @@ class Home extends Component {
   }
 
   render(){
-    if (!this.props.user){
-      return <Redirect push to={'/'}/>
-    } else  {
-      return(
-        <div className="home-body">
-          <div className="home-container container">
-            <div className="box-row row">
+      return (
+        <React.Fragment>
+        {this.props.user ?
+          <div className="home-body">
+            <div className="home-container container">
+              <div className="box-row row">
 
                 <div className="col-xs-6">
                   <div className="Box-1">
@@ -74,10 +78,10 @@ class Home extends Component {
                   </div>
 
                 </div>
-            </div>
+              </div>
 
 
-            <div className="row">
+              <div className="row">
 
                 <div className="col-xs-6">
                   <div className="Box-1">
@@ -95,12 +99,17 @@ class Home extends Component {
                   </div>
                 </div>
 
+              </div>
             </div>
-        </div>
-      </div>
+          </div>
+          :
+          <Login/>
+        }
+</React.Fragment>
       )
+
     }
-  }
-}
+    }
+
 
 export default Home
