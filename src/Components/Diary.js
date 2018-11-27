@@ -7,7 +7,11 @@ class Diary extends Component {
     currentEntryIndex: this.props.user.entries.length-1
   }
 
+  componentDidMount(){
+  }
+
   getDate = () => {
+    console.log(this.props)
     let date = new Date(this.props.user.entries[this.state.currentEntryIndex].created_at).toString().split(" ")
 
     let displayDate = date[0] + ", " + date[1]+ " " + date[2] + " " + date[3];
@@ -57,10 +61,9 @@ class Diary extends Component {
   render(){
     return(
       <div>
+        <h3>{this.getDate()}</h3>
+        <h6>{this.getTime()}</h6>
           <Card className="diary-page">
-            <h4>{this.getDate()}</h4>
-            <h5>{this.getTime()}</h5>
-
             <CardBody>{this.props.user.entries[this.state.currentEntryIndex].content}</CardBody>
 
           </Card>
@@ -69,7 +72,7 @@ class Diary extends Component {
               <img onClick={this.getNextEntry} src="https://www.shareicon.net/download/2016/07/10/120016_arrows.svg" alt="back-arrow" className="arrow"/>
             </div>
 
-          <Button basic onClick={this.props.entryLogged} type="submit">new entry</Button>
+          <Button color="orange" onClick={this.props.entryLogged} type="submit">new entry</Button>
 
       </div>
     )

@@ -5,11 +5,13 @@ class ResultstMaster extends Component{
     return(
       <div>
         <h5>Search Result Master</h5>
-        {this.props.results ?
-          this.props.results.map((result, index) => <h5 onClick={(entry) => this.props.setSelectedEntry(result)} key={index}>{result.created_at.slice(0,9)} {result.content.slice(0, 85)+'...'}</h5>)
-          :
-          null
-        }
+          <div className="journal-search master">
+            {this.props.results ?
+              this.props.results.map((result, index) => <h5 onClick={(entry) => this.props.setSelectedEntry(result)} key={index}>{result.created_at.slice(0,9) + " - "} {result.content.slice(0, 85)+'.....'}</h5>)
+              :
+              null
+            }
+          </div>
       </div>
     )
   }

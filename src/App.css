@@ -1,5 +1,45 @@
-div.home-container.container{
+body {
+  background-color: red;
+}
 
+.journal-search {
+  color: rgb(160, 193, 217)
+}
+
+.journal-detail{
+  color: grey;
+}
+
+button.ui{
+  color: white;
+}
+
+.journal-search.master {
+  border-style: solid;
+  border-radius: 5px;
+  border-color: lightgrey;
+  border-width: 2px;
+  min-height: 20vh;
+  max-height: 20vh;
+  min-width: 40vw;
+  margin: 10px;
+  overflow: auto;
+  padding: 15px;
+}
+
+.journal-search.detail {
+  border-style: solid;
+  border-radius: 5px;
+  border-color: lightgrey;
+  border-width: 2px;
+  min-height: 20vh;
+  min-width: 40vw;
+  margin: 10px;
+  padding: 15px;
+}
+
+
+div.home-container.container{
 }
 
 nav.navbar.navbar-default{
@@ -52,21 +92,21 @@ canvas.chartjs-render-monitor{
   /* border-radius: 5px; */
   height: 45vh;
   opacity: 0.8;
-  padding: 30px;
+  padding: 15px;
   /* background-color: grey; */
   text-align: center;
   justify-content: center;
 }
 
 .card-body, p{
-  color: white;
+  color: rgba(106, 154, 139, 1);
 }
 
-h5, h4, h3, p{
+h5, h4, p{
   color: grey;
 }
 
-h2{
+h2, h3, h6{
   color: white;
 }
 
@@ -77,13 +117,13 @@ h2{
 .diary-page {
   /* background-color: lightgrey; */
   /* opacity:2; */
-  border-radius: 10px;
+  /* border-radius: 5px;
   border-color: white;
   border-style: solid;
+  border-width: 2px;
   color: darkblue;
   padding: 10px;
-  padding-top: 0;
-
+  padding-top: 0; */
 }
 
 .home-container {
@@ -172,10 +212,21 @@ div.form-group.new-entry-container{
   width: 35px;
 }
 
-div.diary-page.card{
-  max-height: 30vh;
+div.diary-page.card, #new-diary-entry{
+  padding-top: 20px;
+  min-height: 26vh;
+  max-height: 26vh;
+  min-width: 40vw;
+  max-width: 40vw;
   overflow: auto;
   display: inline-block;
+  background-color: lightgrey;
+  border-radius: 5px;
+  border-color: white;
+  border-style: solid;
+  border-width: 2px;
+  color: darkblue;
+  padding: 10px;
 }
 
 #vent{

@@ -26,7 +26,8 @@ class App extends Component {
   constructor(){
     super()
     this.state={
-      user: null
+      user: null,
+      entries: null
     }
   }
 
@@ -40,7 +41,9 @@ class App extends Component {
       }).then(res => res.json())
       .then(data => this.setState({
         user: data.user
-      }, () => this.props.history.push('/home'))
+      }, () => {
+        this.props.history.push('/home')
+      })
     )
   }
 
@@ -65,6 +68,22 @@ class App extends Component {
     this.props.history.push('/search');
   }
 
+  fetchEntries = () => {
+    let token = localStorage.getItem('token')
+    let userID = this.state.user.id
+
+    return fetch(`http://localhost:3000/api/v1/users/${userID}/entries`, {
+      headers: {
+        "Authorization" : `Bearer ${token}`
+      }
+    }).then(res => res.json())
+    .then(entries => {
+      this.setState({
+        entries: entries
+      })
+    })
+  }
+
   render() {
     return (
       <Fragment>
@@ -75,7 +94,7 @@ class App extends Component {
         }
           <Switch>
             <Route exact path='/' render={(props) => <Login {...props} user={this.state.user} setUser={this.setUser}/>}/>
-            <Route exact path='/home' render={(props) => <Home {...props} logout={this.logout} user={this.state.user}/>}/>
+            <Route exact path='/home' render={(props) => <Home {...props} fetchEntries={this.fetchEntries} entries={this.state.entries} logout={this.logout} user={this.state.user}/>}/>
             <Route exact path='/vent' render={(props) => <Vent {...props} user={this.state.user}/>}/>
             <Route exact path='/search' render={(props) => <JournalSearch {...props} user={this.state.user}/>}/>
           </Switch>

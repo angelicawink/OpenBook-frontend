@@ -11,14 +11,16 @@ class JournalSearchDisplay extends Component {
 
         <div className="container">
           <h3>Search Result Detail</h3>
-          {this.props.selectedEntry ?
-            <>
-              <h4>{this.props.selectedEntry.created_at.slice(0,9)}</h4>
-              <h5>{this.props.selectedEntry.content}</h5>
-            </>
-            :
-            null
-          }
+            <div className="journal-search detail">
+              {this.props.selectedEntry ?
+                <>
+                  <h2 className="journal-detail">{this.props.selectedEntry.created_at.slice(0,9)}</h2>
+                  <h3 className="journal-detail">{this.props.selectedEntry.content}</h3>
+                </>
+                :
+                null
+              }
+          </div>
         </div>
       </div>
     )

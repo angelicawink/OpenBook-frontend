@@ -10,9 +10,11 @@ class Home extends Component {
     super(props)
     this.state={
       snapshotLogged: false,
-      showNewEntryForm: false
+      showNewEntryForm: false,
+      entries: null
     }
   }
+
 
   renderSnapshotContents = () => {
     if (this.state.snapshotLogged){
@@ -29,7 +31,7 @@ class Home extends Component {
 
   renderDiaryContents = () => {
     if (!this.state.showNewEntryForm) {
-      return <Diary {...this.props} user={this.props.user} entryLogged={this.entryLogged}/>
+      return <Diary {...this.props} user={this.props.user} entries={this.props.entries} fetchEntries={this.props.fetchEntries} entryLogged={this.entryLogged}/>
     }else {
       return <EntryForm user={this.props.user} entryLogged={this.entryLogged}/>
     }
@@ -42,15 +44,26 @@ class Home extends Component {
   }
 
   entryLogged = () => {
-
     this.setState({
       showNewEntryForm: !this.state.showNewEntryForm
     })
   }
 
-  // redirectToVent = () => {
-  //   this.props.history.push('/vent');
-  // }
+  fetchEntries = () => {
+    let token = localStorage.getItem('token')
+    let userID = this.props.user.id
+
+    return fetch(`http://localhost:3000/api/v1/users/${userID}/entries`, {
+      headers: {
+        "Authorization" : `Bearer ${token}`
+      }
+    }).then(res => res.json())
+    .then(entries => {
+      this.setState({
+        entries: entries
+      })
+    })
+  }
 
 
 

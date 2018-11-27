@@ -4,7 +4,8 @@ class Vent extends Component {
 
   render(){
     return(
-      <div>vent page
+      <div className="container">
+        vent page, nothing yet.
       </div>
     )
   }

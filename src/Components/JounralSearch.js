@@ -26,8 +26,8 @@ class JounralSearch extends Component {
     return(
       <div className="container">
         <div className="page-header">
-          <h3>
-            See what other people are journaling about:
+          <h3 className="journal-search">
+            See what other people are writing about:
           </h3>
         </div>
 

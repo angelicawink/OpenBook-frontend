@@ -88,7 +88,7 @@ class MomentForm extends Component {
 
             <div className="form-group">
               <h2>{this.showRank()}</h2>
-              <Button basic type="submit">chart it</Button>
+              <Button color="orange" type="submit">chart it</Button>
             </div>
 
         </form>
