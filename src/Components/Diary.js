@@ -7,11 +7,7 @@ class Diary extends Component {
     currentEntryIndex: this.props.user.entries.length-1
   }
 
-  componentDidMount(){
-  }
-
   getDate = () => {
-    console.log(this.props)
     let date = new Date(this.props.user.entries[this.state.currentEntryIndex].created_at).toString().split(" ")
 
     let displayDate = date[0] + ", " + date[1]+ " " + date[2] + " " + date[3];
@@ -20,7 +16,6 @@ class Diary extends Component {
 
   getTime = () => {
     let date = new Date(this.props.user.entries[this.state.currentEntryIndex].created_at).toString().split(" ");
-
     let time = date[4].split(":")
 
     let hour = time[0]
@@ -54,11 +49,9 @@ class Diary extends Component {
     }
   }
 
-  redirectToJournalSearch = () => {
-      this.props.history.push(`/search`)
-  }
 
   render(){
+    console.log(this.props)
     return(
       <div>
         <h3>{this.getDate()}</h3>

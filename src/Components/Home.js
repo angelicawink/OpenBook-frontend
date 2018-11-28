@@ -4,17 +4,16 @@ import MomentForm from './MomentForm';
 import EntryForm from './EntryForm';
 import Diary from './Diary';
 import Chart from './Chart';
+import PieChart from './PieChart';
 
 class Home extends Component {
   constructor(props){
     super(props)
     this.state={
       snapshotLogged: false,
-      showNewEntryForm: false,
-      entries: null
+      showNewEntryForm: false
     }
   }
-
 
   renderSnapshotContents = () => {
     if (this.state.snapshotLogged){
@@ -25,15 +24,15 @@ class Home extends Component {
         </div>
       )
     } else {
-      return <MomentForm className="moment-box" snapshotLogged={this.snapshotLogged} user={this.props.user}/>
+      return <MomentForm className="moment-box" addMoment={this.props.addMoment} snapshotLogged={this.snapshotLogged} user={this.props.user}/>
     }
   }
 
   renderDiaryContents = () => {
     if (!this.state.showNewEntryForm) {
-      return <Diary {...this.props} user={this.props.user} entries={this.props.entries} fetchEntries={this.props.fetchEntries} entryLogged={this.entryLogged}/>
+      return <Diary {...this.props} user={this.props.user} entries={this.props.entries} entryLogged={this.entryLogged}/>
     }else {
-      return <EntryForm user={this.props.user} entryLogged={this.entryLogged}/>
+      return <EntryForm addEntry={this.props.addEntry} user={this.props.user} entryLogged={this.entryLogged}/>
     }
   }
 
@@ -49,21 +48,21 @@ class Home extends Component {
     })
   }
 
-  fetchEntries = () => {
-    let token = localStorage.getItem('token')
-    let userID = this.props.user.id
-
-    return fetch(`http://localhost:3000/api/v1/users/${userID}/entries`, {
-      headers: {
-        "Authorization" : `Bearer ${token}`
-      }
-    }).then(res => res.json())
-    .then(entries => {
-      this.setState({
-        entries: entries
-      })
-    })
-  }
+  // fetchEntries = () => {
+  //   let token = localStorage.getItem('token')
+  //   let userID = this.props.user.id
+  //
+  //   return fetch(`http://localhost:3000/api/v1/users/${userID}/entries`, {
+  //     headers: {
+  //       "Authorization" : `Bearer ${token}`
+  //     }
+  //   }).then(res => res.json())
+  //   .then(entries => {
+  //     this.setState({
+  //       entries: entries
+  //     })
+  //   })
+  // }
 
 
 
@@ -76,7 +75,7 @@ class Home extends Component {
 
                 <div className="col-xs-6">
                   <div className="Box-1 top-left">
-                      <Chart user={this.props.user}/>
+                      <Chart chartData={this.props.chartData} user={this.props.user}/>
                   </div>
                 </div>
 
@@ -100,7 +99,7 @@ class Home extends Component {
                 <div className="col-xs-6">
                   <div className="Box-1 bottom-right">
                       <div id="vent">
-                        ** pie chart to come **
+                        <PieChart/>
                     </div>
                   </div>
                 </div>

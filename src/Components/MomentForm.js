@@ -3,21 +3,22 @@ import { Button } from 'semantic-ui-react'
 
 class MomentForm extends Component {
   state={
-    rank: '11'
+    rank: '11',
+    setting: null
   }
 
   handleChange = (event) => {
     this.setState({
-      rank: event.target.value
+      [event.target.name]: event.target.value
     })
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
     let feelingsID = this.state.rank;
+    let settingID = this.state.setting
     let userID = this.props.user.id
     let token = localStorage.getItem('token')
-
 
     console.log(feelingsID)
     console.log(userID)
@@ -31,12 +32,14 @@ class MomentForm extends Component {
         },
         body: JSON.stringify({
           user_id: userID,
-          feeling_id: feelingsID
+          feeling_id: feelingsID,
+          setting_id: settingID
         })
     })
     .then(res => res.json())
     .then(data => {
       console.log(data)
+      this.props.addMoment(data)
       this.props.snapshotLogged()
     })
 
@@ -79,12 +82,23 @@ class MomentForm extends Component {
 
             <div className="form-group ">
               <input
+              name="rank"
               onChange={this.handleChange}
               type="range"
               min="1"
               max="11"
               className="slider"/>
             </div>
+
+            <select name="setting" onChange={this.handleChange} className="form-group">
+              <option value="1">at work</option>
+              <option value="2">outdoors</option>
+              <option value="3">exercising</option>
+              <option value="4">relaxing</option>
+              <option value="5">socializing</option>
+              <option value="6">with family</option>
+              <option value="7">Other</option>
+            </select>
 
             <div className="form-group">
               <h2>{this.showRank()}</h2>
