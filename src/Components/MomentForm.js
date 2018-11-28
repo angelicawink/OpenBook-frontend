@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react'
 class MomentForm extends Component {
   state={
     rank: '11',
-    setting: null
+    setting: '1'
   }
 
   handleChange = (event) => {
