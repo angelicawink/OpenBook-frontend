@@ -7,16 +7,14 @@ import JournalSearch from './Components/JounralSearch'
 import { Route, withRouter, Switch } from 'react-router-dom';
 import MyNavBar from './Components/MyNavBar'
 
-    // TO DO :
-    // - make MY past journal entries searchable by date
-    // - add profile page?
-
 class App extends Component {
   constructor(){
     super()
     this.state={
       user: null,
-      chartData: null
+      lineChartData: null,
+      posPieChartData: null,
+      negPieChartData: null
     }
   }
 
@@ -32,7 +30,11 @@ class App extends Component {
       .then(res => res.json())
       .then(data => this.setState({
         user: data.user
-      }, () => this.setChartData())
+      }, () => {
+        this.setLineChartData()
+        this.setPosPieChartData()
+        this.setNegPieChartData()
+      })
     )
   }
 
@@ -66,10 +68,14 @@ class App extends Component {
   addMoment = (newMoment) => {
     this.setState({
       user: {...this.state.user, moments: [...this.state.user.moments, newMoment]}
-    }, () => this.setChartData())
+    }, () => {
+      this.setLineChartData()
+      this.setPosPieChartData()
+      this.setNegPieChartData()
+    })
   }
 
-  setChartData = () => {
+  setLineChartData = () => {
     let datesArray = []
     this.state.user.moments.forEach(moment => datesArray.push("Nov " + moment.created_at.slice(8,10)))
 
@@ -77,7 +83,7 @@ class App extends Component {
     this.state.user.moments.forEach(moment => ranksArray.push(moment.feeling.rank))
 
     this.setState({
-      chartData: {
+      lineChartData: {
         labels: datesArray,
         datasets: [
           {
@@ -90,6 +96,100 @@ class App extends Component {
     })
   }
 
+  getPositiveMoments = (settingName) => {
+    let positiveMomentsCount = this.state.user.moments.filter(moment => moment.setting.name === settingName && moment.feeling.rank >= 6).length;
+
+    return positiveMomentsCount
+  }
+
+  getNegativeMoments = (settingName) => {
+    let negativeMomentsCount = this.state.user.moments.filter(moment => moment.setting.name === settingName && moment.feeling.rank < 6).length;
+
+    return negativeMomentsCount
+  }
+
+  setPosPieChartData = () => {
+    let positive_work_moments = this.getPositiveMoments("at work")
+    let positive_outdoors_moments = this.getPositiveMoments("outdoors")
+    let positive_exercising_moments = this.getPositiveMoments("exercising")
+    let positive_downtime_moments = this.getPositiveMoments("downtime")
+    let positive_socializing_moments = this.getPositiveMoments("socializing")
+    let positive_family_moments = this.getPositiveMoments("with family")
+    let positive_other_moments = this.getPositiveMoments("other")
+
+    this.setState({
+      posPieChartData: {
+        labels: [
+          'at work',
+          'outdoors',
+          'exercising',
+          'downtime',
+          'socializing',
+          'with family',
+          'other'],
+        datasets: [
+          {
+            label: 'frequency of positive feelings',
+
+            data: [positive_work_moments, positive_outdoors_moments, positive_exercising_moments, positive_downtime_moments, positive_socializing_moments, positive_family_moments, positive_other_moments],
+
+            backgroundColor: [
+              'rgba(215,106,58, .8)',
+              'rgba(244, 232, 109, .8)',
+              'rgba(153, 213, 171, .8)',
+              'rgba(21, 51, 109, .6)',
+              'rgba(219, 171, 176, 1)',
+              'rgba(186, 171, 245, .8)',
+              'rgba(245, 245, 245, .8)'
+              ]
+          }
+        ]
+      }
+    })
+  }
+
+  setNegPieChartData = () => {
+    let negative_work_moments = this.getNegativeMoments("at work")
+    let negative_outdoors_moments = this.getNegativeMoments("outdoors")
+    let negative_exercising_moments = this.getNegativeMoments("exercising")
+    let negative_downtime_moments = this.getNegativeMoments("downtime")
+    let negative_socializing_moments = this.getNegativeMoments("socializing")
+    let negative_family_moments = this.getNegativeMoments("with family")
+    let negative_other_moments = this.getNegativeMoments("other")
+
+    this.setState({
+      negPieChartData: {
+        labels: [
+          'at work',
+          'outdoors',
+          'exercising',
+          'downtime',
+          'socializing',
+          'with family',
+          'other'],
+        datasets: [
+          {
+            label: 'frequency of positive feelings',
+
+            data: [negative_work_moments, negative_outdoors_moments, negative_exercising_moments, negative_downtime_moments, negative_socializing_moments, negative_family_moments, negative_other_moments],
+
+            backgroundColor: [
+              'rgba(215,106,58, .8)',
+              'rgba(244, 232, 109, .8)',
+              'rgba(153, 213, 171, .8)',
+              'rgba(21, 51, 109, .6)',
+              'rgba(219, 171, 176, 1)',
+              'rgba(186, 171, 245, .8)',
+              'rgba(245, 245, 245, .8)'
+              ]
+          }
+        ]
+      }
+    })
+  }
+
+
+
   render() {
     return (
       <Fragment>
@@ -100,7 +200,7 @@ class App extends Component {
         }
           <Switch>
             <Route exact path='/' render={(props) => <Login {...props} user={this.state.user} setUser={this.setUser}/>}/>
-            <Route exact path='/home' render={(props) => <Home {...props} addMoment={this.addMoment} chartData={this.state.chartData} addEntry={this.addEntry} logout={this.logout} user={this.state.user}/>}/>
+            <Route exact path='/home' render={(props) => <Home {...props} addMoment={this.addMoment} lineChartData={this.state.lineChartData} posPieChartData={this.state.posPieChartData} negPieChartData={this.state.negPieChartData} addEntry={this.addEntry} logout={this.logout} user={this.state.user}/>}/>
             <Route exact path='/vent' render={(props) => <Vent {...props} user={this.state.user}/>}/>
             <Route exact path='/search' render={(props) => <JournalSearch {...props} user={this.state.user}/>}/>
           </Switch>

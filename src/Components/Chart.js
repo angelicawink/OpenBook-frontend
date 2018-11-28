@@ -6,9 +6,9 @@ class Chart extends Component {
   render(){
     return(
       <div className="chart">
-        {this.props.chartData ?
+        {this.props.lineChartData ?
           <Line
-          data={this.props.chartData}
+          data={this.props.lineChartData}
 
           options={{
             title: {

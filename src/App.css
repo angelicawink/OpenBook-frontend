@@ -61,7 +61,7 @@ nav.navbar.navbar-default{
 }
 
 canvas#pie-chart.chartjs-render-monitor{
-  min-height: 20vh;
+  min-height: 30vh;
 }
 
 div.Box-1.top-right{
@@ -82,11 +82,17 @@ div.Box-1.top-right{
 
 }
 
-.bottom-right{
+div.Box-1.bottom-right{
   border-left: 1px solid;
   border-top: 1px solid;
   border-color: lightgrey;
   overflow: auto;
+  height: 45vh;
+  opacity: 0.8;
+  padding-top: 5vh;
+  /* background-color: grey; */
+  /* text-align: center; */
+  /* justify-content: center; */
 
 }
 

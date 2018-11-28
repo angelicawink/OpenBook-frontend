@@ -94,7 +94,7 @@ class MomentForm extends Component {
               <option value="1">at work</option>
               <option value="2">outdoors</option>
               <option value="3">exercising</option>
-              <option value="4">relaxing</option>
+              <option value="4">downtime</option>
               <option value="5">socializing</option>
               <option value="6">with family</option>
               <option value="7">Other</option>

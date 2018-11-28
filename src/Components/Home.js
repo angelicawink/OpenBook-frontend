@@ -48,24 +48,6 @@ class Home extends Component {
     })
   }
 
-  // fetchEntries = () => {
-  //   let token = localStorage.getItem('token')
-  //   let userID = this.props.user.id
-  //
-  //   return fetch(`http://localhost:3000/api/v1/users/${userID}/entries`, {
-  //     headers: {
-  //       "Authorization" : `Bearer ${token}`
-  //     }
-  //   }).then(res => res.json())
-  //   .then(entries => {
-  //     this.setState({
-  //       entries: entries
-  //     })
-  //   })
-  // }
-
-
-
   render(){
       return this.props.user ? (
         <React.Fragment>
@@ -75,7 +57,7 @@ class Home extends Component {
 
                 <div className="col-xs-6">
                   <div className="Box-1 top-left">
-                      <Chart chartData={this.props.chartData} user={this.props.user}/>
+                      <Chart lineChartData={this.props.lineChartData} user={this.props.user}/>
                   </div>
                 </div>
 
@@ -98,9 +80,7 @@ class Home extends Component {
 
                 <div className="col-xs-6">
                   <div className="Box-1 bottom-right">
-                      <div id="vent">
-                        <PieChart/>
-                    </div>
+                    <PieChart negPieChartData={this.props.negPieChartData} posPieChartData={this.props.posPieChartData}/>
                   </div>
                 </div>
 
