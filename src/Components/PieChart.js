@@ -43,10 +43,11 @@ handleChange = () => {
 
   render(){
     return(
-      <div>
-        <select onChange={this.handleChange}>
-          <option value="positive">Settings of Positive Feelings</option>
-          <option value="negative">Settings of Negative Feelings</option>
+      <>
+        <h2 className="pie-chart-header">Where I am When I'm Feeling:</h2>
+        <select className="pie-chart-header" onChange={this.handleChange}>
+          <option value="positive">Positive</option>
+          <option value="negative">Negative</option>
         </select>
       {this.state.showPositive ?
         <Pie id="pie-chart"
@@ -55,7 +56,7 @@ handleChange = () => {
           options={{
             title: {
               display: false,
-              text: 'Settings of Positive Feelings',
+              text: `Where I am When I'm Feeling:`,
               fontSize: 20,
               fontColor: 'white'
             },
@@ -75,7 +76,7 @@ handleChange = () => {
           options={{
             title: {
               display: false,
-              text: 'Settings of Positive Feelings',
+              text: `Where I am When I'm Feeling:`,
               fontSize: 20,
               fontColor: 'white'
             },
@@ -88,7 +89,7 @@ handleChange = () => {
         :
         null
       }
-    </div>
+    </>
     )
   }
 }

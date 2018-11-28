@@ -51,7 +51,6 @@ class Diary extends Component {
 
 
   render(){
-    console.log(this.props)
     return(
       <div>
         <h3>{this.getDate()}</h3>
@@ -61,8 +60,8 @@ class Diary extends Component {
 
           </Card>
             <div>
-              <img onClick={this.getPreviousEntry} src="http://www.iconninja.com/files/184/20/51/direction-back-arrow-left-arrows-chevron-icon.png" alt="back-arrow" className="arrow"/>
-              <img onClick={this.getNextEntry} src="https://www.shareicon.net/download/2016/07/10/120016_arrows.svg" alt="back-arrow" className="arrow"/>
+              <img onClick={this.getPreviousEntry} src="http://www.clker.com/cliparts/U/0/5/1/s/5/red-arrow-hi.png" alt="previous-button" className="arrow previous"/>
+              <img onClick={this.getNextEntry} src="http://www.clker.com/cliparts/U/0/5/1/s/5/red-arrow-hi.png" alt="next-button" className="arrow next"/>
             </div>
 
           <Button color="orange" onClick={this.props.entryLogged} type="submit">new entry</Button>

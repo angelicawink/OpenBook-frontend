@@ -87,9 +87,11 @@ class App extends Component {
         labels: datesArray,
         datasets: [
           {
+            
             label: "feelings rank",
+            fill: true,
             data: ranksArray,
-            backgroundColor: 'rgba(106, 194, 139, .9)'
+            backgroundColor: 'rgba(242, 116, 73, .7)',
           }
         ]
       }
@@ -115,6 +117,7 @@ class App extends Component {
     let positive_downtime_moments = this.getPositiveMoments("downtime")
     let positive_socializing_moments = this.getPositiveMoments("socializing")
     let positive_family_moments = this.getPositiveMoments("with family")
+    let positive_significant_other_moments = this.getPositiveMoments("with significant other")
     let positive_other_moments = this.getPositiveMoments("other")
 
     this.setState({
@@ -126,21 +129,23 @@ class App extends Component {
           'downtime',
           'socializing',
           'with family',
+          'with significant other',
           'other'],
         datasets: [
           {
             label: 'frequency of positive feelings',
 
-            data: [positive_work_moments, positive_outdoors_moments, positive_exercising_moments, positive_downtime_moments, positive_socializing_moments, positive_family_moments, positive_other_moments],
+            data: [positive_work_moments, positive_outdoors_moments, positive_exercising_moments, positive_downtime_moments, positive_socializing_moments, positive_family_moments, positive_significant_other_moments, positive_other_moments],
 
             backgroundColor: [
-              'rgba(215,106,58, .8)',
+              'rgba(233,111,119, .8)',
               'rgba(244, 232, 109, .8)',
-              'rgba(153, 213, 171, .8)',
-              'rgba(21, 51, 109, .6)',
-              'rgba(219, 171, 176, 1)',
+              'rgba(162, 216, 127, .8)',
+              'rgba(193, 223, 238, .8)',
+              'rgba(242, 116, 73, .7)',
               'rgba(186, 171, 245, .8)',
-              'rgba(245, 245, 245, .8)'
+              'rgba(100, 166, 150, 1)',
+              'rgba(245, 245, 245, 1)'
               ]
           }
         ]
@@ -155,6 +160,8 @@ class App extends Component {
     let negative_downtime_moments = this.getNegativeMoments("downtime")
     let negative_socializing_moments = this.getNegativeMoments("socializing")
     let negative_family_moments = this.getNegativeMoments("with family")
+    let negative_significant_other_moments = this.getNegativeMoments("with significant other")
+
     let negative_other_moments = this.getNegativeMoments("other")
 
     this.setState({
@@ -166,21 +173,23 @@ class App extends Component {
           'downtime',
           'socializing',
           'with family',
+          'with significant other',
           'other'],
         datasets: [
           {
             label: 'frequency of positive feelings',
 
-            data: [negative_work_moments, negative_outdoors_moments, negative_exercising_moments, negative_downtime_moments, negative_socializing_moments, negative_family_moments, negative_other_moments],
+            data: [negative_work_moments, negative_outdoors_moments, negative_exercising_moments, negative_downtime_moments, negative_socializing_moments, negative_family_moments, negative_significant_other_moments, negative_other_moments],
 
             backgroundColor: [
-              'rgba(215,106,58, .8)',
+              'rgba(233,111,119, .8)',
               'rgba(244, 232, 109, .8)',
-              'rgba(153, 213, 171, .8)',
-              'rgba(21, 51, 109, .6)',
-              'rgba(219, 171, 176, 1)',
+              'rgba(162, 216, 127, .8)',
+              'rgba(193, 223, 238, .8)',
+              'rgba(242, 116, 73, .7)',
               'rgba(186, 171, 245, .8)',
-              'rgba(245, 245, 245, .8)'
+              'rgba(100, 166, 150, 1)',
+              'rgba(245, 245, 245, 1)'
               ]
           }
         ]

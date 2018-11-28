@@ -90,6 +90,7 @@ class MomentForm extends Component {
               className="slider"/>
             </div>
 
+            <label>Where am I:</label>
             <select name="setting" onChange={this.handleChange} className="form-group">
               <option value="1">at work</option>
               <option value="2">outdoors</option>
@@ -97,7 +98,8 @@ class MomentForm extends Component {
               <option value="4">downtime</option>
               <option value="5">socializing</option>
               <option value="6">with family</option>
-              <option value="7">Other</option>
+              <option value="7">with signicant other</option>
+              <option value="8">Other</option>
             </select>
 
             <div className="form-group">

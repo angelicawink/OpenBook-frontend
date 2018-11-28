@@ -43,6 +43,7 @@ div.home-container.container{
 }
 
 nav.navbar.navbar-default{
+  padding: 5px;
   margin: 0px;
   background-color: rgba(106, 194, 139, .6);
   color: white;
@@ -53,7 +54,8 @@ nav.navbar.navbar-default{
   padding: 0px;
 }
 
-.top-left{
+div.Box-1.top-left{
+  padding: 0px;
   border-right: 1px solid;
   border-bottom: 1px solid;
   border-color: lightgrey;
@@ -61,7 +63,12 @@ nav.navbar.navbar-default{
 }
 
 canvas#pie-chart.chartjs-render-monitor{
-  min-height: 30vh;
+  min-height: 20vh;
+  max-height: 30vh;
+  min-width: 35vw;
+  max-width: 35vw;
+  margin-left: 8vw;
+  margin-top: 2vh;
 }
 
 div.Box-1.top-right{
@@ -79,7 +86,6 @@ div.Box-1.top-right{
   border-top: 1px solid;
   border-color: lightgrey;
   overflow: auto;
-
 }
 
 div.Box-1.bottom-right{
@@ -89,11 +95,10 @@ div.Box-1.bottom-right{
   overflow: auto;
   height: 45vh;
   opacity: 0.8;
-  padding-top: 5vh;
-  /* background-color: grey; */
-  /* text-align: center; */
-  /* justify-content: center; */
+}
 
+.pie-chart-header{
+  margin: 5px;
 }
 
 .page-header{
@@ -107,9 +112,14 @@ div.Box-1.bottom-right{
 canvas.chartjs-render-monitor{
   min-height: 40vh;
   max-height: 40vh;
-  min-width: 40vw;
-  max-width: 40vw;
+  min-width: 43vw;
+  max-width: 42vw;
   margin-left: 5%;
+  margin-top: 5%;
+}
+
+label{
+  margin-right: 8px;
 }
 
 .Box-1 {
@@ -124,6 +134,8 @@ canvas.chartjs-render-monitor{
 
 .card-body, p{
   color: white;
+  height: fit-content;
+
 }
 
 h5, h4, p{
@@ -211,14 +223,34 @@ div.form-group.new-entry-container{
 }
 
 .arrow {
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
 }
 
 .arrow:hover{
+
+}
+
+.arrow.previous{
+  margin-left: 2vw;
+  float: left;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.arrow.next{
+  margin-right: 2vw;
+  float: right;
+}
+/*
+.arrow:hover{
   height: 35px;
   width: 35px;
-}
+} */
 
 div.diary-page.card, #new-diary-entry{
   padding-top: 20px;
@@ -228,7 +260,7 @@ div.diary-page.card, #new-diary-entry{
   max-width: 40vw;
   overflow: auto;
   display: inline-block;
-  background-color: rgba(215,106,58, .6);
+  background-color: rgba(125, 190, 177, 1);
   border-radius: 5px;
   border-color: white;
   border-style: solid;
@@ -246,4 +278,13 @@ div#vent {
   color: white;
   font-size: 20px;
   display: inline-block;
+}
+
+a.navbar-brand{
+  font-size: 35px;
+}
+
+a{
+  font-size: 20px;
+  /* color: white; */
 }
