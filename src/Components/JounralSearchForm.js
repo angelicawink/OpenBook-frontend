@@ -38,8 +38,8 @@ class JournalSearchForm extends Component {
 
   render(){
     return(
-      <div>
-          <form onSubmit={this.handleSubmit}>
+      <>
+          <form className="search-form" onSubmit={this.handleSubmit}>
             <input
               type="text"
               value={this.state.searchTerm}
@@ -50,7 +50,7 @@ class JournalSearchForm extends Component {
 
             <button type="submit" className="btn btn-warning btn-lg">Search</button>
           </form>
-      </div>
+      </>
     )
   }
 }

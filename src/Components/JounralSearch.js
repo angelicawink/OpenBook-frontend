@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import JournalSearchForm from './JounralSearchForm';
 import JournalSearchDisplay from './JournalSearchDisplay';
-import SavedSearches from './SavedSearches';
 
 class JounralSearch extends Component {
   state={
@@ -33,7 +32,6 @@ class JounralSearch extends Component {
 
         <JournalSearchForm user={this.props.user} setSearchResults={this.setSearchResults}/>
         <JournalSearchDisplay results={this.state.results} selectedEntry={this.state.selectedEntry} setSelectedEntry={this.setSelectedEntry}/>
-        <SavedSearches/>
     </div>
     )
   }

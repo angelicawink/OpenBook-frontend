@@ -3,8 +3,12 @@ import React, { Component } from 'react';
 class SavedSearches extends Component{
   render(){
     return(
-      <div className="journal-search saved">
-        Saved searches here
+      <div id="holder">
+        <h3>My Saved Journal Entries</h3>
+        
+        <div className="journal-search saved">
+        </div>
+
       </div>
     )
   }
