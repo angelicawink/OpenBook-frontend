@@ -83,6 +83,9 @@ class Diary extends Component {
 
 export default Diary
 
+//possible diary image:
+// https://www.wmmpa.com/wp-content/uploads/2017/02/book-icon.png
+
 //conditionally rendering arrow buttons :
 
 // {this.state.currentEntryIndex !== 0 ?

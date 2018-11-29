@@ -3,7 +3,7 @@ import './App.css';
 import Login from './Components/Login';
 import Home from './Components/Home'
 import Vent from './Components/Vent'
-import JournalSearch from './Components/JounralSearch'
+import JournalSearch from './Components/JournalSearch'
 import { Route, withRouter, Switch } from 'react-router-dom';
 import MyNavBar from './Components/MyNavBar'
 
@@ -197,6 +197,14 @@ class App extends Component {
     })
   }
 
+  addSavedEntry = (newEntry) => {
+    console.log(newEntry)
+    this.setState({
+      user: {
+        ...this.state.user, saved_entries: [...this.state.user.saved_entries, newEntry]
+      }
+    })
+  }
 
 
   render() {
@@ -211,7 +219,7 @@ class App extends Component {
             <Route exact path='/' render={(props) => <Login {...props} user={this.state.user} setUser={this.setUser}/>}/>
             <Route exact path='/home' render={(props) => <Home {...props} addMoment={this.addMoment} lineChartData={this.state.lineChartData} posPieChartData={this.state.posPieChartData} negPieChartData={this.state.negPieChartData} addEntry={this.addEntry} logout={this.logout} user={this.state.user}/>}/>
             <Route exact path='/vent' render={(props) => <Vent {...props} user={this.state.user}/>}/>
-            <Route exact path='/search' render={(props) => <JournalSearch {...props} user={this.state.user}/>}/>
+            <Route exact path='/search' render={(props) => <JournalSearch {...props} user={this.state.user} addSavedEntry={this.addSavedEntry}/>}/>
           </Switch>
       </Fragment>
     );

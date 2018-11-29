@@ -9,10 +9,15 @@ body {
 
 button.ui.orange.button{
   color: white;
-  /* box-shadow:   .5px .5px .5px .5px */
-  /* shadow-color:  */
-
 }
+
+button#search-button.btn.btn-warning.btn-lg{
+  display: inline-block;
+}
+
+/* .middle{
+  text-align: center;
+} */
 
 
 
@@ -97,6 +102,8 @@ div.Box-1.bottom-right{
 
 .page-header{
   color: lightgrey;
+  margin-left: 5vw;
+  font-size: 25px;
 }
 
 .form-control, .btn-default{
@@ -159,6 +166,18 @@ div.home-container.container {
 
 #checkmark {
   height: 20vh;
+}
+
+#bookmark{
+  height: 20px;
+  width: 20px;
+  float: right
+}
+
+#bookmark:hover{
+  height: 24px;
+  width: 24px;
+  cursor: copy;
 }
 
 /*   SLIDER STYLING BELOW */
@@ -335,7 +354,9 @@ div.search.container{
 }
 
 form.search-form{
-  margin: 1%;
+  width: 65vw;
+  margin-top: 60%;
+  justify-content: center;
 }
 
 div.journal-search.master {
@@ -344,8 +365,8 @@ div.journal-search.master {
   border-radius: 5px;
   /* border-color: lightgrey; */
   border-width: 2px;
-  min-height: 50vh;
-  max-height: 50vh;
+  min-height: 70vh;
+  max-height: 70vh;
   min-width: 25vw;
   max-width: 25vw;
   margin: 10px;
@@ -354,14 +375,10 @@ div.journal-search.master {
 }
 
 div.journal-search.saved{
-  background-color: rgb(223, 203, 168);
-  min-width: 30vw;
-  max-width: 30vw;
-  min-height: 70vh;
-  max-height: 70vh;
-  /* border-style: solid; */
+  background-color: rgba(223, 203, 168, .9);
+  max-height: 60vh;
+  min-height: 60vh;
   border-radius: 5px;
-  /* border-color:  lightgrey; */
   border-width: 2px;
   margin: 10px;
   overflow: auto;
@@ -371,11 +388,15 @@ div.journal-search.saved{
 
 div#holder{
   float: right;
+  max-height: 70vh;
+  min-height: 70vh;
   background-color: lightblue;
   margin: 10px;
   overflow: auto;
   padding: 15px;
   border-radius: 5px;
+  min-width: 25vw;
+  max-width: 25vw;
 }
 
 #popover-trigger-focus{
@@ -386,4 +407,18 @@ div#holder{
 .popover-title{
   background-color: rgb(223, 203, 168);
   color: rgb(132, 95, 66);
+}
+
+div.page-header.saved-entry{
+  color: rgba(92, 70, 60, .7);
+  box-shadow: 1px 1px 1px 1px;
+  font-size: 20px;
+  margin: 5px;
+  padding: 35px 18px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+div.page-header.saved-entry:hover{
+  background-color: rgba(92, 70, 60, .1);
 }

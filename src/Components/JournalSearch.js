@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import JournalSearchForm from './JounralSearchForm';
 import JournalSearchDisplay from './JournalSearchDisplay';
+import SavedSearches from './SavedSearches';
+import JournalSearchForm from './JournalSearchForm'
 
-class JounralSearch extends Component {
+class JournalSearch extends Component {
   state={
     results: null,
     selectedEntry: null
@@ -23,18 +24,19 @@ class JounralSearch extends Component {
 
   render (){
     return(
-      <div className="search container">
+      <>
+        <>
 
           <h3 className="page-header">
             See what other people are writing about:
           </h3>
 
+          <JournalSearchDisplay addSavedEntry={this.props.addSavedEntry} user={this.props.user} setSearchResults={this.setSearchResults} results={this.state.results} selectedEntry={this.state.selectedEntry} setSelectedEntry={this.setSelectedEntry}/>
+        </>
 
-        <JournalSearchForm user={this.props.user} setSearchResults={this.setSearchResults}/>
-        <JournalSearchDisplay results={this.state.results} selectedEntry={this.state.selectedEntry} setSelectedEntry={this.setSelectedEntry}/>
-    </div>
+      </>
     )
   }
 }
 
-export default JounralSearch
+export default JournalSearch
