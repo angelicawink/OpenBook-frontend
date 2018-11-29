@@ -3,50 +3,51 @@ body {
 }
 
 .journal-search {
-  color: rgb(160, 193, 217)
-}
-
-.journal-detail{
-  color: grey;
+  color: rgb(160, 193, 217);
+  float: left;
 }
 
 button.ui{
   color: white;
 }
 
-.journal-search.master {
-  border-style: solid;
-  border-radius: 5px;
-  border-color: lightgrey;
-  border-width: 2px;
-  min-height: 20vh;
-  max-height: 20vh;
-  min-width: 40vw;
-  margin: 10px;
-  overflow: auto;
-  padding: 15px;
+
+
+input.form-control{
+  width: 40%;
+  margin-bottom: 10px;
 }
 
-.journal-search.detail {
+div.journal-search.detail {
+  background-color: rgba(242, 116, 73, .3);
   border-style: solid;
   border-radius: 5px;
   border-color: lightgrey;
   border-width: 2px;
   min-height: 20vh;
-  min-width: 40vw;
+  min-width: 35vw;
+  max-width: 35vw;
   margin: 10px;
   padding: 15px;
+  float: left;
 }
 
 
 div.home-container.container{
 }
 
+.navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a {
+  font-family: 'Catamaran', sans-serif;
+  /* font-family: 'PT Sans', sans-serif; */
+  /* font-family: 'Nanum Gothic', sans-serif; */
+  color: white ;
+}
+
 nav.navbar.navbar-default{
   padding: 5px;
   margin: 0px;
   background-color: rgba(106, 194, 139, .6);
-  color: white;
+  /* color: white; */
   height: 65px;
 }
 
@@ -113,7 +114,7 @@ canvas.chartjs-render-monitor{
   min-height: 40vh;
   max-height: 40vh;
   min-width: 43vw;
-  max-width: 42vw;
+  max-width: 43vw;
   margin-left: 5%;
   margin-top: 5%;
 }
@@ -135,6 +136,7 @@ label{
 .card-body, p{
   color: white;
   height: fit-content;
+  font-size: 18px;
 
 }
 
@@ -220,6 +222,7 @@ height: 100%;
 div.form-group.new-entry-container{
   width: 100%;
   min-height: 100%;
+  margin: 0;
 }
 
 .arrow {
@@ -240,6 +243,11 @@ div.form-group.new-entry-container{
   transform: scaleX(-1);
   filter: FlipH;
   -ms-filter: "FlipH";
+}
+
+#new-entry{
+  margin-top: 3vh;
+
 }
 
 .arrow.next{
@@ -282,9 +290,70 @@ div#vent {
 
 a.navbar-brand{
   font-size: 35px;
+  color: white;
 }
 
 a{
   font-size: 20px;
   /* color: white; */
+}
+
+.search-result-item{
+  background-color: rgba(106, 194, 139, .6);
+  padding: 8px;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: white;
+  border-width: 1.5px;
+  width: fit-content;
+  margin: 3px;
+  color: white;
+}
+
+#search-result-placeholder{
+  color: white;
+}
+
+.search-result-item:hover{
+  box-shadow: 2px 2px 2px 2px;
+  background-color: rgba(106, 194, 139, .8);
+}
+
+/* div.journal-search.detail{
+  color: grey;
+  float: left;
+} */
+
+
+
+div.journal-search.master {
+  background-color: rgba(195,163,207, .6);
+  border-style: solid;
+  border-radius: 5px;
+  border-color: lightgrey;
+  border-width: 2px;
+  min-height: 50vh;
+  max-height: 50vh;
+  min-width: 25vw;
+  max-width: 25vw;
+  margin: 10px;
+  overflow: auto;
+  padding: 15px;
+}
+
+div.search.container{
+  margin-left: 3%;
+  margin-right: 0px;
+  padding: 0;
+}
+
+div.journal-search.saved{
+  background-color: rgb(223, 203, 168);
+  min-width: 23vw;
+  min-height: 70vh;
+  float: left;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: lightgrey;
+  border-width: 2px;
 }

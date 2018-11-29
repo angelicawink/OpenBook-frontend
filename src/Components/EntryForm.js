@@ -43,7 +43,7 @@ class EntryForm extends Component {
 
   getTodaysDate = () => {
     let date = Date().split(" ");
-    let displayDate = date[0] + ", " + date[1]+ " " + date[2] + " " + date[3];
+    let displayDate = date[0] + ". " + date[1]+ " " + date[2] + ", " + date[3];
 
     return displayDate;
   }
@@ -58,7 +58,10 @@ class EntryForm extends Component {
     if (time[0] > 12){
       hours = time[0] -12;
       am_pm = ' pm';
-    } else {
+    } else if (time[0] === 12) {
+      hours = time[0];
+      am_pm = ' pm'
+    } else if (time[0] < 12) {
       hours = time[0];
       am_pm = ' am';
     }
@@ -78,7 +81,7 @@ class EntryForm extends Component {
             <textarea onChange={this.handleChange} id="new-diary-entry"></textarea>
           </div>
 
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <button id="submit-entry" type="submit" className="btn btn-primary">Submit</button>
         </form>
 
         <button className="btn btn-default" onClick={this.props.entryLogged}>Cancel</button>

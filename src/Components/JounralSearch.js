@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import JournalSearchForm from './JounralSearchForm';
 import JournalSearchDisplay from './JournalSearchDisplay';
-
+import SavedSearches from './SavedSearches';
 
 class JounralSearch extends Component {
   state={
@@ -24,16 +24,17 @@ class JounralSearch extends Component {
 
   render (){
     return(
-      <div className="container">
-        <div className="page-header">
-          <h3 className="journal-search">
+      <div className="search container">
+
+          <h3 className="page-header">
             See what other people are writing about:
           </h3>
-        </div>
+
 
         <JournalSearchForm user={this.props.user} setSearchResults={this.setSearchResults}/>
         <JournalSearchDisplay results={this.state.results} selectedEntry={this.state.selectedEntry} setSelectedEntry={this.setSelectedEntry}/>
-      </div>
+        <SavedSearches/>
+    </div>
     )
   }
 }

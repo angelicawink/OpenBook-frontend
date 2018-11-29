@@ -42,12 +42,13 @@ class JournalSearchForm extends Component {
           <form onSubmit={this.handleSubmit}>
             <input
               type="text"
+              value={this.state.searchTerm}
               className="form-control"
-              placeholder="keyword, ie: 'sister', 'anxiety', 'boss'..."
+              placeholder="keyword, ie: 'family', 'anxiety', 'boss'..."
               onChange={this.handleChange}
               ></input>
 
-            <button type="submit" className="btn btn-success">Search</button>
+            <button type="submit" className="btn btn-warning btn-lg">Search</button>
           </form>
       </div>
     )

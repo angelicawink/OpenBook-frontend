@@ -87,11 +87,11 @@ class App extends Component {
         labels: datesArray,
         datasets: [
           {
-            
+
             label: "feelings rank",
             fill: true,
             data: ranksArray,
-            backgroundColor: 'rgba(242, 116, 73, .7)',
+            backgroundColor: 'rgba(242, 116, 73, .5)',
           }
         ]
       }

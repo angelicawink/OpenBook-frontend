@@ -49,7 +49,7 @@ handleChange = () => {
           <option value="positive">Positive</option>
           <option value="negative">Negative</option>
         </select>
-      {this.state.showPositive ?
+      {this.state.showPositive && this.props.posPieChartData ?
         <Pie id="pie-chart"
             data={this.props.posPieChartData}
 

@@ -6,7 +6,7 @@ class Chart extends Component {
   render(){
     return(
       <div className="chart">
-        {this.props.lineChartData ?
+        {this.props.lineChartData  ?
           <Line
           data={this.props.lineChartData}
 
@@ -15,7 +15,7 @@ class Chart extends Component {
               xAxes: [{
                 ticks: {
                   autoSkip: true,
-                  maxTicksLimit: 6
+                  maxTicksLimit: 5
                 }
               }],
               yAxes: [{

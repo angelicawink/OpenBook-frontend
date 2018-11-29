@@ -10,7 +10,7 @@ class Diary extends Component {
   getDate = () => {
     let date = new Date(this.props.user.entries[this.state.currentEntryIndex].created_at).toString().split(" ")
 
-    let displayDate = date[0] + ", " + date[1]+ " " + date[2] + " " + date[3];
+    let displayDate = date[0] + ". " + date[1]+ " " + date[2] + ", " + date[3];
     return displayDate;
   }
 
@@ -60,11 +60,21 @@ class Diary extends Component {
 
           </Card>
             <div>
-              <img onClick={this.getPreviousEntry} src="http://www.clker.com/cliparts/U/0/5/1/s/5/red-arrow-hi.png" alt="previous-button" className="arrow previous"/>
-              <img onClick={this.getNextEntry} src="http://www.clker.com/cliparts/U/0/5/1/s/5/red-arrow-hi.png" alt="next-button" className="arrow next"/>
+                <img
+                  onClick={this.getPreviousEntry}
+                  src="http://www.clker.com/cliparts/U/0/5/1/s/5/red-arrow-hi.png"
+                  alt="previous-button"
+                  className="arrow previous"/>
+
+                <img
+                  onClick={this.getNextEntry}
+                  src="http://www.clker.com/cliparts/U/0/5/1/s/5/red-arrow-hi.png"
+                  alt="next-button"
+                  className="arrow next"/>
+
             </div>
 
-          <Button color="orange" onClick={this.props.entryLogged} type="submit">new entry</Button>
+          <Button color="orange" id="new-entry" onClick={this.props.entryLogged} type="submit">new entry</Button>
 
       </div>
     )
@@ -72,3 +82,22 @@ class Diary extends Component {
 }
 
 export default Diary
+
+//conditionally rendering arrow buttons :
+
+// {this.state.currentEntryIndex !== 0 ?
+//   <img
+//     onClick={this.getPreviousEntry}
+//     src="http://www.clker.com/cliparts/U/0/5/1/s/5/red-arrow-hi.png"
+//     alt="previous-button"
+//     className="arrow previous"/>
+//   : null
+// }
+// {this.state.currentEntryIndex !== this.props.user.entries.length-1 ?
+//   <img
+//     onClick={this.getNextEntry}
+//     src="http://www.clker.com/cliparts/U/0/5/1/s/5/red-arrow-hi.png"
+//     alt="next-button"
+//     className="arrow next"/>
+//   : null
+// }

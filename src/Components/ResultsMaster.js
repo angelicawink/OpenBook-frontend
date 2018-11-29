@@ -3,16 +3,23 @@ import React, { Component } from 'react';
 class ResultstMaster extends Component{
   render(){
     return(
-      <div>
-        <h5>Search Result Master</h5>
+      <>
           <div className="journal-search master">
             {this.props.results ?
-              this.props.results.map((result, index) => <h5 onClick={(entry) => this.props.setSelectedEntry(result)} key={index}>{result.created_at.slice(0,9) + " - "} {result.content.slice(0, 85)+'.....'}</h5>)
+              this.props.results.map((result, index) =>
+
+              <h4
+                className="search-result-item"
+                onClick={(entry) => this.props.setSelectedEntry(result)}
+                key={index}>
+                {result.created_at.slice(0,9) + " - "} {result.content.slice(0, 85)+'.....'}
+              </h4>)
+
               :
-              null
+              <h4 id="search-result-placeholder">No Results Yet, Try A Search!</h4>
             }
           </div>
-      </div>
+      </>
     )
   }
 }
