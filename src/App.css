@@ -334,7 +334,7 @@ a{
   text-align: center;
 }
 div#root{
-  background-color: grey;
+  background-color: rgba(106, 194, 139, .8);
 }
 
 .search-result-item{
@@ -456,7 +456,7 @@ div.page-header.saved-entry:hover{
 }
 
 .letter.container{
-  background-color: pink;
+  background-color: rgba(106, 194, 139, .8);
   height: 100vh;
   width: 100vw;
   text-align: center;
@@ -505,5 +505,15 @@ div.page-header.saved-entry:hover{
 
 #envelope-gif{
   height: 100vh;
-  width: 100vw;
+  width: 60vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 20vh;
+}
+
+#letter-button{
+  /* box-shadow: .5px .5px .5px .5px; */
+  border-style: solid;
+  border-color: rgb(241, 200, 60);
+  border-width: .5px;
 }
