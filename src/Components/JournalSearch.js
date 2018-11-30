@@ -2,23 +2,6 @@ import React, { Component } from 'react';
 import JournalSearchDisplay from './JournalSearchDisplay';
 
 class JournalSearch extends Component {
-  state={
-    results: null,
-    selectedEntry: null
-  }
-
-  setSearchResults = (entries) => {
-    this.setState({
-      results: entries
-    })
-  }
-
-  setSelectedEntry = (entry) => {
-    this.setState({
-      selectedEntry: entry
-    })
-  }
-
 
   render (){
     return(
@@ -29,7 +12,12 @@ class JournalSearch extends Component {
             See what other people are writing about:
           </h3>
 
-          <JournalSearchDisplay addSavedEntry={this.props.addSavedEntry} user={this.props.user} setSearchResults={this.setSearchResults} results={this.state.results} selectedEntry={this.state.selectedEntry} setSelectedEntry={this.setSelectedEntry}/>
+          <JournalSearchDisplay
+            addSavedEntry={this.props.addSavedEntry}
+            deleteSavedEntry={this.props.deleteSavedEntry}
+            savedEntryIDs={this.props.savedEntryIDs}
+            user={this.props.user}
+            />
         </>
 
       </>

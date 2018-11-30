@@ -6,10 +6,10 @@ import Vent from './Components/Vent'
 import JournalSearch from './Components/JournalSearch'
 import { Route, withRouter, Switch } from 'react-router-dom';
 import MyNavBar from './Components/MyNavBar';
-import { fetchVerifyUser } from './fetches'
+import { fetchVerifyUser } from './FETCHES'
 import { chartLabels, pieChartColors } from './data'
-// Twilio Account SID: "ACb9f97507032b8f6c4e9fd223956557ba"
-// Twilio Auth Token: "4146b32d18d0c286673ec34ac00babe7"
+// Twilio Acnt S-I-D: "ACb9f97507032b8f6c4e9fd223956557ba"
+// Twilio Aut tok: "4146b32d18d0c286673ec34ac00babe7"
 // Twilio Phone #: "+13016835196"
 
 class App extends Component {
@@ -19,7 +19,8 @@ class App extends Component {
       user: null,
       lineChartData: null,
       posPieChartData: null,
-      negPieChartData: null
+      negPieChartData: null,
+      savedEntryIDs: []
     }
   }
 
@@ -34,9 +35,24 @@ class App extends Component {
         this.getLineChartData()
         this.getPosPieChartData()
         this.getNegPieChartData()
+        this.getSavedEntryIDs()
         })
       )
     }
+
+  getSavedEntryIDs = () => {
+    let savedIDs = [];
+    this.state.user.saved_entries.forEach(saved => {
+      savedIDs.push(saved.entry.id)})
+
+    this.setSavedEntryIDs(savedIDs)
+  }
+
+  setSavedEntryIDs = (savedIDs) => {
+    this.setState({
+      savedEntryIDs: savedIDs
+    })
+  }
 
   setUser = (userInfo) => {
     this.setState({
@@ -165,13 +181,31 @@ class App extends Component {
   addSavedEntry = (newEntry) => {
     this.setState({
       user: {
-        ...this.state.user, saved_entries: [...this.state.user.saved_entries, newEntry]
-      }
+        ...this.state.user,
+        saved_entries: [...this.state.user.saved_entries, newEntry],
+      },
+      savedEntryIDs: [...this.state.savedEntryIDs, newEntry.entry.id]
     })
   }
 
+  deleteSavedEntry = (savedEntry) => {
+    console.log(this.state.user.saved_entries)
+    console.log(this.state.savedEntryIDs)
+
+    let objIndex = this.state.user.saved_entries.findIndex(saved => saved.id == savedEntry.id)
+    let id_index = this.state.savedEntryIDs.findIndex(id => id === savedEntry.entry.id)
+
+    this.setState({
+      user: {
+        ...this.state.user,
+        saved_entries: [...this.state.user.saved_entries.slice(0, objIndex), ...this.state.user.saved_entries.slice(objIndex+1)]
+      },
+      savedEntryIDs: [...this.state.savedEntryIDs.slice(0, id_index), ...this.state.savedEntryIDs.slice(id_index+1)]
+    })
+  }
 
   render() {
+    console.log(this.state.user)
     return (
       <Fragment>
         {this.state.user ?
@@ -183,7 +217,7 @@ class App extends Component {
             <Route exact path='/' render={(props) => <Login {...props} user={this.state.user} setUser={this.setUser}/>}/>
             <Route exact path='/home' render={(props) => <Home {...props} addMoment={this.addMoment} lineChartData={this.state.lineChartData} posPieChartData={this.state.posPieChartData} negPieChartData={this.state.negPieChartData} addEntry={this.addEntry} logout={this.logout} user={this.state.user}/>}/>
             <Route exact path='/vent' render={(props) => <Vent {...props} user={this.state.user}/>}/>
-            <Route exact path='/search' render={(props) => <JournalSearch {...props} user={this.state.user} addSavedEntry={this.addSavedEntry}/>}/>
+            <Route exact path='/search' render={(props) => <JournalSearch {...props} user={this.state.user} savedEntryIDs={this.state.savedEntryIDs} deleteSavedEntry={this.deleteSavedEntry} addSavedEntry={this.addSavedEntry}/>}/>
           </Switch>
       </Fragment>
     );

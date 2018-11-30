@@ -3,7 +3,7 @@ import SavedEntry from './SavedEntry';
 
 class SavedSearches extends Component{
   render(){
-    
+
     return this.props.user ? (
       <div className="col-xs-4">
         <div id="holder">
@@ -11,7 +11,11 @@ class SavedSearches extends Component{
 
           <div className="journal-search saved">
             {this.props.user.saved_entries.map((entry, index) =>
-              <SavedEntry key={index} savedEntry={entry}/>
+              <SavedEntry
+                key={index}
+                savedEntry={entry}
+                user={this.props.user}
+                />
             )}
           </div>
 

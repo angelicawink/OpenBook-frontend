@@ -22,7 +22,6 @@ class JournalSearchForm extends Component {
     })
     .then(res => res.json())
     .then(entries => {
-      console.log(entries)
       if (this.props.user){
 
 // filter out entries written by user
@@ -35,17 +34,17 @@ class JournalSearchForm extends Component {
           let savedEntryIDs = [];
           this.props.user.saved_entries.forEach(saved => savedEntryIDs.push(saved.entry.id))
 
-// eliminate already-saved entries from the search results
-          let finalEntries = []
-          strangerEntries.forEach(entry => {
-            if (savedEntryIDs.includes(entry.id)){
-              return
-            } else {
-              finalEntries.push(entry)
-            }
-          })
+// // eliminate already-saved entries from the search results
+//           let finalEntries = []
+//           strangerEntries.forEach(entry => {
+//             if (savedEntryIDs.includes(entry.id)){
+//               return
+//             } else {
+//               finalEntries.push(entry)
+//             }
+//           })
 // display final search results
-        this.props.setSearchResults(finalEntries)
+        this.props.setSearchResults(strangerEntries)
 
         this.setState({
           searchTerm: ''
@@ -55,7 +54,6 @@ class JournalSearchForm extends Component {
   }
 
   render(){
-    console.log(this.props)
     return(
       <div className="col-xs-4 middle">
           <form className="search-form" onSubmit={this.handleSubmit}>
