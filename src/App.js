@@ -5,7 +5,12 @@ import Home from './Components/Home'
 import Vent from './Components/Vent'
 import JournalSearch from './Components/JournalSearch'
 import { Route, withRouter, Switch } from 'react-router-dom';
-import MyNavBar from './Components/MyNavBar'
+import MyNavBar from './Components/MyNavBar';
+import { fetchVerifyUser } from './fetches'
+import { chartLabels, pieChartColors } from './data'
+// Twilio Account SID: "ACb9f97507032b8f6c4e9fd223956557ba"
+// Twilio Auth Token: "4146b32d18d0c286673ec34ac00babe7"
+// Twilio Phone #: "+13016835196"
 
 class App extends Component {
   constructor(){
@@ -19,27 +24,21 @@ class App extends Component {
   }
 
   componentDidMount(){
-    let token = localStorage.getItem('token')
+    let token = localStorage.getItem('token');
 
     if (token)
-      fetch(`http://localhost:3000/api/v1/home`, {
-        headers: {
-          "Authorization" : `Bearer ${token}`
-        }
-      })
-      .then(res => res.json())
+      fetchVerifyUser(token)
       .then(data => this.setState({
         user: data.user
       }, () => {
-        this.setLineChartData()
-        this.setPosPieChartData()
-        this.setNegPieChartData()
-      })
-    )
-  }
+        this.getLineChartData()
+        this.getPosPieChartData()
+        this.getNegPieChartData()
+        })
+      )
+    }
 
   setUser = (userInfo) => {
-    console.log(userInfo)
     this.setState({
       user: userInfo
     }, () => this.props.history.push('/home'))
@@ -61,144 +60,109 @@ class App extends Component {
 
   addEntry = (newEntry) => {
     this.setState({
-      user: {...this.state.user, entries: [...this.state.user.entries, newEntry]}
+      user: {...this.state.user,
+        entries: [...this.state.user.entries, newEntry]}
     })
   }
 
   addMoment = (newMoment) => {
     this.setState({
-      user: {...this.state.user, moments: [...this.state.user.moments, newMoment]}
+      user: {...this.state.user,
+        moments: [...this.state.user.moments, newMoment]}
     }, () => {
-      this.setLineChartData()
-      this.setPosPieChartData()
-      this.setNegPieChartData()
+      this.getLineChartData()
+      this.getPosPieChartData()
+      this.getNegPieChartData()
     })
   }
 
-  setLineChartData = () => {
+  getLineChartData = () => {
     let datesArray = []
     this.state.user.moments.forEach(moment => datesArray.push("Nov " + moment.created_at.slice(8,10)))
-
     let ranksArray = []
     this.state.user.moments.forEach(moment => ranksArray.push(moment.feeling.rank))
+    this.setLineChartData(datesArray, ranksArray)
+  }
 
+
+  setLineChartData = (dates, ranks) => {
     this.setState({
       lineChartData: {
-        labels: datesArray,
+        labels: dates,
         datasets: [
           {
-
             label: "feelings rank",
             fill: true,
-            data: ranksArray,
-            backgroundColor: 'rgba(242, 116, 73, .5)',
-          }
-        ]
-      }
-    })
-  }
+            data: ranks,
+            backgroundColor: 'rgba(242, 116, 73, .7)',
+          }]
+      }})}
 
   getPositiveMoments = (settingName) => {
     let positiveMomentsCount = this.state.user.moments.filter(moment => moment.setting.name === settingName && moment.feeling.rank >= 6).length;
-
     return positiveMomentsCount
   }
 
   getNegativeMoments = (settingName) => {
     let negativeMomentsCount = this.state.user.moments.filter(moment => moment.setting.name === settingName && moment.feeling.rank < 6).length;
-
     return negativeMomentsCount
   }
 
-  setPosPieChartData = () => {
-    let positive_work_moments = this.getPositiveMoments("at work")
-    let positive_outdoors_moments = this.getPositiveMoments("outdoors")
-    let positive_exercising_moments = this.getPositiveMoments("exercising")
-    let positive_downtime_moments = this.getPositiveMoments("downtime")
-    let positive_socializing_moments = this.getPositiveMoments("socializing")
-    let positive_family_moments = this.getPositiveMoments("with family")
-    let positive_significant_other_moments = this.getPositiveMoments("with significant other")
-    let positive_other_moments = this.getPositiveMoments("other")
+  getPosPieChartData = () => {
+    let work = this.getPositiveMoments("at work")
+    let outdoors = this.getPositiveMoments("outdoors")
+    let exercise = this.getPositiveMoments("exercising")
+    let downtime = this.getPositiveMoments("downtime")
+    let socializing = this.getPositiveMoments("socializing")
+    let family = this.getPositiveMoments("with family")
+    let signifcant_other = this.getPositiveMoments("with significant other")
+    let other = this.getPositiveMoments("other")
 
+    let ranks = [];
+    ranks.push(work, outdoors, exercise, downtime, socializing, family, signifcant_other, other)
+    this.setPosPieChartData(ranks)
+  }
+
+  setPosPieChartData = (data) => {
     this.setState({
       posPieChartData: {
-        labels: [
-          'at work',
-          'outdoors',
-          'exercising',
-          'downtime',
-          'socializing',
-          'with family',
-          'with significant other',
-          'other'],
-        datasets: [
-          {
-            label: 'frequency of positive feelings',
+        labels: chartLabels,
+          datasets: [
+            {
+              data: data,
+              backgroundColor: pieChartColors
+            }]
+        }})}
 
-            data: [positive_work_moments, positive_outdoors_moments, positive_exercising_moments, positive_downtime_moments, positive_socializing_moments, positive_family_moments, positive_significant_other_moments, positive_other_moments],
 
-            backgroundColor: [
-              'rgba(233,111,119, .8)',
-              'rgba(244, 232, 109, .8)',
-              'rgba(162, 216, 127, .8)',
-              'rgba(193, 223, 238, .8)',
-              'rgba(242, 116, 73, .7)',
-              'rgba(186, 171, 245, .8)',
-              'rgba(100, 166, 150, 1)',
-              'rgba(245, 245, 245, 1)'
-              ]
-          }
-        ]
-      }
-    })
+  getNegPieChartData = () => {
+    let work = this.getNegativeMoments("at work")
+    let outdoors = this.getNegativeMoments("outdoors")
+    let exercise = this.getNegativeMoments("exercising")
+    let downtime = this.getNegativeMoments("downtime")
+    let socializing = this.getNegativeMoments("socializing")
+    let family = this.getNegativeMoments("with family")
+    let signifcant_other = this.getNegativeMoments("with significant other")
+    let other = this.getNegativeMoments("other")
+    let ranks = [];
+    ranks.push(work, outdoors, exercise, downtime, socializing, family, signifcant_other, other)
+    this.setNegPieChartData(ranks)
   }
 
-  setNegPieChartData = () => {
-    let negative_work_moments = this.getNegativeMoments("at work")
-    let negative_outdoors_moments = this.getNegativeMoments("outdoors")
-    let negative_exercising_moments = this.getNegativeMoments("exercising")
-    let negative_downtime_moments = this.getNegativeMoments("downtime")
-    let negative_socializing_moments = this.getNegativeMoments("socializing")
-    let negative_family_moments = this.getNegativeMoments("with family")
-    let negative_significant_other_moments = this.getNegativeMoments("with significant other")
 
-    let negative_other_moments = this.getNegativeMoments("other")
-
+  setNegPieChartData = (data) => {
     this.setState({
       negPieChartData: {
-        labels: [
-          'at work',
-          'outdoors',
-          'exercising',
-          'downtime',
-          'socializing',
-          'with family',
-          'with significant other',
-          'other'],
+        labels: chartLabels,
         datasets: [
           {
-            label: 'frequency of positive feelings',
+            data: data,
+              backgroundColor: pieChartColors
+          }]
+      }})}
 
-            data: [negative_work_moments, negative_outdoors_moments, negative_exercising_moments, negative_downtime_moments, negative_socializing_moments, negative_family_moments, negative_significant_other_moments, negative_other_moments],
-
-            backgroundColor: [
-              'rgba(233,111,119, .8)',
-              'rgba(244, 232, 109, .8)',
-              'rgba(162, 216, 127, .8)',
-              'rgba(193, 223, 238, .8)',
-              'rgba(242, 116, 73, .7)',
-              'rgba(186, 171, 245, .8)',
-              'rgba(100, 166, 150, 1)',
-              'rgba(245, 245, 245, 1)'
-              ]
-          }
-        ]
-      }
-    })
-  }
 
   addSavedEntry = (newEntry) => {
-    console.log(newEntry)
     this.setState({
       user: {
         ...this.state.user, saved_entries: [...this.state.user.saved_entries, newEntry]

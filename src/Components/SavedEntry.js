@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { OverlayTrigger, Popover, Button } from 'react-bootstrap';
+import { OverlayTrigger, Popover } from 'react-bootstrap';
 
 
 class SavedEntry extends Component {

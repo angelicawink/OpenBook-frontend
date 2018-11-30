@@ -46,7 +46,7 @@ class Chart extends Component {
             case 11:
                 return 'absolutely amazing';
             default:
-              return "mood"
+              return ""
         }
     }
                 }

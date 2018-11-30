@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import JournalSearchDisplay from './JournalSearchDisplay';
-import SavedSearches from './SavedSearches';
-import JournalSearchForm from './JournalSearchForm'
 
 class JournalSearch extends Component {
   state={
