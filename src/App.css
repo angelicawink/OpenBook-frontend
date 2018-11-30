@@ -1,6 +1,6 @@
-body {
+/* body {
   background-color: red;
-}
+} */
 
 .journal-search {
   color: rgb(160, 193, 217);
@@ -42,7 +42,7 @@ div.home-container.container{
 nav.navbar.navbar-default{
   padding: 5px;
   margin: 0px;
-  background-color: rgba(106, 194, 139, .6);
+  background-color: rgba(106, 194, 139, .8);
   /* color: white; */
   height: 65px;
   /* box-shadow:   .5px .5px .5px .5px; */
@@ -156,11 +156,12 @@ div.home-container.container {
   /* padding: 20px; */
 }
 
-.home-body {
+.home-body, .search-body {
   width: 100vw;
+  height: 100vh;
 }
 
-.home-body {
+.home-body, .search-body {
   background: rgb(150, 177, 214)
 }
 
@@ -328,25 +329,33 @@ a{
   /* color: white; */
 }
 
+.page-header.search-header{
+  padding: 20px;
+  text-align: center;
+}
+div#root{
+  background-color: grey;
+}
+
 .search-result-item{
-  background-color: rgba(106, 194, 139, .6);
+  background-color: rgba(106, 194, 139, 1);
   padding: 8px;
   border-radius: 4px;
   border-style: solid;
-  border-color: white;
-  border-width: 1.5px;
+  border-color: rgba(93, 155, 113, 1);
+  border-width: .5px;
   width: fit-content;
   margin: 3px;
   color: white;
 }
 
-#search-result-placeholder{
-  color: white;
+.search-result-item:hover{
+  box-shadow: 1px 1px 1px 1px;
+  background-color: rgba(93, 155, 113, 1);
 }
 
-.search-result-item:hover{
-  box-shadow: 2px 2px 2px 2px;
-  background-color: rgba(106, 194, 139, .8);
+#search-result-placeholder{
+  color: white;
 }
 
 /* div.journal-search.detail{
@@ -367,6 +376,10 @@ div.search.container{
   float: right;
 }
 
+div.saved-div{
+  /* background-color: rgba(223, 203, 168, .9); */
+
+}
 form.search-form{
   width: 65vw;
   margin-top: 60%;
@@ -374,11 +387,11 @@ form.search-form{
 }
 
 div.journal-search.master {
-  background-color: rgba(195,163,207, .6);
-  /* border-style: solid; */
+  background-color: rgba(238,141,112, 1);
+  border-style: solid;
   border-radius: 5px;
-  /* border-color: lightgrey; */
-  border-width: 2px;
+  text-align: center;
+  border-width: .5px;
   min-height: 70vh;
   max-height: 70vh;
   min-width: 25vw;
@@ -389,15 +402,18 @@ div.journal-search.master {
 }
 
 div.journal-search.saved{
-  background-color: rgba(223, 203, 168, .9);
+  /* background-color: rgba(223, 203, 168, .9); */
   max-height: 60vh;
   min-height: 60vh;
+  min-width: 19vw;
+  max-width: 19vw;
   border-radius: 5px;
   border-width: 2px;
   margin: 10px;
   overflow: auto;
-  padding: 15px;
-  float: right;
+  padding: 5px;
+  margin: 10px;
+  display: inline-block;
 }
 
 div#holder{
@@ -411,6 +427,7 @@ div#holder{
   border-radius: 5px;
   min-width: 25vw;
   max-width: 25vw;
+  text-align: center;
 }
 
 #popover-trigger-focus{
@@ -425,8 +442,9 @@ div#holder{
 
 div.page-header.saved-entry{
   color: rgba(92, 70, 60, .7);
-  box-shadow: 1px 1px 1px 1px;
-  font-size: 20px;
+  background-color: rgba(223, 203, 168, .9);
+  box-shadow: .5px .5px .5px .5px;
+  font-size: 15px;
   margin: 5px;
   padding: 35px 18px;
   border-radius: 3px;
@@ -435,4 +453,57 @@ div.page-header.saved-entry{
 
 div.page-header.saved-entry:hover{
   background-color: rgba(92, 70, 60, .1);
+}
+
+.letter.container{
+  background-color: pink;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+}
+
+#letter-holder{
+  background-image: url("http://bgfons.com/uploads/paper_grid/paper_grid_PNG5414.png");
+  background-size: cover;
+
+  height: 80vh;
+  width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  margin-top: 25px;
+}
+
+#letter-textarea{
+  background-color: transparent;
+  /* padding: 30px; */
+  padding-left: 40px;
+  /* padding-top: 50px; */
+  font-size: 15px;
+  color: grey;
+  line-height: 31px;
+  border-style: hidden;
+  box-shadow: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  /* margin-top: 25px; */
+  height: 62.5vh;
+  width: 40vw;
+}
+
+#dear{
+  /* background-color: red; */
+  padding-top: 55px;
+  padding-right: 140px;
+}
+
+#with-rage{
+  /* padding-top: 5px; */
+  padding-left: 200px;
+}
+
+#envelope-gif{
+  height: 100vh;
+  width: 100vw;
 }

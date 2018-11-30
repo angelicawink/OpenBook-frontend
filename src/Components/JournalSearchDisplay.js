@@ -22,22 +22,23 @@ class JournalSearchDisplay extends Component {
 
   render(){
     return(
+      <React.Fragment>
+        <div className="container search-body">
+          <ResultsMaster
+            savedEntryIDs={this.props.savedEntryIDs}
+            addSavedEntry={this.props.addSavedEntry}
+            deleteSavedEntry={this.props.deleteSavedEntry}
+            results={this.state.results}
+            user={this.props.user}/>
 
-      <>
-        <ResultsMaster
-          savedEntryIDs={this.props.savedEntryIDs}
-          addSavedEntry={this.props.addSavedEntry}
-          deleteSavedEntry={this.props.deleteSavedEntry}
-          results={this.state.results}
-          user={this.props.user}/>
+          <JournalSearchForm
+            user={this.props.user}
+            setSearchResults={this.setSearchResults}/>
 
-        <JournalSearchForm
-          user={this.props.user}
-          setSearchResults={this.setSearchResults}/>
-
-        <SavedSearches
-          user={this.props.user}/>
-    </>
+          <SavedSearches
+            user={this.props.user}/>
+        </div>
+    </React.Fragment>
     )
   }
 }

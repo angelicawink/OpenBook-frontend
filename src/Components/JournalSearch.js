@@ -5,10 +5,10 @@ class JournalSearch extends Component {
 
   render (){
     return(
-      <>
-        <>
+      <div className="search-body">
 
-          <h3 className="page-header">
+
+          <h3 className="page-header search-header">
             See what other people are writing about:
           </h3>
 
@@ -18,9 +18,9 @@ class JournalSearch extends Component {
             savedEntryIDs={this.props.savedEntryIDs}
             user={this.props.user}
             />
-        </>
 
-      </>
+
+        </div>
     )
   }
 }
