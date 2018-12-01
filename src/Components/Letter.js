@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import EditableLabel from 'react-inline-editing';
+
 
 class Letter extends Component{
   constructor(props){
@@ -7,6 +9,16 @@ class Letter extends Component{
       showEnvelope: true
     }
   }
+
+    handleFocus = (text) => {
+      console.log('Focused with text: ' + text);
+    }
+
+
+
+    handleFocusOut = (title) => {
+        console.log('Left editor with text: ' + title);
+    }
 
   handleClick = () => {
     this.setState({
@@ -31,13 +43,16 @@ class Letter extends Component{
 
             <div id="letter-holder">
               <div id="dear">
-                <label>Dear</label>
-                <input
-                  type="text"
-                  id="dear-placeholder"
-                  placeholder="terrible person in line">
-                </input>
-                <label>,</label>
+                Dear
+                <EditableLabel
+                  id="terrible person"
+                  text='terrible person'
+                  inputWidth='100px'
+                  inputHeight='20px'
+                  inputMaxLength='50'
+                  onFocus={this.handleFocus}
+                  onFocusOut={this.handleFocusOut}
+                  />,
               </div>
 
               <textarea
@@ -45,21 +60,39 @@ class Letter extends Component{
                 className="form-control">
               </textarea>
 
-              <div id="with-rage">
-              <label>With rage,</label>
-              <input
-                type="text"
-                placeholder="me"></input>
-                </div>
+              <div>
+                <label
+                  id="with-rage">
+                  With rage,
+                </label>
+              </div>
+
+              <div>
+                <label
+                  id="me">
+                    Me
+                </label>
+              </div>
+
+
             </div>
 
-            <button
-              type="submit"
-              id="letter-button"
-              className="btn btn-warning btn-lg fit">Send!
-            </button>
 
           </form>
+
+          <button
+            onClick={this.handleClick}
+            type="submit"
+            id="go-back-button"
+            className="btn btn-warning btn-lg fit">Go Back
+          </button>
+
+          <button
+            onClick={this.handleClick}
+            type="submit"
+            id="send-button"
+            className="btn btn-warning btn-lg fit">Send!
+          </button>
         </div>
 
     )

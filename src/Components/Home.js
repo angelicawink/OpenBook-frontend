@@ -19,7 +19,7 @@ class Home extends Component {
     if (this.state.snapshotLogged){
       return (
         <div className="moment-box">
-          <img src="https://img.icons8.com/cotton/2x/checkmark.png" alt="checkmark" id="checkmark"/>
+          <img src="https://img.icons8.com/cotton/2x/checkmark.png" alt="checkmark" id="moment-checkmark"/>
           <div><button className="btn btn-default" onClick={this.snapshotLogged}>chart another</button></div>
         </div>
       )

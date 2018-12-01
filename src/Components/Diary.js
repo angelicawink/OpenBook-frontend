@@ -62,13 +62,13 @@ class Diary extends Component {
             <div>
                 <img
                   onClick={this.getPreviousEntry}
-                  src="http://www.clker.com/cliparts/U/0/5/1/s/5/red-arrow-hi.png"
+                  src="https://www.mtec.or.th/wp-content/uploads/2018/02/icon-arrow-right.png"
                   alt="previous-button"
                   className="arrow previous"/>
 
                 <img
                   onClick={this.getNextEntry}
-                  src="http://www.clker.com/cliparts/U/0/5/1/s/5/red-arrow-hi.png"
+                  src="https://www.mtec.or.th/wp-content/uploads/2018/02/icon-arrow-right.png"
                   alt="next-button"
                   className="arrow next"/>
 
