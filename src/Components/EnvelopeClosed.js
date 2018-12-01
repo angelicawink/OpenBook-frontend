@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class EnvelopeClosed extends Component{
   render(){
     return(
+      
       <div className="envelope-stamp">
         <div
           id="envelope"
@@ -18,13 +19,9 @@ class EnvelopeClosed extends Component{
 
         </div>
       </div>
+
     )
   }
 }
 
 export default EnvelopeClosed
-
-// http://postalnews.com/postalnewsblog/wp-content/uploads/2013/09/invertedjenny-2dollar2.png
-//
-//
-// http://www.kidsgen.com/hobbies/images/stamp1.gif

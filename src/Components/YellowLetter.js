@@ -60,14 +60,13 @@ class YellowLetter extends Component {
           </form>
 
           <button
-            onClick={this.props.handleClick}
             type="submit"
             id="go-back-button"
             className="btn btn-warning btn-lg fit">Go Back
           </button>
 
           <button
-            onClick={this.props.handleClick}
+            onClick={this.props.send}
             type="submit"
             id="send-button"
             className="btn btn-warning btn-lg fit">Send!

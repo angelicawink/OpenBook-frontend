@@ -459,6 +459,7 @@ div.page-header.saved-entry{
 
 div.page-header.saved-entry:hover{
   background-color: rgba(191, 175, 161, .8);
+
 }
 
 .letter.container{
@@ -548,7 +549,8 @@ div#envelope{
   margin-top: 15%;
   background-color: rgb(166,228,223);
   border-radius: 3px 3px 15px 15px;
-  padding: 2%;
+  padding: 3%;
+  text-align: right;
   /* width: fit-content; */
 
 }
@@ -568,16 +570,52 @@ div.item.active{
 }
 
 #postage{
-  position: fixed;
+  position: relative;
   height: 8vh;
 }
 
-#address{
-  margin-top: 25%;
+#mailing-letter{
+  margin-left: 30vw;
+  margin-top: 20vh;
+  height: 45vh;
+}
+
+div#address{
+  margin-top: 8%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   font-size: 2.3vh;
   font-style: italic;
   color: white;
+  height: 2.3vh;
+}
+
+.myInputClass{
+  background-color: rgba(223, 203, 168, .9);
+  text-align: center;
+  border-style: hidden;
+  overflow: scroll;
+}
+
+label.myLabelClass:hover{
+  cursor: text;
+}
+
+#flames{
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  bottom: 11vh;
+  height: 110vh;
+}
+
+#done{
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 35%;
+  text-align: center;
+  font-size: 30px;
+  color: lightyellow;
 }

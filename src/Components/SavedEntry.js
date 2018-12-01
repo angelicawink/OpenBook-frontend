@@ -69,7 +69,7 @@ constructor(props){
                 text={this.props.savedEntry.title}
                 labelClassName='myLabelClass'
                 inputClassName='myInputClass'
-                inputWidth='200px'
+                inputWidth='150px'
                 inputHeight='25px'
                 inputMaxLength='50'
                 labelFontWeight='bold'
