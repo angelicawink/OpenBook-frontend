@@ -156,7 +156,7 @@ div.home-container.container {
   /* padding: 20px; */
 }
 
-.home-body, .search-body {
+.home-body, .search-body, .login-body {
   width: 100vw;
   height: 100vh;
 }
@@ -393,7 +393,7 @@ form.search-form{
 }
 
 div.journal-search.master {
-  background-color: rgba(238,141,112, 1);
+  background-color: rgba(210,188,208, 1);
   /* border-style: solid; */
   border-radius: 5px;
   text-align: center;
@@ -416,7 +416,7 @@ div.journal-search.saved{
   border-radius: 5px;
   border-width: 2px;
   margin: 10px;
-  overflow: auto;
+  /* overflow: auto; */
   padding: 5px;
   margin: 10px;
   display: inline-block;
@@ -458,7 +458,7 @@ div.page-header.saved-entry{
 }
 
 div.page-header.saved-entry:hover{
-  background-color: rgba(92, 70, 60, .1);
+  background-color: rgba(191, 175, 161, .8);
 }
 
 .letter.container{
@@ -538,4 +538,46 @@ div.page-header.saved-entry:hover{
   float: right;
   margin-right: 20vw;
   margin-top: -45vh;
+}
+
+div#envelope{
+  height: 18vw;
+  width: 42vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15%;
+  background-color: rgb(166,228,223);
+  border-radius: 3px 3px 15px 15px;
+  padding: 2%;
+  /* width: fit-content; */
+
+}
+
+.envelope-stamp{
+  height: 20vw;
+  width: 42vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 17%;
+
+}
+
+div.item.active{
+  width: 100vw;
+  height: 100vh;
+}
+
+#postage{
+  position: fixed;
+  height: 8vh;
+}
+
+#address{
+  margin-top: 25%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2.3vh;
+  font-style: italic;
+  color: white;
 }

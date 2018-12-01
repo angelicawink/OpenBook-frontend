@@ -18,12 +18,25 @@ class JournalSearchDisplay extends Component {
       })
     }
 
+    componentDidMount(){
+      let token = localStorage.getItem('token')
 
+      fetch(`http://localhost:3000/api/v1/entries`, {
+        headers: {
+          "Authorization" : `Bearer ${token}`
+        }
+      })
+      .then(res => res.json())
+      .then(entries => this.setState({
+        results: entries
+      }))
+    }
 
   render(){
     return(
       <React.Fragment>
         <div className="container search-body">
+
           <ResultsMaster
             savedEntryIDs={this.props.savedEntryIDs}
             addSavedEntry={this.props.addSavedEntry}
@@ -37,6 +50,7 @@ class JournalSearchDisplay extends Component {
 
           <SavedSearches
             user={this.props.user}/>
+
         </div>
     </React.Fragment>
     )

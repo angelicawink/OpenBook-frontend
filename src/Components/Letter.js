@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import EditableLabel from 'react-inline-editing';
+import EnvelopeGif from './EnvelopeGif';
+import EnvelopeClosed from './EnvelopeClosed';
+import YellowLetter from './YellowLetter';
 
 
 class Letter extends Component{
@@ -10,15 +12,7 @@ class Letter extends Component{
     }
   }
 
-    handleFocus = (text) => {
-      console.log('Focused with text: ' + text);
-    }
 
-
-
-    handleFocusOut = (title) => {
-        console.log('Left editor with text: ' + title);
-    }
 
   handleClick = () => {
     this.setState({
@@ -29,77 +23,30 @@ class Letter extends Component{
   render(){
     return this.state.showEnvelope ? (
 
-        <img
-        src="https://d3dvldql7ksohz.cloudfront.net/000_clients/646957/page/6469574kJDviXu.gif"
-        alt="envelope"
-        id="envelope-gif"
-        onClick={this.handleClick}
-        />
+        <EnvelopeClosed
+          handleClick={this.handleClick}/>
+
       )
         :
-(
-        <div className="letter container">
-          <form>
 
-            <div id="letter-holder">
-              <div id="dear">
-                Dear
-                <EditableLabel
-                  id="terrible person"
-                  text='terrible person'
-                  inputWidth='100px'
-                  inputHeight='20px'
-                  inputMaxLength='50'
-                  onFocus={this.handleFocus}
-                  onFocusOut={this.handleFocusOut}
-                  />,
-              </div>
+      (
+          <EnvelopeGif
+            handleClick={this.handleClick}/>
 
-              <textarea
-                id="letter-textarea"
-                className="form-control">
-              </textarea>
-
-              <div>
-                <label
-                  id="with-rage">
-                  With rage,
-                </label>
-              </div>
-
-              <div>
-                <label
-                  id="me">
-                    Me
-                </label>
-              </div>
-
-
-            </div>
-
-
-          </form>
-
-          <button
-            onClick={this.handleClick}
-            type="submit"
-            id="go-back-button"
-            className="btn btn-warning btn-lg fit">Go Back
-          </button>
-
-          <button
-            onClick={this.handleClick}
-            type="submit"
-            id="send-button"
-            className="btn btn-warning btn-lg fit">Send!
-          </button>
-        </div>
 
     )
   }
 }
 
 export default Letter
+//
+// <EnvelopeGif
+//   handleClick={this.handleClick}/>
+//
+// <YellowLetter
+//   handleClick={this.handleClick}
+// />
+
 // lined yellow paper =
 // "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Documents_icon.svg/651px-Documents_icon.svg.png"
 

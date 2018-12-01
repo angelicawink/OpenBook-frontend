@@ -60,30 +60,35 @@ componentDidMount(){
     })
   }
 
-  
+
 
   render() {
     if (this.state.user) {
       return <Redirect push to={'/home'}/>
     } else {
       return (
-        <div className="container">
+        <div className="login-body">
+
           <div className="container">
             <h1 className="page-header">Open Book. <small> we're with you.</small></h1>
           </div>
+
           <div className="container">
             <div className="col-sm-4">
+
               <form onSubmit={this.handleSubmit}>
+
                 <div className="form-group">
                   <input type="text" className="form-control" name="username" placeholder="username" onChange={this.handleChange}/>
                   <input type="password" className="form-control" name="password" placeholder="password" onChange={this.handleChange}/>
-
                 </div>
 
                 <div className="form-group">
                   <button type="submit" className="btn btn-default">Log In</button>
                 </div>
+                
               </form>
+
             </div>
           </div>
 
