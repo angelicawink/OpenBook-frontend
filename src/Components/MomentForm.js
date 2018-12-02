@@ -78,7 +78,9 @@ class MomentForm extends Component {
     return (
       <>
         <form onSubmit={this.handleSubmit} className="snapshot">
-          <h3>How I'm Feeling Right Now:</h3>
+            Right now I'm feeling
+            <h2>{this.showRank()}</h2>
+
 
             <div className="form-group ">
               <input
@@ -90,7 +92,7 @@ class MomentForm extends Component {
               className="slider"/>
             </div>
 
-            <label>Where am I:</label>
+             I'm
             <select name="setting" onChange={this.handleChange} className="form-group">
               <option value="1">at work</option>
               <option value="2">outdoors</option>
@@ -103,8 +105,7 @@ class MomentForm extends Component {
             </select>
 
             <div className="form-group">
-              <h2>{this.showRank()}</h2>
-              <Button color="orange" type="submit">chart it</Button>
+              <button id="new-moment" type="submit">chart it</button>
             </div>
 
         </form>

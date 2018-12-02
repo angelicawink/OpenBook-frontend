@@ -71,7 +71,7 @@ constructor(props){
                 inputClassName='myInputClass'
                 inputWidth='150px'
                 inputHeight='25px'
-                inputMaxLength='50'
+                inputMaxLength={50}
                 labelFontWeight='bold'
                 inputFontWeight='bold'
                 onFocus={this.handleFocus}

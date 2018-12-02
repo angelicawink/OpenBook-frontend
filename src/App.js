@@ -189,12 +189,8 @@ class App extends Component {
   }
 
   deleteSavedEntry = (savedEntry) => {
-    console.log(this.state.user.saved_entries)
-    console.log(this.state.savedEntryIDs)
-
     let objIndex = this.state.user.saved_entries.findIndex(saved => saved.id == savedEntry.id)
     let id_index = this.state.savedEntryIDs.findIndex(id => id === savedEntry.entry.id)
-
     this.setState({
       user: {
         ...this.state.user,
@@ -205,7 +201,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.user)
     return (
       <Fragment>
         {this.state.user ?

@@ -16,7 +16,8 @@ class EntryForm extends Component {
     let entryContent = this.state.content;
     let userID = this.props.user.id;
     let token = localStorage.getItem('token');
-
+    let privacyInput = event.target.children[2].checked
+    debugger
 
     fetch(`http://localhost:3000/api/v1/entries`, {
       method: "POST",
@@ -27,7 +28,8 @@ class EntryForm extends Component {
         },
         body: JSON.stringify({
           user_id: userID,
-          content: entryContent
+          content: entryContent,
+          private: privacyInput
         })
     })
     .then(res => res.json())
@@ -81,10 +83,13 @@ class EntryForm extends Component {
             <textarea onChange={this.handleChange} id="new-diary-entry"></textarea>
           </div>
 
-          <button id="submit-entry" type="submit" className="btn btn-primary">Submit</button>
+          <button id="submit-entry" type="submit">Submit</button>
+          Private<input type="checkbox" id="private"/>
         </form>
 
-        <button className="btn btn-default" onClick={this.props.entryLogged}>Cancel</button>
+        <button id="cancel-entry" onClick={this.props.entryLogged}>Cancel</button>
+
+
       </>
     )
   }

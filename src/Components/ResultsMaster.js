@@ -87,35 +87,3 @@ class ResultstMaster extends Component{
 }
 
 export default ResultstMaster
-
-
-// <OverlayTrigger
-//   key={index}
-//   trigger={['hover', 'click']}
-//   placement="right"
-//   overlay={popoverClick}
-//   >
-//
-//   <h4
-//     data-entryid={result.id}
-//     className="search-result-item"
-//     onMouseOver={(entry) => this.props.setSelectedEntry(result)}
-//     key={index}
-//     >
-//
-//       <img
-//         onClick={this.handleClick}
-//         id="bookmark"
-//         data-entryid={result.id}
-//         src="http://www.iconsalot.com/asset/icons/dinosoftlabs/education-3/512/101-bookmark-icon.png"
-//         alt="bookmark icon"
-//         />
-//
-//
-//   {result.created_at.slice(0,9) + " - "} {result.content.slice(0, 60)+'.....'}
-//
-// </h4>
-// </OverlayTrigger>
-
-
-                  // {result.created_at.slice(0,9) + " - "} {result.content.slice(0, 60)+'.....'}

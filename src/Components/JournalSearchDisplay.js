@@ -27,9 +27,23 @@ class JournalSearchDisplay extends Component {
         }
       })
       .then(res => res.json())
-      .then(entries => this.setState({
-        results: entries
-      }))
+      .then(entries => {
+        console.log(entries)
+        let publicEntries = entries.filter(entry => entry.private == false)
+        console.log(publicEntries)
+
+////// the below code is not being hit because props.user doesnt exist...how to fix?
+        if (this.props.user) {
+          let strangerEntries = publicEntries.filter(entry => entry.user.id !== this.props.user.id)
+          console.log(strangerEntries)
+
+        } else {
+          this.setState({
+            results: publicEntries
+          })
+        }
+      }
+    )
     }
 
   render(){

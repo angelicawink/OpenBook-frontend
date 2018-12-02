@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardBody } from 'reactstrap';
-import { Button } from 'semantic-ui-react'
+import { Button, Icon } from 'semantic-ui-react';
+
 
 class Diary extends Component {
   state={
@@ -51,14 +52,27 @@ class Diary extends Component {
 
 
   render(){
+    const thisEntry = this.props.user.entries[this.state.currentEntryIndex]
+    console.log(thisEntry)
     return(
       <div>
-        <h3>{this.getDate()}</h3>
-        <h6>{this.getTime()}</h6>
-          <Card className="diary-page">
-            <CardBody>{this.props.user.entries[this.state.currentEntryIndex].content}</CardBody>
+        <h3 className="date-header">{this.getDate()}</h3>
 
+            {thisEntry.private ?
+              <img id="lock-icon" src="https://freeiconshop.com/wp-content/uploads/edd/lock-flat.png" alt="lock"/>
+              :
+               <img id="hidden-lock" src="https://freeiconshop.com/wp-content/uploads/edd/lock-flat.png" alt="lock"/>
+            }
+
+        <h6 className="time-header">{this.getTime()}</h6>
+
+          <Card className="diary-page">
+            <CardBody>
+              {thisEntry.content}
+
+            </CardBody>
           </Card>
+
             <div>
                 <img
                   onClick={this.getPreviousEntry}
@@ -74,7 +88,7 @@ class Diary extends Component {
 
             </div>
 
-          <Button color="orange" id="new-entry" onClick={this.props.entryLogged} type="submit">new entry</Button>
+          <button id="new-entry" onClick={this.props.entryLogged} type="submit">new entry</button>
 
       </div>
     )

@@ -26,14 +26,16 @@ class JournalSearchForm extends Component {
 // filter out entries written by user
 // include only entries that inlcude the search term
       let strangerEntries =
-          entries.filter(entry => entry.user.id !== this.props.user.id)
+          entries.filter(entry => entry.user.id != this.props.user.id)
           .filter(entry => entry.content.includes(this.state.searchTerm)
         )
+// filter out diary entries that are marked 'private'
+      let nonPrivateEntries = strangerEntries.filter(entry => entry.private === false)
 // collect IDs of all this user's saved entries
         let savedEntryIDs = [];
         this.props.user.saved_entries.forEach(saved => savedEntryIDs.push(saved.entry.id))
 
-        this.props.setSearchResults(strangerEntries)
+        this.props.setSearchResults(nonPrivateEntries)
 
         this.setState({
           searchTerm: ''

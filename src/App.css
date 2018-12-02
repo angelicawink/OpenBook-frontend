@@ -15,11 +15,37 @@ button#search-button.btn.btn-warning.btn-lg{
   display: inline-block;
 }
 
-/* .middle{
-  text-align: center;
+#lock-icon{
+  width: 28px;
+  /* margin-left: 5px; */
+}
+
+#hidden-lock{
+  width: 28px;
+  /* margin-left: 5px; */
+  visibility: hidden;
+}
+
+/* button.small, #submit-entry{
+  height: 30px;
+  width: fit-content;
+  margin: 10px;
+  font-size: 16px;
 } */
 
+button#new-entry, button#new-moment, #private, #cancel-entry, #submit-entry{
+  background-color: transparent;
+  border-color: white;
+  margin: 3px;
+  border-width: 1.5px;
+  padding: 5px;
+  border-radius: 3px;
+  color: white;
+}
 
+button#new-entry:hover, button#new-moment:hover, #private:hover, #cancel-entry:hover, #submit-entry:hover{
+  background-color: rgba(100, 166, 150, 1);
+}
 
 input.form-control{
   width: 40%;
@@ -62,9 +88,9 @@ div.Box-1.top-left{
 }
 
 canvas#pie-chart.chartjs-render-monitor{
-  min-height: 20vh;
-  max-height: 30vh;
-  min-width: 35vw;
+  min-height: 18vh;
+  max-height: 28vh;
+  min-width: 30vw;
   max-width: 35vw;
   margin-left: 8vw;
   margin-top: 2vh;
@@ -148,6 +174,15 @@ h5, h4, p{
 
 h2, h3, h6{
   color: white;
+}
+
+h3.date-header{
+  margin-bottom: 3px;;
+}
+
+h6.time-header{
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 div.home-container.container {
@@ -253,6 +288,7 @@ div.form-group.new-entry-container{
   width: 100%;
   min-height: 100%;
   margin: 0;
+
 }
 
 .arrow {
@@ -308,6 +344,7 @@ div.diary-page.card, #new-diary-entry{
   border-color: white;
   border-style: solid;
   border-width: .5px;
+  /* display: flex; */
   /* box-shadow:   1px 1px 1px 1px; */
   padding: 10px;
 }
@@ -614,7 +651,7 @@ label.myLabelClass:hover{
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 35%;
+  padding-top: 30%;
   text-align: center;
   font-size: 30px;
   color: lightyellow;
