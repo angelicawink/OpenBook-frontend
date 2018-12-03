@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import Signup from './Signup';
 
 class Login extends Component {
   state={
@@ -53,7 +54,6 @@ componentDidMount(){
         alert('Invalid username or password')
 
       } else {
-
         localStorage.setItem('token', data.jwt)
         this.props.setUser(data.user_info)
       }
@@ -63,7 +63,8 @@ componentDidMount(){
 
 
   render() {
-    if (this.state.user) {
+    console.log('asdf')
+    if (this.props.user) {
       return <Redirect push to={'/home'}/>
     } else {
       return (
@@ -76,21 +77,26 @@ componentDidMount(){
           <div className="container">
             <div className="col-sm-4">
 
+              <h2>Log In</h2>
               <form onSubmit={this.handleSubmit}>
 
                 <div className="form-group">
-                  <input type="text" className="form-control" name="username" placeholder="username" onChange={this.handleChange}/>
-                  <input type="password" className="form-control" name="password" placeholder="password" onChange={this.handleChange}/>
+                  <label>Username</label>
+                  <input type="text" className="form-control short" name="username" placeholder="username" onChange={this.handleChange}/>
+                  <label>Password</label>
+                  <input type="password" className="form-control short" name="password" placeholder="password" onChange={this.handleChange}/>
                 </div>
 
                 <div className="form-group">
-                  <button type="submit" className="btn btn-default">Log In</button>
+                  <button type="submit" className="btn btn-warning">Log In</button>
                 </div>
-                
+
               </form>
 
             </div>
           </div>
+
+          <Signup setUser={this.props.setUser}/>
 
         </div>
       )

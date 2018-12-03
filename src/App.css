@@ -80,7 +80,9 @@ nav.navbar.navbar-default{
 }
 
 div.Box-1.top-left{
-  padding: 0px;
+  padding: 5%;
+  padding-left: 8%;
+  padding-bottom: 0;
   border-right: 1px solid;
   border-bottom: 1px solid;
   border-color: lightgrey;
@@ -129,7 +131,7 @@ div.Box-1.bottom-right{
 .page-header{
   color: lightgrey;
   margin-left: 5vw;
-  font-size: 25px;
+  font-size: 45px;
 }
 
 .form-control, .btn-default{
@@ -137,15 +139,28 @@ div.Box-1.bottom-right{
 }
 
 canvas.chartjs-render-monitor{
-  min-height: 40vh;
-  max-height: 40vh;
-  min-width: 43vw;
-  max-width: 43vw;
-  margin-left: 5%;
-  margin-top: 5%;
+  min-height: 38vh;
+  max-height: 38vh;
+  min-width: 40vw;
+  max-width: 40vw;
+  margin: 0px;
+  /* padding-top: 2%; */
+  /* margin-left: 5%; */
+  /* margin-top: 5%; */
 }
 
+div.chart{
+  margin: 0;
+}
 
+#no-chart{
+  min-height: 32vh;
+  max-height: 32vh;
+  min-width: 25vw;
+  max-width: 25vw;
+  margin-left: 5%;
+  /* margin-top: 5%; */
+}
 
 label{
   margin-right: 8px;
@@ -196,6 +211,21 @@ div.home-container.container {
   height: 100vh;
 }
 
+.login-body{
+  align-items: center;
+}
+
+.signup{
+  margin: 5%;
+}
+
+/* h1.page-header */
+
+
+input.form-control.short{
+  margin: 0px;
+  width: fit-content;
+}
 .home-body, .search-body {
   /* background-image: linear-gradient(to right, rgba(93, 150, 110, 1), rgba(120, 196, 143, .5), rgba(122, 198, 146, .7), rgba(120, 196, 143, .5), rgba(93, 150, 110, 1)); */
   background-color: rgba(120, 196, 143, .5);

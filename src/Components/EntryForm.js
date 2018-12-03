@@ -57,18 +57,22 @@ class EntryForm extends Component {
     let hours;
     let am_pm;
 
-    if (time[0] > 12){
+    if (~~time[0] > 12){
+      debugger
       hours = time[0] -12;
       am_pm = ' pm';
-    } else if (time[0] === 12) {
+    } else if (~~time[0] === 12) {
+      debugger
       hours = time[0];
       am_pm = ' pm'
-    } else if (time[0] < 12) {
+    } else if (~~time[0] < 12) {
+      debugger
       hours = time[0];
       am_pm = ' am';
     }
-
+    debugger
     let displayTime = hours + ":" + mins + am_pm
+    debugger
     return displayTime;
   }
 

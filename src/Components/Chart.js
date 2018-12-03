@@ -55,7 +55,7 @@ class Chart extends Component {
             title: {
               display: true,
               text: 'Feelings Rollercoaster',
-              fontSize: 20,
+              fontSize: 25,
               fontColor: 'white'
             },
             legend: {

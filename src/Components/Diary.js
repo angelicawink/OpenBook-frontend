@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardBody } from 'reactstrap';
-import { Button, Icon } from 'semantic-ui-react';
+// import { Button, Icon } from 'semantic-ui-react';
 
 
 class Diary extends Component {
@@ -54,7 +54,7 @@ class Diary extends Component {
   render(){
     const thisEntry = this.props.user.entries[this.state.currentEntryIndex]
     console.log(thisEntry)
-    return(
+    return (
       <div>
         <h3 className="date-header">{this.getDate()}</h3>
 

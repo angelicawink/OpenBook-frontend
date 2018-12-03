@@ -3,7 +3,7 @@ import SavedEntry from './SavedEntry';
 
 class SavedSearches extends Component{
   render(){
-
+    console.log(this.props)
     return this.props.user ? (
       <div className="col-xs-4">
         <div id="holder">

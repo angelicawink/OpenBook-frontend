@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Carousel } from 'react-bootstrap';
-import Home from './Home';
+// import Home from './Home';
 import Letter from './Letter';
 
 class Vent extends Component {

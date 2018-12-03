@@ -8,9 +8,9 @@ import { Route, withRouter, Switch } from 'react-router-dom';
 import MyNavBar from './Components/MyNavBar';
 import { fetchVerifyUser } from './FETCHES'
 import { chartLabels, pieChartColors } from './data'
-// Twilio Acnt S-I-D: "ACb9f97507032b8f6c4e9fd223956557ba"
-// Twilio Aut tok: "4146b32d18d0c286673ec34ac00babe7"
-// Twilio Phone #: "+13016835196"
+// T Acnt S-I-D: "ACb9f97507032b8f6c4e9fd223956557ba"
+// T Au tok: "4146b32d18d0c286673ec34ac00babe7"
+// T Phone #: "+13016835196"
 
 class App extends Component {
   constructor(){
@@ -29,14 +29,15 @@ class App extends Component {
 
     if (token)
       fetchVerifyUser(token)
-      .then(data => this.setState({
+      .then(data => {
+        this.setState({
         user: data.user
       }, () => {
         this.getLineChartData()
         this.getPosPieChartData()
         this.getNegPieChartData()
         this.getSavedEntryIDs()
-        })
+      })}
       )
     }
 
@@ -61,8 +62,15 @@ class App extends Component {
   }
 
   logout = () => {
+    debugger
    localStorage.clear()
-   this.setState({user: null})
+   this.setState({
+     user: null,
+     lineChartData: null,
+     posPieChartData: null,
+     negPieChartData: null,
+     savedEntryIDs: []
+   })
    this.props.history.push('/')
   }
 

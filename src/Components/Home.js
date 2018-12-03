@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-// import { Redirect } from 'reactx-router-dom';
+import { Redirect } from 'react-router-dom';
 import MomentForm from './MomentForm';
 import EntryForm from './EntryForm';
 import Diary from './Diary';
 import Chart from './Chart';
 import PieChart from './PieChart';
+import NoChart from './NoChart';
 
 class Home extends Component {
   constructor(props){
@@ -13,6 +14,10 @@ class Home extends Component {
       snapshotLogged: false,
       showNewEntryForm: false
     }
+  }
+
+  componentDidUpdate(){
+    this.renderChartContents()
   }
 
   renderSnapshotContents = () => {
@@ -29,10 +34,34 @@ class Home extends Component {
   }
 
   renderDiaryContents = () => {
-    if (!this.state.showNewEntryForm) {
-      return <Diary {...this.props} user={this.props.user} entries={this.props.entries} entryLogged={this.entryLogged}/>
-    }else {
+    if (this.props.user.entries.length === 0){
       return <EntryForm addEntry={this.props.addEntry} user={this.props.user} entryLogged={this.entryLogged}/>
+    }
+    else {
+      if (!this.state.showNewEntryForm) {
+        return <Diary {...this.props} user={this.props.user} entries={this.props.entries} entryLogged={this.entryLogged}/>
+      }
+      else {
+        return <EntryForm addEntry={this.props.addEntry} user={this.props.user} entryLogged={this.entryLogged}/>
+      }
+    }
+  }
+
+  renderChartContents = () => {
+    if (this.props.user.moments.length === 0){
+      return <NoChart/>
+    }
+    else {
+      return (<Chart lineChartData={this.props.lineChartData} user={this.props.user}/>)
+    }
+  }
+
+  renderPieChartContents = () => {
+    if (this.props.user.moments.length === 0){
+      return <NoChart/>
+    }
+    else {
+      return (<PieChart negPieChartData={this.props.negPieChartData} posPieChartData={this.props.posPieChartData}/>)
     }
   }
 
@@ -49,6 +78,7 @@ class Home extends Component {
   }
 
   render(){
+    console.log(this.props)
       return this.props.user ? (
         <React.Fragment>
           <div className="home-body">
@@ -57,7 +87,7 @@ class Home extends Component {
 
                 <div className="col-xs-6">
                   <div className="Box-1 top-left">
-                      <Chart lineChartData={this.props.lineChartData} user={this.props.user}/>
+                    {this.renderChartContents()}
                   </div>
                 </div>
 
@@ -80,7 +110,7 @@ class Home extends Component {
 
                 <div className="col-xs-6">
                   <div className="Box-1 bottom-right">
-                    <PieChart negPieChartData={this.props.negPieChartData} posPieChartData={this.props.posPieChartData}/>
+                    {this.renderPieChartContents()}
                   </div>
                 </div>
 

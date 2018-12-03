@@ -6,7 +6,6 @@ import SavedSearches from './SavedSearches';
 class JournalSearchDisplay extends Component {
   constructor(props){
     super(props);
-
     this.state={
       results: null
     }
@@ -20,7 +19,6 @@ class JournalSearchDisplay extends Component {
 
     componentDidMount(){
       let token = localStorage.getItem('token')
-
       fetch(`http://localhost:3000/api/v1/entries`, {
         headers: {
           "Authorization" : `Bearer ${token}`
@@ -28,23 +26,26 @@ class JournalSearchDisplay extends Component {
       })
       .then(res => res.json())
       .then(entries => {
-        console.log(entries)
+
         let publicEntries = entries.filter(entry => entry.private == false)
-        console.log(publicEntries)
 
-////// the below code is not being hit because props.user doesnt exist...how to fix?
-        if (this.props.user) {
-          let strangerEntries = publicEntries.filter(entry => entry.user.id !== this.props.user.id)
-          console.log(strangerEntries)
-
-        } else {
-          this.setState({
-            results: publicEntries
-          })
-        }
+        this.setState({
+          results: publicEntries
+        })
       }
     )
     }
+
+    componentDidUpdate(){
+      // added this code to filter out user's entries once component received props.user, but now its infinitely calling setState / didUpdate.....
+      // if (this.props.user) {
+      //   let strangerEntries = this.state.results.filter(entry => entry.user.id !== this.props.user.id)
+      //   this.setState({
+      //     results: strangerEntries
+      //   })
+      // }
+    }
+
 
   render(){
     return(
