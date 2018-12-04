@@ -16,10 +16,9 @@ class Home extends Component {
     }
   }
 
-  componentDidMount(){
-  }
 
   componentDidUpdate(){
+    debugger
     this.renderChartContents()
   }
 

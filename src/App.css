@@ -28,6 +28,32 @@ select.form-group{
 
 }
 
+div#rhyme-results{
+  text-align: center;
+  overflow: auto;
+  height: 61vh;
+  width: 100%;
+  color: white;
+}
+
+.rhyme-item{
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  width: 45%;
+  display: inline-block;
+}
+
+.rhyme-item:hover{
+  background-color: white;
+  color: grey;
+}
+
+.rhyme-holder{
+  text-align: center;
+  padding: 5px;
+}
+
 #click-to-vent{
   font-size: 25px;
   color: lightyellow;
@@ -202,6 +228,32 @@ div.Box-1.bottom-right{
 
 .pie-chart-header{
   margin: 5px;
+}
+
+.page-header.poetry, .poem-title{
+  text-align: center;
+  width: 60vw;
+  font-size: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.poem-body{
+  text-align: center;
+  width: 60vw;
+  height: 65vh;
+  /* background-color: red; */
+}
+
+.poem-holder{
+  padding: 1%;
+}
+
+.container.poetry{
+  padding: 1%;
+  height: 76vh;
+  width: 82vw;
+  background-color: grey;
 }
 
 .page-header{

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Carousel } from 'react-bootstrap';
 // import Home from './Home';
 import Letter from './Letter';
+import Poetry from './Poetry';
 
 class Vent extends Component {
   constructor(props, context) {
@@ -31,11 +32,11 @@ class Vent extends Component {
           >
 
           <Carousel.Item>
-            <Letter/>
+            <Poetry/>
           </Carousel.Item>
 
           <Carousel.Item>
-            <img width={900} height={500} src="http://www.reeshofcultuurt.nl/_Resources/Persistent/fef9a9d00a4df5c42d1feb2d91a5a2332b662155/facebook-like.svg" alt="heart"/>
+            <Letter/>
           </Carousel.Item>
 
           <Carousel.Item>

@@ -27,7 +27,7 @@ badColor = () => {
 
 goodColor = () => {
   if (this.state.showPositive){
-    return 'rgba(100, 166, 150, 1)'
+    return 'rgba(186, 171, 245, 1)'
   }
 }
 
