@@ -26,36 +26,62 @@ class Letter extends Component{
     }
     else if (this.state.show === "yellow paper"){
           this.setState({
-            show: "burn letter"})
+            show: "finished letter"})
+    } else if (this.state.show === "finished letter"){
+        this.setState({
+          show: "burn letter"
+        })
     }
     else if (this.state.show === "burn letter"){
           this.setState({
             show: "done"
           })
+    } else if (this.state.show === "done"){
+      this.setState({
+        show: "closed envelope"
+      })
     }
 
   }
 
+  goBack = () => {
+    this.setState({
+      show: "closed envelope"
+    })
+  }
 
   renderContents = () => {
     if (this.state.show === "closed envelope"){
-        return <EnvelopeClosed
-                  handleClick={this.handleClick}/>
+        return(
+          <>
+            <div className="env">
+            <EnvelopeClosed
+              handleClick={this.handleClick}
+              />
+          </div>
+          <h3 id="click-to-vent">Click the envelope to give someone a piece of your mind.</h3>
+        </>)
     }
     else if (this.state.show === "envelope gif") {
         return <EnvelopeGif
-                  handleClick={setTimeout(this.handleClick, 1400)}/>
+                  timer={setTimeout(this.handleClick, 1400)}/>
     }
     else if (this.state.show === "yellow paper"){
         return <YellowLetter
+                  goBack={this.goBack}
                   send={this.handleClick}/>
+    }
+    else if (this.state.show === "finished letter"){
+      return <EnvelopeClosed
+                timer={setTimeout(this.handleClick, 500)}/>
     }
     else if (this.state.show === "burn letter"){
         return <MailLetterGif
-                  handleClick={setTimeout(this.handleClick, 2500)}/>
+                  timer={setTimeout(this.handleClick, 2500)}/>
     }
     else if (this.state.show === "done"){
-          return <LetterDone/>
+          return <LetterDone
+                    handleClick={this.handleClick}/>
     }
 
   }

@@ -71,7 +71,7 @@ componentDidMount(){
         <div className="login-body">
 
           <div className="container">
-            <h1 className="page-header">Open Book. <small> we're with you.</small></h1>
+            <h1 className="page-header login">Open Book. <small> we're with you.</small></h1>
           </div>
 
           <div className="container">

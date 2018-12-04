@@ -92,16 +92,16 @@ class MomentForm extends Component {
               className="slider"/>
             </div>
 
-             I'm
+          
             <select name="setting" onChange={this.handleChange} className="form-group">
-              <option value="1">at work</option>
-              <option value="2">outdoors</option>
-              <option value="3">exercising</option>
-              <option value="4">downtime</option>
-              <option value="5">socializing</option>
-              <option value="6">with family</option>
-              <option value="7">with signicant other</option>
-              <option value="8">Other</option>
+              <option value="1" className="val">I'm at work</option>
+              <option value="2" className="val">I'm outdoors</option>
+              <option value="3" className="val">I'm exercising</option>
+              <option value="4" className="val">I'm just chillin</option>
+              <option value="5" className="val">I'm socializing</option>
+              <option value="6" className="val">I'm with family</option>
+              <option value="7" className="val">I'm with my signicant other</option>
+              <option value="8" className="val">I'm doing something else</option>
             </select>
 
             <div className="form-group">

@@ -26,7 +26,6 @@ class App extends Component {
 
   componentDidMount(){
     let token = localStorage.getItem('token');
-
     if (token)
       fetchVerifyUser(token)
       .then(data => {
@@ -62,7 +61,7 @@ class App extends Component {
   }
 
   logout = () => {
-    debugger
+
    localStorage.clear()
    this.setState({
      user: null,
@@ -101,6 +100,7 @@ class App extends Component {
   }
 
   getLineChartData = () => {
+    console.log(this.state)
     let datesArray = []
     this.state.user.moments.forEach(moment => datesArray.push("Nov " + moment.created_at.slice(8,10)))
     let ranksArray = []
@@ -217,17 +217,40 @@ class App extends Component {
           null
         }
           <Switch>
-            <Route exact path='/' render={(props) => <Login {...props} user={this.state.user} setUser={this.setUser}/>}/>
-            <Route exact path='/home' render={(props) => <Home {...props} addMoment={this.addMoment} lineChartData={this.state.lineChartData} posPieChartData={this.state.posPieChartData} negPieChartData={this.state.negPieChartData} addEntry={this.addEntry} logout={this.logout} user={this.state.user}/>}/>
-            <Route exact path='/vent' render={(props) => <Vent {...props} user={this.state.user}/>}/>
-            <Route exact path='/search' render={(props) => <JournalSearch {...props} user={this.state.user} savedEntryIDs={this.state.savedEntryIDs} deleteSavedEntry={this.deleteSavedEntry} addSavedEntry={this.addSavedEntry}/>}/>
+            <Route exact path='/' render={(props) =>
+                <Login {...props}
+                  user={this.state.user}
+                  setUser={this.setUser}/>}/>
+
+            <Route exact path='/home' render={(props) =>
+                <Home {...props}
+                  addMoment={this.addMoment}
+                  mount={this.componentDidMount}
+                  getLineChartData={this.getLineChartData}
+                  getPosPieChartData={this.getPosPieChartData}
+                  getNegPieChartData={this.getNegPieChartData}
+                  getSavedEntryIDs={this.getSavedEntryIDs}
+                  lineChartData={this.state.lineChartData}
+                  posPieChartData={this.state.posPieChartData}
+                  negPieChartData={this.state.negPieChartData}
+                  addEntry={this.addEntry}
+                  logout={this.logout}
+                  user={this.state.user}/>}/>
+
+            <Route exact path='/vent' render={(props) =>
+                <Vent {...props}
+                  user={this.state.user}/>}/>
+
+            <Route exact path='/search' render={(props) =>
+                <JournalSearch {...props}
+                  user={this.state.user}
+                  savedEntryIDs={this.state.savedEntryIDs}
+                  deleteSavedEntry={this.deleteSavedEntry}
+                  addSavedEntry={this.addSavedEntry}/>}/>
           </Switch>
       </Fragment>
     );
   }
 }
-
-
-
 
 export default withRouter(App);

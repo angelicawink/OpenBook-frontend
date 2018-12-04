@@ -16,6 +16,9 @@ class Home extends Component {
     }
   }
 
+  componentDidMount(){
+  }
+
   componentDidUpdate(){
     this.renderChartContents()
   }
@@ -48,7 +51,7 @@ class Home extends Component {
   }
 
   renderChartContents = () => {
-    if (this.props.user.moments.length === 0){
+    if (this.props.user.moments.length === 0 || !this.props.lineChartData){
       return <NoChart/>
     }
     else {
@@ -57,7 +60,7 @@ class Home extends Component {
   }
 
   renderPieChartContents = () => {
-    if (this.props.user.moments.length === 0){
+    if (this.props.user.moments.length === 0 || !this.props.posPieChartData){
       return <NoChart/>
     }
     else {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardBody } from 'reactstrap';
-// import { Button, Icon } from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react';
 
 
 class Diary extends Component {
@@ -50,47 +50,72 @@ class Diary extends Component {
     }
   }
 
+  renderBackButton = () => {
+    if (this.state.currentEntryIndex !== 0){
+      return "1"
+    }else  {
+      return ".4"
+  }}
+
+  renderNextButton = () => {
+    if (this.state.currentEntryIndex === this.props.user.entries.length-1){
+      return ".4"
+    } else {
+      return "1"
+    }
+  }
 
   render(){
     const thisEntry = this.props.user.entries[this.state.currentEntryIndex]
     console.log(thisEntry)
     return (
+      <>
       <div>
-        <h3 className="date-header">{this.getDate()}</h3>
 
-            {thisEntry.private ?
-              <img id="lock-icon" src="https://freeiconshop.com/wp-content/uploads/edd/lock-flat.png" alt="lock"/>
-              :
-               <img id="hidden-lock" src="https://freeiconshop.com/wp-content/uploads/edd/lock-flat.png" alt="lock"/>
-            }
+        <div className="col-xs-4">
+          <img
+            onClick={this.getPreviousEntry}
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/White_left_arrow.svg/2000px-White_left_arrow.svg.png"
+            alt="previous-button"
+            style={{opacity: this.renderBackButton()}}
+            className="arrow next"/>
+        </div>
 
-        <h6 className="time-header">{this.getTime()}</h6>
+        <div className="col-xs-4">
+          <h3 className="date-header">{this.getDate()}</h3>
 
+              {thisEntry.private ?
+                <img id="lock-icon" src="https://freeiconshop.com/wp-content/uploads/edd/lock-flat.png" alt="lock"/>
+                :
+                 <img id="hidden-lock"  src="https://freeiconshop.com/wp-content/uploads/edd/lock-flat.png" alt="lock"/>
+              }
+
+          <h6 className="time-header">{this.getTime()}</h6>
+        </div>
+
+        <div className="col-xs-4">
+          <img
+            onClick={this.getNextEntry}
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/White_left_arrow.svg/2000px-White_left_arrow.svg.png"
+            alt="next-button"
+            style={{opacity: this.renderNextButton()}}
+            className="arrow previous"/>
+        </div>
+
+      </div>
+
+        <div>
           <Card className="diary-page">
             <CardBody>
               {thisEntry.content}
 
             </CardBody>
           </Card>
-
-            <div>
-                <img
-                  onClick={this.getPreviousEntry}
-                  src="https://www.mtec.or.th/wp-content/uploads/2018/02/icon-arrow-right.png"
-                  alt="previous-button"
-                  className="arrow previous"/>
-
-                <img
-                  onClick={this.getNextEntry}
-                  src="https://www.mtec.or.th/wp-content/uploads/2018/02/icon-arrow-right.png"
-                  alt="next-button"
-                  className="arrow next"/>
-
-            </div>
+        </div>
 
           <button id="new-entry" onClick={this.props.entryLogged} type="submit">new entry</button>
 
-      </div>
+      </>
     )
   }
 }

@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 class EnvelopeClosed extends Component{
   render(){
     return(
-      
+
       <div className="envelope-stamp">
+        
         <div
           id="envelope"
           onClick={this.props.handleClick}>

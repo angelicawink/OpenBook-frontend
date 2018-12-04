@@ -22,21 +22,13 @@ class YellowLetter extends Component {
 
             <div id="letter-holder">
               <div id="dear">
-                Dear
-                <EditableLabel
-                  id="terrible person"
-                  text='terrible person'
-                  inputWidth='100px'
-                  inputHeight='20px'
-                  inputMaxLength='50'
-                  onFocus={this.handleFocus}
-                  onFocusOut={this.handleFocusOut}
-                  />,
+                <label>Dear Terrible Person,</label>
               </div>
 
               <textarea
                 id="letter-textarea"
-                className="form-control">
+                className="form-control"
+                placeholder="Click to write your angriest vent letter here..">
               </textarea>
 
               <div>
@@ -60,6 +52,7 @@ class YellowLetter extends Component {
           </form>
 
           <button
+            onClick={this.props.goBack}
             type="submit"
             id="go-back-button"
             className="btn btn-warning btn-lg fit">Go Back

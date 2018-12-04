@@ -58,7 +58,9 @@ class ResultstMaster extends Component{
 
 
     return(
-      <div className="col-xs-4">
+      <div className="col-xs-6 search">
+        <div id="holder" className="left">
+          <h3>All Journals</h3>
 
           <div className="journal-search master">
 
@@ -80,6 +82,7 @@ class ResultstMaster extends Component{
               :
               <h4 id="search-result-placeholder">No Results Yet, Try A Search!</h4>
             }
+          </div>
           </div>
       </div>
     )

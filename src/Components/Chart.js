@@ -4,6 +4,7 @@ import { Line } from 'react-chartjs-2';
 class Chart extends Component {
 
   render(){
+
     return(
       <div className="chart">
         {this.props.lineChartData  ?
@@ -11,15 +12,22 @@ class Chart extends Component {
           data={this.props.lineChartData}
 
           options={{
-            scales: {
+            elements: {
+              point: {
+                radius: 0
+              }
+            },
+              scales: {
               xAxes: [{
                 ticks: {
                   autoSkip: true,
-                  maxTicksLimit: 5
+                  maxTicksLimit: 5,
+                  fontColor: 'white'
                 }
               }],
               yAxes: [{
                 ticks: {
+                  fontColor: 'white',
                   beginAtZero: true,
                   callback: function(label, index, labels) {
         switch (label) {

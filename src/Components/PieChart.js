@@ -5,51 +5,49 @@ class PieChart extends Component{
   state={
     showPositive: true
   }
-  // state={
-  //   data: {
-  //     labels: ['at work', 'at home', 'outside', 'with family', 'social'],
-  //     datasets: [
-  //       {
-  //         label: 'Population',
-  //         data: [1,3,9,2,1],
-  //         backgroundColor: [
-  //           'rgba(215,106,58, 1)',
-  //           'rgba(215,106,58, .8)',
-  //           'rgba(215,106,58, .6)',
-  //           'rgba(215,106,58, .4)',
-  //           'rgba(215,106,58, .2)']
-  //       }
-  //     ]
-  //   }
-  // }
 
-handleChange = () => {
-  this.setState({
-    showPositive: !this.state.showPositive
-  })
+handleChange = (event) => {
+  if (event.target.name === "good"){
+    this.setState({
+      showPositive: true
+    })
+  }
+  else {
+    this.setState({
+      showPositive: false
+    })
+  }
 }
 
-// renderChartData = () => {
-//   if (this.state.showPositiveFeelingsChart) {
-//     this.setState({
-//       data: this.props.posPieChartData
-//     })
-//   } else {
-//     this.setState({
-//       data: this.props.negPieChartData
-//     })
-//   }
-// }
+badColor = () => {
+  if (!this.state.showPositive){
+    return 'rgba(186, 171, 245, 1)'
+  }
+}
+
+goodColor = () => {
+  if (this.state.showPositive){
+    return 'rgba(100, 166, 150, 1)'
+  }
+}
+
 
   render(){
     return(
       <>
         <h2 className="pie-chart-header">Where I am When I'm Feeling:</h2>
-        <select className="pie-chart-header" onChange={this.handleChange}>
-          <option value="positive">Positive</option>
-          <option value="negative">Negative</option>
-        </select>
-      {this.state.showPositive && this.props.posPieChartData ?
+        <button
+          id="good"
+          name="good"
+          style={{background: this.goodColor()}}
+          onClick={this.handleChange}>Good</button>
+        <button
+          id="bad"
+          name="bad"
+          style={{backgroundColor: this.badColor()}}
+          onClick={this.handleChange}>Bad</button>
+
+    {this.state.showPositive && this.props.posPieChartData ?
         <Pie id="pie-chart"
             data={this.props.posPieChartData}
 

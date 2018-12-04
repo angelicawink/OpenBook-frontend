@@ -37,28 +37,30 @@ class JournalSearchForm extends Component {
 
         this.props.setSearchResults(nonPrivateEntries)
 
-        this.setState({
-          searchTerm: ''
-        })
+        // this.setState({
+        //   searchTerm: ''
+        // })
       }
     })
   }
 
   render(){
     return(
-      <div className="col-xs-4 middle">
-          <form className="search-form" onSubmit={this.handleSubmit}>
+        <>
+          <form onSubmit={this.handleSubmit} className="search-form">
             <input
+              id="search-form"
+              className="search-form input"
               type="text"
               value={this.state.searchTerm}
-              className="form-control fit"
-              placeholder="keyword, ie: 'family', 'anxiety', 'boss'..."
+              placeholder="search all journals by keyword, ie: 'family', 'anxiety', 'boss'..."
               onChange={this.handleChange}
               ></input>
-
-            <button type="submit" id="search-button" className="btn btn-info btn-lg fit">Search</button>
+            <button
+              type="submit"
+              className="search-form submit">Search</button>
           </form>
-      </div>
+        </>
     )
   }
 }

@@ -5,9 +5,9 @@ class SavedSearches extends Component{
   render(){
     console.log(this.props)
     return this.props.user ? (
-      <div className="col-xs-4">
-        <div id="holder">
-          <h3>My Saved Journal Entries</h3>
+      <div className="col-xs-6 search">
+        <div id="holder" className="right">
+          <h3>My Saved Journals</h3>
 
           <div className="journal-search saved">
             {this.props.user.saved_entries.map((entry, index) =>
