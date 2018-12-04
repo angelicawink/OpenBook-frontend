@@ -21,12 +21,14 @@ class Chart extends Component {
                 ticks: {
                   autoSkip: true,
                   maxTicksLimit: 5,
-                  fontColor: 'white'
+                  fontColor: 'white',
+                  fontSize: 13
                 }
               }],
               yAxes: [{
                 ticks: {
                   fontColor: 'white',
+                  fontSize: 13,
                   beginAtZero: true,
                   callback: function(label, index, labels) {
         switch (label) {

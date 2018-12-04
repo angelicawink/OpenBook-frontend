@@ -1,7 +1,4 @@
-/* body {
-  background-color: red;
-} */
-/* 122, 198, 146  */
+
 .journal-search {
   color: rgb(160, 193, 217);
   float: left;
@@ -12,10 +9,6 @@ button.ui.orange.button{
   outline: none;
 
 }
-
-/* button#search-button.btn.btn-warning.btn-lg{
-  display: inline-block;
-} */
 
 select.form-group{
   background-color: transparent;
@@ -96,9 +89,9 @@ div#rhyme-results{
 } */
 
 #good{
-  background-color: transparent;
+  background-color: rgba(100, 166, 150, .5);
   border-color: rgba(82, 70, 100, .8);
-  border-width: 2px;
+  border-width: 2px 1px 2px 2px;
   border-radius: 5px 0px 0px 5px;
   font-size: 20px;
   color: white;
@@ -110,9 +103,9 @@ div#rhyme-results{
 
 
 #bad{
-  background-color: transparent;
+  background-color: rgba(100, 166, 150, .5);
   border-color: rgba(16, 52, 44, .7);
-  border-width: 2px;
+  border-width: 2px 2px 2px 1px;
   border-radius: 0px 5px 5px 0px;
   font-size: 20px;
   color: white;
@@ -147,7 +140,7 @@ button#write-another{
 
 }
 
-button#new-entry:hover, button#new-moment:hover, #private:hover, #cancel-entry:hover, #submit-entry:hover{
+button#new-entry:hover, select.form-group:hover, button#new-moment:hover, #private:hover, #cancel-entry:hover, #submit-entry:hover{
   background-color: rgba(100, 166, 150, 1);
   outline: none;
 
@@ -208,9 +201,9 @@ canvas#pie-chart.chartjs-render-monitor{
   min-height: 18vh;
   max-height: 28vh;
   min-width: 30vw;
-  max-width: 35vw;
-  margin-left: 8vw;
-  margin-top: 2vh;
+  max-width: 30vw;
+  margin-left: 12vw;
+  margin-top: 4vh;
 }
 
 div.Box-1.top-right{
@@ -482,7 +475,7 @@ input[type=range]::-webkit-slider-runnable-track {
   height: 8.4px;
   cursor: pointer;
   box-shadow: .5px .5px 1px #0d0d0d;
-  background: rgba(244, 232, 109, 1);
+  background: rgba(253, 255, 133, .8);
   border-radius: 1.3px;
   border: .4px solid green;
 }
@@ -570,7 +563,7 @@ div.diary-page.card, #new-diary-entry{
   max-width: 40vw;
   overflow: auto;
   display: inline-block;
-  background-color: rgba(125, 190, 177, 1);
+  background-color: rgba(132, 160, 205, 1);
   border-radius: 5px;
   border-color: white;
   border-style: solid;

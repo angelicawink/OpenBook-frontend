@@ -21,13 +21,13 @@ handleChange = (event) => {
 
 badColor = () => {
   if (!this.state.showPositive){
-    return 'rgba(186, 171, 245, 1)'
+    return 'rgba(83, 128, 149, 1)'
   }
 }
 
 goodColor = () => {
   if (this.state.showPositive){
-    return 'rgba(186, 171, 245, 1)'
+    return 'rgba(83, 128, 149, 1)'
   }
 }
 
@@ -60,8 +60,13 @@ goodColor = () => {
             },
             legend: {
               display: true,
-              position: 'right'
-            }
+              fontSize: 30,
+              position: 'right',
+              labels: {
+                fontSize: 15,
+                fontColor: 'white'
+              }
+            },
           }}
           />
         :
@@ -80,7 +85,11 @@ goodColor = () => {
             },
             legend: {
               display: true,
-              position: 'right'
+              position: 'right',
+              labels: {
+                fontSize: 15,
+                fontColor: 'white'
+              }
             }
           }}
           />

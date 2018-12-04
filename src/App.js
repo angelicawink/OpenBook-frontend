@@ -135,7 +135,7 @@ class App extends Component {
             label: "feelings rank",
             fill: true,
             data: ranks,
-            backgroundColor: 'rgba(230, 87, 127, 1)',
+            backgroundColor: 'rgba(217, 78, 147, .9)',
           }]
       }})}
 
