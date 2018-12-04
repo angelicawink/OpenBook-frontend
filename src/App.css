@@ -879,6 +879,7 @@ div#address{
   text-align: center;
   border-style: hidden;
   overflow: scroll;
+  outline: none;
 }
 
 label.myLabelClass:hover{

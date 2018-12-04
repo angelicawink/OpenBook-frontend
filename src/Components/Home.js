@@ -21,6 +21,10 @@ class Home extends Component {
     this.props.setDatas()
   }
 
+  componentDidUpdate(){
+    this.renderChartContents()
+  }
+
   renderSnapshotContents = () => {
     if (this.state.snapshotLogged){
       return (
@@ -50,7 +54,10 @@ class Home extends Component {
 
   renderChartContents = () => {
     if (this.props.user.moments.length === 0 || !this.props.lineChartData){
-      return <NoChart/>
+      return <img
+                src="https://loading.io/spinners/balls/lg.circle-slack-loading-icon.gif"
+                alt="loading"
+                className="loading"/>
     }
     else {
       return (<Chart lineChartData={this.props.lineChartData} user={this.props.user}/>)
@@ -59,7 +66,10 @@ class Home extends Component {
 
   renderPieChartContents = () => {
     if (this.props.user.moments.length === 0 || !this.props.posPieChartData){
-      return <NoChart/>
+      return <img
+                src="https://loading.io/spinners/balls/lg.circle-slack-loading-icon.gif"
+                alt="loading"
+                className="loading"/>
     }
     else {
       return (<PieChart negPieChartData={this.props.negPieChartData} posPieChartData={this.props.posPieChartData}/>)

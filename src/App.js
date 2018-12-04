@@ -6,7 +6,7 @@ import Vent from './Components/Vent'
 import JournalSearch from './Components/JournalSearch'
 import { Route, withRouter, Switch } from 'react-router-dom';
 import MyNavBar from './Components/MyNavBar';
-// import { fetchVerifyUser } from './FETCHES'
+import { fetchVerifyUser } from './FETCHES'
 import { chartLabels, pieChartColors } from './data'
 
 class App extends Component {
@@ -22,10 +22,35 @@ class App extends Component {
   }
 
   setDatas = () => {
-    this.getLineChartData()
-    this.getPosPieChartData()
-    this.getNegPieChartData()
-    this.getSavedEntryIDs()
+  let token = localStorage.getItem('token');
+  if (token)
+    fetchVerifyUser(token)
+    .then(data => {
+      this.setState({
+      user: data.user
+    }, () => {
+      this.getLineChartData()
+      this.getPosPieChartData()
+      this.getNegPieChartData()
+      this.getSavedEntryIDs()
+    })}
+    )
+    }
+
+ componentDidMount(){
+    let token = localStorage.getItem('token');
+    if (token)
+      fetchVerifyUser(token)
+      .then(data => {
+        this.setState({
+        user: data.user
+      }, () => {
+        this.getLineChartData()
+        this.getPosPieChartData()
+        this.getNegPieChartData()
+        this.getSavedEntryIDs()
+      })}
+      )
     }
 
   getSavedEntryIDs = () => {
