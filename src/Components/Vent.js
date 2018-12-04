@@ -32,7 +32,9 @@ class Vent extends Component {
           >
 
           <Carousel.Item>
-            <Poetry/>
+            <Poetry
+              {...this.props}
+              user={this.props.user}/>
           </Carousel.Item>
 
           <Carousel.Item>
@@ -40,7 +42,9 @@ class Vent extends Component {
           </Carousel.Item>
 
           <Carousel.Item>
-            <img width={900} height={500} src="https://static.rgscdn.com/images/xl/701702.jpg?v=100749425435-1" alt="heart"/>
+            <div className="container poetry">
+              We're all gonna die one day. Nothing Lasts forever. I'm ok. You're ok.
+            </div>
           </Carousel.Item>
 
         </Carousel>

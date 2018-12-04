@@ -25,6 +25,10 @@ class MyNavBar extends Component {
                 commiserate
               </NavItem>
 
+              <NavItem onClick={this.props.toWallow}>
+                wallow
+              </NavItem>
+
               <NavItem onClick={this.props.logout}>
                 sign out
               </NavItem>

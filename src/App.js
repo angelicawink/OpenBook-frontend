@@ -7,7 +7,8 @@ import JournalSearch from './Components/JournalSearch'
 import { Route, withRouter, Switch } from 'react-router-dom';
 import MyNavBar from './Components/MyNavBar';
 import { fetchVerifyUser } from './FETCHES'
-import { chartLabels, pieChartColors } from './data'
+import { chartLabels, pieChartColors } from './data';
+import Wallow from './Components/Wallow';
 
 class App extends Component {
   constructor(){
@@ -88,6 +89,10 @@ class App extends Component {
 
   toVent = () => {
     this.props.history.push('/vent');
+  }
+
+  toWallow = () => {
+    this.props.history.push('/wallow');
   }
 
   toSearch = () => {
@@ -224,7 +229,7 @@ class App extends Component {
     return (
       <Fragment>
         {this.state.user ?
-          <MyNavBar logout={this.logout} toVent={this.toVent} toSearch={this.toSearch}/>
+          <MyNavBar logout={this.logout} toVent={this.toVent} toSearch={this.toSearch} toWallow={this.toWallow}/>
           :
           null
         }
@@ -260,6 +265,10 @@ class App extends Component {
                   savedEntryIDs={this.state.savedEntryIDs}
                   deleteSavedEntry={this.deleteSavedEntry}
                   addSavedEntry={this.addSavedEntry}/>}/>
+
+            <Route exact path='/wallow' render={(props) =>
+                <Wallow {...props}
+                  user={this.state.user}/>}/>
           </Switch>
       </Fragment>
     );

@@ -5,6 +5,7 @@ class Poem extends Component {
     super(props);
     this.state={
       content: '',
+      title: ''
     }
   }
 
@@ -14,21 +15,56 @@ class Poem extends Component {
     })
   }
 
+  setTitle = (event) => {
+    this.setState({
+      title: event.target.value
+    })
+  }
+
   componentDidUpdate(prevProps){
     if (this.props.wordToAdd !== prevProps.wordToAdd){
       this.setState({
-        content: this.state.content.concat(this.props.wordToAdd)
+        content: this.state.content.concat(" " + this.props.wordToAdd)
       })
     }
   }
 
+  savePoem = () => {
+    let token = localStorage.getItem('token')
+    let userID = this.props.user.id;
+    let newTitle = this.state.title;
+    let newContent = this.state.content;
+
+
+    fetch(`http://localhost:3000/api/v1/poems`, {
+      method: "POST",
+      headers: {
+        "Content-Type" : "application/json",
+        "Accept" : "application/json",
+        "Authorization" : `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        user_id: userID,
+        title: newTitle,
+        content: newContent
+      })
+    })
+    .then(res => res.json()).then(data => {
+      console.log(data);
+      this.props.togglePoetryDisplay()
+    })
+  }
 
   render(){
     return(
       <>
         <div className="col-xs-9">
           <form>
-            <input type="text" placeholder="Title" className="poem-title"/>
+            <input
+              type="text"
+              placeholder="Title"
+              className="poem-title"
+              onChange={this.setTitle}/>
             <textarea
               id="poem-textarea"
               onChange={this.handleChange}
@@ -37,6 +73,10 @@ class Poem extends Component {
               value={this.state.content}>
             </textarea>
           </form>
+          <button
+            onClick={this.savePoem}
+            id="save-poem"
+            >Save</button>
         </div>
       </>
     )

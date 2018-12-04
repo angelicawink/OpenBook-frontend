@@ -31,21 +31,26 @@ class RhymeForm extends Component {
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label>Find words that rhyme with</label>
+          <label>Find words that rhyme with:</label>
           <input
             type="text"
             onChange={this.handleChange}
             name="rhymeWord"
             value={this.state.rhymeWord}/>
-          <button>Find</button>
+          <br></br>
 
-          <label>Find adjectives that describe</label>
+          <label># of syllables</label>
+          <input type="text" className="syllable-input"/>
+
+          <label>Find adjectives that describe:</label>
           <input
             type="text"
             onChange={this.handleChange}
             name="adjectiveWord"
             value={this.state.adjectiveWord}/>
-          <button>Find</button>
+          <br></br>
+          <label># of syllables</label>
+          <input type="text" className="syllable-input"/>
         </form>
       </div>
     )

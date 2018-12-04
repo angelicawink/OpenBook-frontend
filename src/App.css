@@ -28,12 +28,21 @@ select.form-group{
 
 }
 
+.syllable-input{
+  width: 30px;
+  margin: 5px;
+}
+
 div#rhyme-results{
   text-align: center;
   overflow: auto;
-  height: 61vh;
-  width: 100%;
+  height: 45vh;
+  width: 95%;
   color: white;
+  border-style: solid;
+  display: inline-block;
+  /* margin-left: auto;
+  margin-right: auto; */
 }
 
 .rhyme-item{
@@ -51,7 +60,11 @@ div#rhyme-results{
 
 .rhyme-holder{
   text-align: center;
-  padding: 5px;
+  /* margin-left: 30px; */
+  padding-left: 45px;
+  height: 75vh;
+  /* background-color: red; */
+  /* margin-left: 5px; */
 }
 
 #click-to-vent{
@@ -230,7 +243,7 @@ div.Box-1.bottom-right{
   margin: 5px;
 }
 
-.page-header.poetry, .poem-title{
+.poem-title{
   text-align: center;
   width: 60vw;
   font-size: 50px;
@@ -238,10 +251,14 @@ div.Box-1.bottom-right{
   margin-right: auto;
 }
 
+.poetry-container{
+  padding: 2%;
+}
+
 .poem-body{
   text-align: center;
   width: 60vw;
-  height: 65vh;
+  height: 61vh;
   /* background-color: red; */
 }
 
@@ -250,8 +267,8 @@ div.Box-1.bottom-right{
 }
 
 .container.poetry{
-  padding: 1%;
-  height: 76vh;
+  padding: 3%;
+  height: 80vh;
   width: 82vw;
   background-color: grey;
 }
@@ -667,6 +684,12 @@ div.journal-search.master {
   /* margin: 10px; */
   /* overflow: auto; */
   padding: 15px;
+}
+
+#save-poem{
+  /* margin-left: 30px; */
+  float: right;
+  color: red;
 }
 
 div.journal-search.saved{

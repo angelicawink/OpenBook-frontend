@@ -4,6 +4,7 @@ import RhymeFinder from './RhymeFinder';
 
 class Poetry extends Component{
   state={
+    showPoemForm: true,
     wordToAdd: null
   }
 
@@ -13,19 +14,35 @@ class Poetry extends Component{
     })
   }
 
+  togglePoetryDisplay = () => {
+    this.setState({
+      showPoemForm: !this.state.showPoemForm
+    })
+  }
+
   render(){
     return(
       <>
-        <div className="page-header poetry">
-          You're a Poet
+        <div className="poetry-container">
         </div>
+        {this.state.showPoemForm ?
 
-        <div className="container poetry">
-          <Poem
-            wordToAdd={this.state.wordToAdd}/>
-          <RhymeFinder
-            addWord={this.addWord}/>
-        </div>
+          <div className="container poetry">
+            <Poem
+              user={this.props.user}
+              wordToAdd={this.state.wordToAdd}
+              togglePoetryDisplay={this.togglePoetryDisplay}/>
+            <RhymeFinder
+              addWord={this.addWord}/>
+          </div>
+
+          :
+          <div className="container poetry">
+            You're amazing.
+            <button onClick={this.togglePoetryDisplay}>Write another</button>
+            <button onClick={() => this.props.history.push('/wallow')}>Go To My Poems</button>
+          </div>
+        }
 
       </>
     )
