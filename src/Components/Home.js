@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import MomentForm from './MomentForm';
 import EntryForm from './EntryForm';
 import Diary from './Diary';
@@ -12,14 +12,13 @@ class Home extends Component {
     super(props)
     this.state={
       snapshotLogged: false,
-      showNewEntryForm: false
+      showNewEntryForm: false,
+      lineChartDatadata: null
     }
   }
 
-
-  componentDidUpdate(){
-    debugger
-    this.renderChartContents()
+  componentDidMount(prevProps){
+    this.props.setDatas()
   }
 
   renderSnapshotContents = () => {
@@ -80,7 +79,6 @@ class Home extends Component {
   }
 
   render(){
-    console.log(this.props)
       return this.props.user ? (
         <React.Fragment>
           <div className="home-body">

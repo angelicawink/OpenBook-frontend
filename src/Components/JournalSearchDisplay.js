@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ResultsMaster from './ResultsMaster';
-import JournalSearchForm from './JournalSearchForm';
+// import JournalSearchForm from './JournalSearchForm';
 import SavedSearches from './SavedSearches';
 
 class JournalSearchDisplay extends Component {

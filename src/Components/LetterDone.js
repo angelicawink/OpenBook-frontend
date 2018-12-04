@@ -9,7 +9,7 @@ class LetterDone extends Component{
   }
 
 componentDidMount(){
-  {setTimeout(this.setRendertoTrue, 1200)}
+  setTimeout(this.setRendertoTrue, 1200)
 }
 
 setRendertoTrue = () => {

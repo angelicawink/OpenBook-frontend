@@ -49,7 +49,6 @@ componentDidMount(){
       })
     }).then(res => res.json())
     .then(data => {
-      console.log(data)
       if (data.error){
         alert('Invalid username or password')
 
@@ -63,7 +62,6 @@ componentDidMount(){
 
 
   render() {
-    console.log('asdf')
     if (this.props.user) {
       return <Redirect push to={'/home'}/>
     } else {

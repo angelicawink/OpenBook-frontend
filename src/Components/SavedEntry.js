@@ -4,9 +4,6 @@ import { OverlayTrigger, Popover } from 'react-bootstrap';
 import EditableLabel from 'react-inline-editing';
 
 class SavedEntry extends Component {
-constructor(props){
-      super(props);
-    }
 
     handleFocus = (text) => {
       let savedEntryID = this.props.savedEntry.id

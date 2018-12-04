@@ -6,11 +6,8 @@ import Vent from './Components/Vent'
 import JournalSearch from './Components/JournalSearch'
 import { Route, withRouter, Switch } from 'react-router-dom';
 import MyNavBar from './Components/MyNavBar';
-import { fetchVerifyUser } from './FETCHES'
+// import { fetchVerifyUser } from './FETCHES'
 import { chartLabels, pieChartColors } from './data'
-// T Acnt S-I-D: "ACb9f97507032b8f6c4e9fd223956557ba"
-// T Au tok: "4146b32d18d0c286673ec34ac00babe7"
-// T Phone #: "+13016835196"
 
 class App extends Component {
   constructor(){
@@ -24,20 +21,11 @@ class App extends Component {
     }
   }
 
-  componentDidMount(){
-    let token = localStorage.getItem('token');
-    if (token)
-      fetchVerifyUser(token)
-      .then(data => {
-        this.setState({
-        user: data.user
-      }, () => {
-        this.getLineChartData()
-        this.getPosPieChartData()
-        this.getNegPieChartData()
-        this.getSavedEntryIDs()
-      })}
-      )
+  setDatas = () => {
+    this.getLineChartData()
+    this.getPosPieChartData()
+    this.getNegPieChartData()
+    this.getSavedEntryIDs()
     }
 
   getSavedEntryIDs = () => {
@@ -100,7 +88,6 @@ class App extends Component {
   }
 
   getLineChartData = () => {
-    console.log(this.state)
     let datesArray = []
     this.state.user.moments.forEach(moment => datesArray.push("Nov " + moment.created_at.slice(8,10)))
     let ranksArray = []
@@ -235,6 +222,7 @@ class App extends Component {
                   negPieChartData={this.state.negPieChartData}
                   addEntry={this.addEntry}
                   logout={this.logout}
+                  setDatas={this.setDatas}
                   user={this.state.user}/>}/>
 
             <Route exact path='/vent' render={(props) =>
