@@ -51,6 +51,8 @@ class Poem extends Component {
     })
     .then(res => res.json()).then(data => {
       console.log(data);
+      
+      this.props.addPoem(data)
       this.props.togglePoetryDisplay()
     })
   }

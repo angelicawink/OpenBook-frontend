@@ -202,6 +202,12 @@ class App extends Component {
           }]
       }})}
 
+  addPoem = (poemObj) => {
+    this.setState({
+      user: {...this.state.user,
+      poems: [...this.state.user.poems, poemObj]}
+    })
+  }
 
   addSavedEntry = (newEntry) => {
     this.setState({
@@ -257,6 +263,7 @@ class App extends Component {
 
             <Route exact path='/vent' render={(props) =>
                 <Vent {...props}
+                  addPoem={this.addPoem}
                   user={this.state.user}/>}/>
 
             <Route exact path='/search' render={(props) =>

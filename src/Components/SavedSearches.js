@@ -10,9 +10,9 @@ class SavedSearches extends Component{
           <h3>My Saved Journals</h3>
 
           <div className="journal-search saved">
-            {this.props.user.saved_entries.map((entry, index) =>
+            {this.props.user.saved_entries.map(entry =>
               <SavedEntry
-                key={index}
+                key={entry.id}
                 savedEntry={entry}
                 user={this.props.user}
                 />

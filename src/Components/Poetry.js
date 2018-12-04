@@ -23,12 +23,11 @@ class Poetry extends Component{
   render(){
     return(
       <>
-        <div className="poetry-container">
-        </div>
         {this.state.showPoemForm ?
 
           <div className="container poetry">
             <Poem
+              addPoem={this.props.addPoem}
               user={this.props.user}
               wordToAdd={this.state.wordToAdd}
               togglePoetryDisplay={this.togglePoetryDisplay}/>

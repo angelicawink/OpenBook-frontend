@@ -34,6 +34,7 @@ class Vent extends Component {
           <Carousel.Item>
             <Poetry
               {...this.props}
+              addPoem={this.props.addPoem}
               user={this.props.user}/>
           </Carousel.Item>
 
