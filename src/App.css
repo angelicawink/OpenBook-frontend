@@ -24,6 +24,14 @@ select.form-group{
 
 }
 
+.container.poem-done{
+  /* background-color: red; */
+  text-align: center;
+  /* display: inline-block; */
+  width: fit-content;
+  margin-top: 40vh;
+}
+
 .results-header{
   margin: 0px;
 }
@@ -84,7 +92,7 @@ input.form-control.syllable{
   /* background-color: pink; */
   border-width: 1px;
   border-radius: 3px;
-  font-size: 15px;
+  font-size: 17px;
   width: 45%;
   margin: 2%;
   padding: 5px;
@@ -181,16 +189,37 @@ button#write-another:hover{
 
 }
 
- button#new-entry, #save-poem, button#new-moment, #private, #cancel-entry, #submit-entry{
+ button#new-entry, .new-entry, #save-poem, button#new-moment, #private, #cancel-entry, #submit-entry{
   background-color: transparent;
   border-color: white;
+  font-size: 17px;
   margin: 3px;
   border-width: 1.5px;
-  padding: 5px;
+  padding: 7px;
   border-radius: 3px;
   color: white;
   outline: none;
 
+}
+
+
+
+.poems.container{
+  text-align: center;
+}
+
+.ui.cards{
+  padding: 5%;
+}
+
+.ui.card .meta, div.meta.line{
+  font-size: 1.2em !important;
+  line-height: 1.3em !important;
+  /* color: white !important; */
+}
+
+.ui.card>.content>.header:not(.ui){
+  font-size: 1.5em !important;
 }
 
 button#new-entry:hover, select.form-group:hover, button#new-moment:hover, #private:hover, #cancel-entry:hover, #submit-entry:hover{
@@ -656,7 +685,7 @@ div.diary-page.card, #new-diary-entry{
   border-color: white;
   border-style: solid;
   border-width: .5px;
-  margin-bottom: 4vh;
+  margin-bottom: 2vh;
   /* display: flex; */
   /* box-shadow:   1px 1px 1px 1px; */
   padding: 10px;

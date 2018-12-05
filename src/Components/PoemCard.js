@@ -5,14 +5,15 @@ import { Card } from 'semantic-ui-react';
 class PoemCard extends Component{
 
 parsePoemContent = () => {
-  console.log(this.props.poem)
   var poemLines = this.props.poem.content.split((/[,.]/))
   return poemLines
 }
 
   render(){
     return(
-      <Card>
+      <div className="col-xs-4">
+        <br></br>
+      <Card style={{backgroundColor: this.props.color}} color="yellow">
         <Card.Content>
           <Card.Header>{this.props.poem.title}</Card.Header>
           {this.parsePoemContent().map((line, index) =>
@@ -23,6 +24,9 @@ parsePoemContent = () => {
             </Card.Meta>)}
         </Card.Content>
       </Card>
+        <br></br>
+
+    </div>
     )
   }
 }

@@ -27,7 +27,7 @@ renderIcon = () => {
   render(){
 
     const popoverClick = (
-      <Popover id="popover-trigger-focus" title={this.props.selectedEntry ? this.props.selectedEntry.created_at.slice(0,9) : null}>
+      <Popover id="popover-trigger-focus" title={this.props.selectedEntry ? this.props.selectedEntry.created_at.slice(5,10).concat("-2018") : null}>
         <strong>
           {this.props.selectedEntry ? this.props.selectedEntry.content : null}
         </strong>

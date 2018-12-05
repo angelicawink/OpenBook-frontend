@@ -4,7 +4,7 @@ import RhymeFinder from './RhymeFinder';
 
 class Poetry extends Component{
   state={
-    showPoemForm: true,
+    showPoemForm: false,
     wordToAdd: null
   }
 
@@ -36,10 +36,12 @@ class Poetry extends Component{
           </div>
 
           :
-          <div className="container poetry">
-            You're amazing.
-            <button onClick={this.togglePoetryDisplay}>Write another</button>
-            <button onClick={() => this.props.history.push('/wallow')}>Go To My Poems</button>
+          <div className="container poem-done">
+            <h2>
+              Wow. Amazing.
+            </h2>
+            <button className="new-entry" onClick={this.togglePoetryDisplay}>Write another</button>
+            <button className="new-entry" onClick={() => this.props.history.push('/wallow')}>Go to my poems</button>
           </div>
         }
 
