@@ -65,6 +65,31 @@ class Diary extends Component {
     }
   }
 
+  togglePrivacy = (event) => {
+    let entryID = (this.props.user.entries[this.state.currentEntryIndex].id);
+    let token = localStorage.getItem('token');
+    let currentPrivacy = event.target.dataset.private;
+    let updatedPrivacy;
+    if (currentPrivacy === 'true'){
+      updatedPrivacy = 'false'
+    } else {
+      updatedPrivacy = 'true'
+    }
+
+    fetch(`http://localhost:3000/api/v1/entries/${entryID}`, {
+      method: "PATCH",
+      headers: {
+         "Content-Type" : "application/json",
+        "Accept" : "application/json",
+        "Authorization" : `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        private: updatedPrivacy
+      })
+    }).then(res => res.json()).then(data => this.props.togglePrivacyInState(data))
+
+  }
+
   render(){
     const thisEntry = this.props.user.entries[this.state.currentEntryIndex]
     return (
@@ -84,9 +109,9 @@ class Diary extends Component {
           <h3 className="date-header">{this.getDate()}</h3>
 
               {thisEntry.private ?
-                <img id="lock-icon" src="https://freeiconshop.com/wp-content/uploads/edd/lock-flat.png" alt="lock"/>
+                <img data-private={true} onClick={this.togglePrivacy} id="lock-icon" src="https://freeiconshop.com/wp-content/uploads/edd/lock-flat.png" alt="lock"/>
                 :
-                 <img id="hidden-lock"  src="https://freeiconshop.com/wp-content/uploads/edd/lock-flat.png" alt="lock"/>
+                 <img data-private={false} onClick={this.togglePrivacy} id="hidden-lock"  src="http://www.iconarchive.com/download/i87176/graphicloads/colorful-long-shadow/Unlock.ico" alt="lock"/>
               }
 
           <h6 className="time-header">{this.getTime()}</h6>

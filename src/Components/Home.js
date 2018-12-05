@@ -44,7 +44,7 @@ class Home extends Component {
     }
     else {
       if (!this.state.showNewEntryForm) {
-        return <Diary {...this.props} user={this.props.user} entries={this.props.entries} entryLogged={this.entryLogged}/>
+        return <Diary {...this.props} togglePrivacyInState={this.props.togglePrivacyInState} user={this.props.user} entries={this.props.entries} entryLogged={this.entryLogged}/>
       }
       else {
         return <EntryForm addEntry={this.props.addEntry} user={this.props.user} entryLogged={this.entryLogged}/>

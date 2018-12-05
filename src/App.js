@@ -231,6 +231,16 @@ class App extends Component {
     })
   }
 
+togglePrivacyInState = (entryObj) => {
+  console.log(this.state.user.entries)
+  let entryID = entryObj.id;
+  let entryIndex = this.state.user.entries.findIndex(entry => entry.id === entryID)
+  this.setState({
+    user: {...this.state.user,
+    entries: [...this.state.user.entries.slice(0, entryIndex), entryObj, ...this.state.user.entries.slice(entryIndex+1) ]}
+  })
+}
+
   render() {
     return (
       <Fragment>
@@ -247,6 +257,7 @@ class App extends Component {
 
             <Route exact path='/home' render={(props) =>
                 <Home {...props}
+                  togglePrivacyInState={this.togglePrivacyInState}
                   addMoment={this.addMoment}
                   mount={this.componentDidMount}
                   getLineChartData={this.getLineChartData}

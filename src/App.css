@@ -36,32 +36,76 @@ select.form-group{
 div#rhyme-results{
   text-align: center;
   overflow: auto;
-  height: 58vh;
+  height: 50vh;
   width: 95%;
   color: white;
   border-style: solid;
   display: inline-block;
+  margin-left: 5%;
+  padding-left: 2%;
+  padding-right: 2%;
+
+  /* border-color: pink; */
+  /* background-color: pink; */
+  /* background-color: beige; */
   /* margin-left: auto;
   margin-right: auto; */
 }
 
+input.form-control.rhyme, input.form-control.adjective{
+  width: 170px;
+  height: 30px;
+  display: inline-block;
+
+}
+
+input.form-control.syllable{
+  height: 30px;
+  width: 50px;
+  display: inline-block;
+}
+
+.font{
+  font-family: 'Antic Slab', serif;
+  font-size: 18px;
+  color: rgba(217, 78, 147, 1);
+}
+
+* {
+  font-family: 'Antic Slab', serif !important
+  }
+
+  span.glyphicon.glyphicon-chevron-right::before{
+    font-family: 'sans-serif'
+  }
+
 .rhyme-item{
   border-style: solid;
+  /* background-color: pink; */
   border-width: 1px;
   border-radius: 3px;
+  font-size: 15px;
   width: 45%;
+  margin: 2%;
+  padding: 5px;
   display: inline-block;
+  /* border-color: pink; */
+  /* color: pink; */
 }
 
 .rhyme-item:hover{
   background-color: white;
-  color: grey;
+  color: rgba(120, 196, 143, 1);
+  border-style: hidden;
+
 }
 
 .rhyme-holder{
   text-align: center;
-  padding-left: .5%;
+  /* padding-left: .%; */
   height: 75vh;
+  /* background-color: grey; */
+  /* width: 40vw; */
 }
 
 #click-to-vent{
@@ -75,14 +119,15 @@ div#rhyme-results{
 }
 
 #lock-icon{
-  width: 28px;
+  width: 32px;
   /* margin-left: 5px; */
 }
 
 #hidden-lock{
-  width: 28px;
+  width: 32px;
+  background-color: transparent;
   /* margin-left: 5px; */
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
 /* button.small, #submit-entry{
@@ -136,7 +181,7 @@ button#write-another:hover{
 
 }
 
- button#new-entry, button#new-moment, #private, #cancel-entry, #submit-entry{
+ button#new-entry, #save-poem, button#new-moment, #private, #cancel-entry, #submit-entry{
   background-color: transparent;
   border-color: white;
   margin: 3px;
@@ -248,26 +293,49 @@ div.Box-1.bottom-right{
   margin: 5px;
 }
 
-.poem-title{
+.poem-title.form-control{
   text-align: center;
-  width: 50vw;
-  font-size: 50px;
+  border-radius: 10px;
+  margin: 5px;
+  height: 55px;
+  width: 40vw;
+  font-size: 35px;
+  color: white;
   margin-left: auto;
+  border-style: hidden;
+  /* border-width: 2px; */
+  /* color:  */
   margin-right: auto;
-  background-color: rgba(208, 172, 245, .7);
+  background-color: rgba(101, 139, 191, .9);
+}
+
+input.poem-title.form-control::placeholder { /* Chrome/Opera/Safari */
+  color: white;
+  /* font-family: 'Roboto', sans-serif; */
+}
+
+textarea#poem-textarea.poem-body.form-control::placeholder{
+  color: white;
 }
 
 .poetry-container{
   padding: 2%;
 }
 
-.poem-body{
+.poem-body.form-control{
+  border-radius: 10px;
+  color: white;
+  border-style: hidden;
+  /* border-width: 2px; */
+  /* box-s/how */
+  font-size: 20px;
+  margin: 5px;
   text-align: center;
-  width: 50vw;
+  width: 40vw;
   margin-left: auto;
   margin-right: auto;
   height: 70vh;
-  background-color: rgba(208, 172, 245, .7)
+  background-color: rgba(101, 139, 191, .9)
   /* background-color: red; */
 }
 
@@ -276,7 +344,7 @@ div.Box-1.bottom-right{
 }
 
 .container.poetry{
-  padding: 3%;
+  padding: 2%;
   height: 80vh;
   width: 82vw;
   background-color: transparent;
@@ -703,7 +771,17 @@ div.journal-search.master {
 #save-poem{
   /* margin-left: 30px; */
   float: right;
-  color: red;
+  height: 40px;
+  width: 150px;
+  margin: 0px;
+  margin-right: 20px;
+  font-size: 22px;
+}
+
+#save-poem:hover{
+  /* background-color;  */
+  background-color: rgba(100, 166, 150, 1);
+  outline: none;
 }
 
 div.journal-search.saved{

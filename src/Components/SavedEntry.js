@@ -44,7 +44,7 @@ class SavedEntry extends Component {
         body: JSON.stringify({
           title: newTitle
         })
-      })
+      }).then(res => res.json()).then(console.log)
     }
 
   render(){

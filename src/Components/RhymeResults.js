@@ -3,9 +3,21 @@ import RhymeItem from './RhymeItem';
 
 class RhymeResults extends Component {
 
-  render(){
-    return(
-      this.props.results ?
+  renderResults = () => {
+    if (this.props.filteredResults){
+      return (
+        <div id="rhyme-results">
+          {this.props.filteredResults.map((result,index) =>
+            <RhymeItem
+              key={index}
+              result={result}
+              addWord={this.props.addWord}
+              />)}
+        </div>
+      )
+    } else if (this.props.results){
+
+      return (
         <div id="rhyme-results">
           {this.props.results.map((result,index) =>
             <RhymeItem
@@ -14,8 +26,15 @@ class RhymeResults extends Component {
               addWord={this.props.addWord}
               />)}
         </div>
+      )
+    } else {
+      return null
+    }
+  }
 
-      : null
+  render(){
+    return(
+      this.renderResults()
     )
   }
 }

@@ -5,7 +5,8 @@ class RhymeForm extends Component {
     super(props);
     this.state={
       rhymeWord: '',
-      adjectiveWord: ''
+      adjectiveWord: '',
+      syllables: ''
     }
   }
 
@@ -13,14 +14,23 @@ class RhymeForm extends Component {
     if (event.target.name === "rhymeWord"){
       this.setState({
         adjectiveWord: '',
+        syllables: '',
         rhymeWord: event.target.value,
       }, () => this.props.findRhyme(this.state.rhymeWord))
     } else {
       this.setState({
         rhymeWord: '',
+        syllables: '',
         adjectiveWord: event.target.value
       }, () => this.props.findAdjective(this.state.adjectiveWord))
     }
+  }
+
+  setSyllables = (event) => {
+    this.setState({
+      syllables: event.target.value
+    }, () => this.props.filterBySyllableNum(this.state.syllables))
+
   }
 
   handleSubmit = (event) => {
@@ -30,27 +40,40 @@ class RhymeForm extends Component {
   render(){
     return(
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>Find words that rhyme with:</label>
+        <form className="form-group" onSubmit={this.handleSubmit}>
+          <label className="font">Find words that rhyme with:</label>
+          <br></br>
+
           <input
+            className="form-control rhyme"
             type="text"
             onChange={this.handleChange}
             name="rhymeWord"
             value={this.state.rhymeWord}/>
+
+        <br></br>
+
+        <label className="font"># of syllables (optional)</label>
           <br></br>
 
-          <label># of syllables</label>
-          <input type="text" className="syllable-input"/>
+          <input
+            onChange={this.setSyllables}
+            type="text"
+            value={this.state.syllables}
+            className="form-control syllable"/>
 
-          <label>Find adjectives that describe:</label>
+          <br></br>
+
+          <label className="font">Find adjectives to describe:</label>
+          <br></br>
+
           <input
             type="text"
+            className="form-control adjective"
             onChange={this.handleChange}
             name="adjectiveWord"
             value={this.state.adjectiveWord}/>
-          <br></br>
-          <label># of syllables</label>
-          <input type="text" className="syllable-input"/>
+
         </form>
       </div>
     )

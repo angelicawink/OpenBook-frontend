@@ -51,7 +51,7 @@ class Poem extends Component {
     })
     .then(res => res.json()).then(data => {
       console.log(data);
-      
+
       this.props.addPoem(data)
       this.props.togglePoetryDisplay()
     })
@@ -60,18 +60,18 @@ class Poem extends Component {
   render(){
     return(
       <>
-        <div className="col-xs-9">
-          <form>
+        <div className="col-xs-7">
+          <form className="form-group">
             <input
               type="text"
-              placeholder="Title"
-              className="poem-title"
+              placeholder="Type To Add Poem Title"
+              className="poem-title form-control"
               onChange={this.setTitle}/>
             <textarea
               id="poem-textarea"
               onChange={this.handleChange}
-              className="poem-body"
-              placeholder="My Amazing Poem"
+              className="poem-body form-control"
+              placeholder="Type To Add Poem Body"
               value={this.state.content}>
             </textarea>
           </form>

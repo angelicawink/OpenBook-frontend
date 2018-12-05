@@ -6,7 +6,8 @@ class RhymeFinder extends Component {
   constructor(props){
     super(props);
     this.state={
-      results: null
+      results: null,
+      filteredResults: null
     }
   }
 
@@ -22,16 +23,34 @@ class RhymeFinder extends Component {
     .then(data => this.setState({results: data}))
   }
 
+  filterBySyllableNum = (num) => {
+    let syll = ~~num;
+    if (this.state.results ){
+      if (syll === 0){
+        this.setState({
+          filteredResults: null
+        })
+        return
+      } else {
+        let filteredResults = this.state.results.filter(result => result.numSyllables === syll)
+        this.setState({
+          filteredResults: filteredResults
+        })
+      }
+    }
+  }
 
   render(){
     return(
-      <div className="col-xs-3 rhyme-holder">
+      <div className="col-xs-5 rhyme-holder">
         <RhymeForm
+          filterBySyllableNum={this.filterBySyllableNum}
           findRhyme={this.findRhyme}
           findAdjective={this.findAdjective}
           />
         <RhymeResults
           results={this.state.results}
+          filteredResults={this.state.filteredResults}
           addWord={this.props.addWord}/>
       </div>
     )
