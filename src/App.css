@@ -28,8 +28,9 @@ select.form-group{
   /* background-color: red; */
   text-align: center;
   /* display: inline-block; */
+  /* font-size: 50px; */
   width: fit-content;
-  margin-top: 40vh;
+  padding-top: 55vh;
 }
 
 .results-header{
@@ -127,12 +128,15 @@ input.form-control.syllable{
 }
 
 #lock-icon{
-  width: 32px;
+  width: 38px;
+  height: 38px;
   /* margin-left: 5px; */
 }
 
 #hidden-lock{
-  width: 32px;
+  width: 38px;
+  height: 38px;
+
   background-color: transparent;
   /* margin-left: 5px; */
   /* visibility: hidden; */
@@ -184,12 +188,15 @@ button#write-another{
   outline: none;
 }
 
+ #private:hover, #cancel-entry:hover, #submit-entry:hover{
+   background-color: rgba(217, 78, 147, .6)
+ }
+
 button#write-another:hover{
   background-color: rgba(100, 0, 28, .5);
-
 }
 
- button#new-entry, .new-entry, #save-poem, button#new-moment, #private, #cancel-entry, #submit-entry{
+ button#new-entry, .chart-another, .new-entry, #save-poem, button#new-moment, #private, #cancel-entry, #submit-entry{
   background-color: transparent;
   border-color: white;
   font-size: 17px;
@@ -199,10 +206,34 @@ button#write-another:hover{
   border-radius: 3px;
   color: white;
   outline: none;
-
 }
 
+#submit-entry{
+  float: right;
+  margin-right: 15vw;
+}
 
+#private{
+  /* background-color: red; */
+  width: fit-content;
+  border-color: white;
+  border-style: solid;
+  float: left;
+  margin-left: 15vw;
+  /* margin-left: 10vw; */
+}
+
+#private-checkbox{
+  /* background-color: pink; */
+}
+
+/* input[type="checkbox"]:checked + label:before {
+  background: red;
+}
+
+input[type="checkbox"]:checked + label:after {
+  background: yellow;
+} */
 
 .poems.container{
   text-align: center;
@@ -222,7 +253,7 @@ button#write-another:hover{
   font-size: 1.5em !important;
 }
 
-button#new-entry:hover, select.form-group:hover, button#new-moment:hover, #private:hover, #cancel-entry:hover, #submit-entry:hover{
+button#new-entry:hover, select.form-group:hover, button#new-moment:hover{
   background-color: rgba(100, 166, 150, 1);
   outline: none;
 
@@ -274,7 +305,7 @@ nav.navbar.navbar-default{
 }
 
 div.Box-1.top-left{
-  padding: 5%;
+  padding: 3%;
   padding-left: 8%;
   padding-bottom: 0;
   border-right: 1px solid;
@@ -393,17 +424,18 @@ textarea#poem-textarea.poem-body.form-control::placeholder{
 input#search-form.search-form.input{
   background-color: white;
   drop-shadow: none;
+  width: 40vw;
   font-size: 15px;
   line-height: 20px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 5px;
   outline: none;
-
+  font-weight: bold;
   margin-top: 10px;
   margin-left: 5px;
   margin-right: 5px;
-  color: pink;
+  color: rgba(217, 78, 147, 1);
 }
 
 .search-form.input{
@@ -433,8 +465,8 @@ div.col-xs-6.search{
 }
 
 canvas.chartjs-render-monitor{
-  min-height: 38vh;
-  max-height: 38vh;
+  min-height: 40vh;
+  max-height: 40vh;
   min-width: 40vw;
   max-width: 40vw;
   margin: 0px;
@@ -476,10 +508,10 @@ label{
 }
 
 .card-body, p{
-  color: white;
+  /* color: white; */
+  color: rgba(10, 21, 47, 1);
   height: fit-content;
   font-size: 18px;
-
 }
 
 h5, h4, p{
@@ -494,9 +526,10 @@ h3.date-header{
   margin-bottom: 3px;;
 }
 
-h6.time-header{
+h5.time-header{
   margin-top: 5px;
   margin-bottom: 5px;
+  color: white;
 }
 
 div.home-container.container {
@@ -510,15 +543,34 @@ div.home-container.container {
   height: 100vh;
 }
 
-
-
 .login-body{
   align-items: center;
   padding: 4%;
+  /* text-align: center; */
+  /* margin-left: 40vw; */
 }
 
+.login-div{
+  margin-left: 30vw;
+  margin-top: 5vh;
+  /* border-style:solid; */
+  width: fit-content;
+  border-radius: 8px;
+  padding: 1%;
+  background-color: rgba(132, 160, 205, 1);
+  /* text-align: center; */
+}
+
+
 .signup{
-  margin: 5%;
+  border-radius: 8px;
+  margin-left: 36.5vw;
+  margin-top: 3vh;
+  background-color: rgba(242, 147, 142, 1);
+
+  /* border-style:solid; */
+  width: fit-content;
+  padding: 1%;
 }
 
 /* h1.page-header */
@@ -682,13 +734,17 @@ div.diary-page.card, #new-diary-entry{
   display: inline-block;
   background-color: rgba(132, 160, 205, 1);
   border-radius: 5px;
-  border-color: white;
-  border-style: solid;
+  /* border-color: white; */
+  /* border-style: solid; */
   border-width: .5px;
-  margin-bottom: 2vh;
+  margin-bottom: 1vh;
+  margin-top: 5px;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: rgba(10, 21, 47, 1);
   /* display: flex; */
   /* box-shadow:   1px 1px 1px 1px; */
-  padding: 10px;
+  padding: 3%;
 }
 
 
@@ -874,7 +930,7 @@ div.page-header.saved-entry{
   color: rgba(92, 70, 60, .7);
   background-color: rgba(223, 203, 168, .9);
   box-shadow: .5px .5px .5px .5px;
-  font-size: 15px;
+  font-size: 18px;
   margin: 5px;
   padding: 35px 18px;
   border-radius: 3px;
@@ -909,20 +965,21 @@ div.page-header.saved-entry:hover{
 
 #letter-textarea{
   background-color: transparent;
-  font-size: 2vh;
-  color: grey;
-  line-height: 4.4vh;
+  font-size: 1.8em;
+  color: red;
+  line-height: 1.35em;
   border-style: hidden;
   box-shadow: none;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3vh;
+  margin-top: .8em;
   height: 94%;
   width: 112%;
 }
 
 #dear{
   position: fixed;
+  font-size: 25px;
 }
 
 #terrible-person{
@@ -931,11 +988,14 @@ div.page-header.saved-entry:hover{
 #with-rage{
   position: relative;
   padding-top: 3%;
+  font-size: 25px;
+
 }
 
 #me{
+  font-size: 25px;
   padding-top: 1%;
-  padding-left: 20%;
+  padding-left: 40%;
   position: relative;
 }
 
@@ -1029,10 +1089,16 @@ div#address{
   border-style: hidden;
   overflow: scroll;
   outline: none;
+  /* font-size: 30px; */
 }
 
 label.myLabelClass:hover{
   cursor: text;
+  /* font-size: 30px; */
+}
+
+#editable-label{
+  /* font-size: 30px !important; */
 }
 
 #flames{

@@ -63,6 +63,7 @@ class SavedEntry extends Component {
 
           <div className="page-header saved-entry">
               <EditableLabel
+                id="editable-label"
                 text={this.props.savedEntry.title}
                 labelClassName='myLabelClass'
                 inputClassName='myInputClass'

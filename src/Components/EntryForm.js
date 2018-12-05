@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 class EntryForm extends Component {
   state={
-    content: ''
+    content: '',
+    checked: false
   }
 
   handleChange = (event) => {
@@ -12,13 +13,13 @@ class EntryForm extends Component {
   }
 
   handleSubmit = (event) => {
+
     event.preventDefault();
     let entryContent = this.state.content;
     let userID = this.props.user.id;
     let token = localStorage.getItem('token');
-    let privacyInput = event.target.children[2].checked
-    debugger
-
+    let privacyInput = event.target.children[2].children[0].checked
+debugger
     fetch(`http://localhost:3000/api/v1/entries`, {
       method: "POST",
         headers: {
@@ -58,22 +59,23 @@ class EntryForm extends Component {
     let am_pm;
 
     if (~~time[0] > 12){
-      debugger
       hours = time[0] -12;
       am_pm = ' pm';
     } else if (~~time[0] === 12) {
-      debugger
       hours = time[0];
       am_pm = ' pm'
     } else if (~~time[0] < 12) {
-      debugger
       hours = time[0];
       am_pm = ' am';
     }
-    debugger
     let displayTime = hours + ":" + mins + am_pm
-    debugger
     return displayTime;
+  }
+
+  toggleCheckbox = () => {
+    this.setState({
+      checked: !this.state.checked
+    })
   }
 
   render(){
@@ -88,7 +90,9 @@ class EntryForm extends Component {
           </div>
 
           <button id="submit-entry" type="submit">Submit</button>
-          Private<input type="checkbox" id="private"/>
+          <div onClick={this.toggleCheckbox} id="private">
+            Private <input type="checkbox" id="private-checkbox" checked={this.state.checked}/>
+          </div>
         </form>
 
         <button id="cancel-entry" onClick={this.props.entryLogged}>Cancel</button>

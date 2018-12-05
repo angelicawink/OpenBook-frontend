@@ -71,19 +71,19 @@ class Signup extends Component{
         <form onSubmit={this.handleSubmit}>
 
           <div className="form-group">
-            <label>Username</label>
+            <label>Create Username:</label>
             <input type="text" className="form-control short" name="username" placeholder="username" onChange={this.handleChange}/>
 
-            <label>Password</label>
+            <label>Create Password:</label>
             <input type="password" className="form-control short" name="password" placeholder="password" onChange={this.handleChange}/>
 
-            <label>Confirm Password</label>
+            <label>Confirm Password:</label>
             <input type="password" className="form-control short" name="confirmPassword" placeholder="password" onChange={this.handleChange}/>
 
           </div>
 
           <div className="form-group">
-            <button type="submit" className="btn btn-danger">Sign Up</button>
+            <button type="submit" className="btn btn-warning">Sign Up</button>
           </div>
 
         </form>

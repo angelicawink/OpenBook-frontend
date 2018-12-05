@@ -30,7 +30,7 @@ class Home extends Component {
       return (
         <div className="moment-box">
           <img src="https://img.icons8.com/cotton/2x/checkmark.png" alt="checkmark" id="moment-checkmark"/>
-          <div><button className="btn btn-default" onClick={this.snapshotLogged}>chart another</button></div>
+          <div><button className="chart-another" onClick={this.snapshotLogged}>chart another</button></div>
         </div>
       )
     } else {

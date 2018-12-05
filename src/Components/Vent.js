@@ -42,12 +42,6 @@ class Vent extends Component {
             <Letter/>
           </Carousel.Item>
 
-          <Carousel.Item>
-            <div className="container poetry">
-              We're all gonna die one day. Nothing Lasts forever. I'm ok. You're ok.
-            </div>
-          </Carousel.Item>
-
         </Carousel>
 
 

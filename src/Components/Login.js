@@ -73,20 +73,20 @@ componentDidMount(){
           </div>
 
           <div className="container">
-            <div className="col-sm-4">
+            <div className="col-sm-4 login-div">
 
               <h2>Log In</h2>
               <form onSubmit={this.handleSubmit}>
 
                 <div className="form-group">
-                  <label>Username</label>
+                  <label>Username:</label>
                   <input type="text" className="form-control short" name="username" placeholder="username" onChange={this.handleChange}/>
-                  <label>Password</label>
+                  <label>Password:</label>
                   <input type="password" className="form-control short" name="password" placeholder="password" onChange={this.handleChange}/>
                 </div>
 
                 <div className="form-group">
-                  <button type="submit" className="btn btn-warning">Log In</button>
+                  <button type="submit" className="btn btn-danger">Log In</button>
                 </div>
 
               </form>

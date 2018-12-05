@@ -114,7 +114,7 @@ class Diary extends Component {
                  <img data-private={false} onClick={this.togglePrivacy} id="hidden-lock"  src="http://www.iconarchive.com/download/i87176/graphicloads/colorful-long-shadow/Unlock.ico" alt="lock"/>
               }
 
-          <h6 className="time-header">{this.getTime()}</h6>
+          <h5 className="time-header">{this.getTime()}</h5>
         </div>
 
         <div className="col-xs-4">

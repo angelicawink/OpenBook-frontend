@@ -28,7 +28,7 @@ class YellowLetter extends Component {
               <textarea
                 id="letter-textarea"
                 className="form-control"
-                placeholder="Click to write your angriest vent letter here..">
+                placeholder="...Type your your angriest vent letter here...">
               </textarea>
 
               <div>

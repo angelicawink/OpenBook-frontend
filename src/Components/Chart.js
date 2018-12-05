@@ -22,13 +22,15 @@ class Chart extends Component {
                   autoSkip: true,
                   maxTicksLimit: 5,
                   fontColor: 'white',
-                  fontSize: 13
+                  fontSize: 13,
+                  fontFamily: 'Antic Slab'
                 }
               }],
               yAxes: [{
                 ticks: {
                   fontColor: 'white',
                   fontSize: 13,
+                  fontFamily: 'Antic Slab',
                   beginAtZero: true,
                   callback: function(label, index, labels) {
         switch (label) {
@@ -64,8 +66,9 @@ class Chart extends Component {
             title: {
               display: true,
               text: 'Feelings Rollercoaster',
-              fontSize: 25,
-              fontColor: 'white'
+              fontSize: 27,
+              fontColor: 'white',
+              fontFamily: 'Antic Slab'
             },
             legend: {
               display: false
