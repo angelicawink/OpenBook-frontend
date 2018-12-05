@@ -60,7 +60,7 @@ class ResultstMaster extends Component{
     return(
       <div className="col-xs-6 search">
         <div id="holder" className="left">
-          <h3>All Journals</h3>
+          <h3 className="results-header">All Journals</h3>
 
           <div className="journal-search master">
 

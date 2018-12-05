@@ -2,7 +2,7 @@ export const chartLabels = [
   'at work',
   'outdoors',
   'exercising',
-  'downtime',
+  'chill time',
   'socializing',
   'with family',
   'with significant other',

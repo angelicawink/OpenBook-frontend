@@ -3,7 +3,7 @@ import { OverlayTrigger, Popover } from 'react-bootstrap';
 
 
 class ResultItem extends Component{
-  
+
 
 renderIcon = () => {
   let bookmark = "https://png.pngtree.com/svg/20161212/bookmark_1066239.png"
@@ -58,7 +58,7 @@ renderIcon = () => {
               />
 
 
-        {this.props.result.created_at.slice(0,9) + " - "} {this.props.result.content.slice(0, 60)+'.....'}
+        {this.props.result.content.slice(0, 60)+'.....'}
 
       </h4>
     </OverlayTrigger>

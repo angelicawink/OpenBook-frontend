@@ -13,12 +13,19 @@ button.ui.orange.button{
 select.form-group{
   background-color: transparent;
   border-color: white;
-  border-width: 1px;
+  border-width: 1.5px;
+  /* line-height: 30px; */
+  font-size: 15px;
+  /* padding: 20px; */
   margin: 5px;
   text-align: center;
   margin-bottom: 8vh;
   outline: none;
 
+}
+
+.results-header{
+  margin: 0px;
 }
 
 .syllable-input{
@@ -29,7 +36,7 @@ select.form-group{
 div#rhyme-results{
   text-align: center;
   overflow: auto;
-  height: 45vh;
+  height: 58vh;
   width: 95%;
   color: white;
   border-style: solid;
@@ -53,11 +60,8 @@ div#rhyme-results{
 
 .rhyme-holder{
   text-align: center;
-  /* margin-left: 30px; */
-  padding-left: 45px;
+  padding-left: .5%;
   height: 75vh;
-  /* background-color: red; */
-  /* margin-left: 5px; */
 }
 
 #click-to-vent{
@@ -117,14 +121,18 @@ div#rhyme-results{
 
 button#write-another{
   background-color: transparent;
-  border-color: red;
+  border-color: rgb(167, 0, 4);
   margin-top: 10vh;
   border-width: 1.5px;
   padding: 5px;
   border-radius: 3px;
-  color: red;
+  color: rgb(167, 0, 4);
   font-size: 20px;
   outline: none;
+}
+
+button#write-another:hover{
+  background-color: rgba(100, 0, 28, .5);
 
 }
 
@@ -155,6 +163,10 @@ input.form-control{
 
 
 div.home-container.container{
+}
+
+.navbar-default{
+  border-style: hidden;
 }
 
 div.navbar-collapse.collapse.in{
@@ -238,10 +250,11 @@ div.Box-1.bottom-right{
 
 .poem-title{
   text-align: center;
-  width: 60vw;
+  width: 50vw;
   font-size: 50px;
   margin-left: auto;
   margin-right: auto;
+  background-color: rgba(208, 172, 245, .7);
 }
 
 .poetry-container{
@@ -250,8 +263,11 @@ div.Box-1.bottom-right{
 
 .poem-body{
   text-align: center;
-  width: 60vw;
-  height: 61vh;
+  width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+  height: 70vh;
+  background-color: rgba(208, 172, 245, .7)
   /* background-color: red; */
 }
 
@@ -263,7 +279,7 @@ div.Box-1.bottom-right{
   padding: 3%;
   height: 80vh;
   width: 82vw;
-  background-color: grey;
+  background-color: transparent;
 }
 
 .page-header{
@@ -281,7 +297,7 @@ input#search-form.search-form.input{
   background-color: white;
   drop-shadow: none;
   font-size: 15px;
-  line-height: 23px;
+  line-height: 20px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 5px;
@@ -306,17 +322,17 @@ div.col-xs-6.search{
 }
 
 .search-form.submit{
-  background-color: rgba(254,255,149);
-  color: grey;
+  background-color: rgba(202,107,144, 1);
+  color: white;
   padding: 10px;
   box-shadow: none;
   border-style: none;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 17px;
 }
 
 .search-form.submit:hover{
-  background-color: rgb(243, 229, 163)
+  background-color: rgba(105,56,88, 1)
 }
 
 canvas.chartjs-render-monitor{
@@ -549,6 +565,10 @@ img.arrow:active{
   /* float: right; */
   /* position: relative; */
 }
+
+/* .arrow:hover{
+  outline:inherit;
+} */
 /*
 .arrow:hover{
   height: 35px;
@@ -599,7 +619,7 @@ a{
 
 div.search-header{
   padding: 20px;
-  font-size: 40px;
+  font-size: 35px;
   line-height: 45px;
   color: rgb(255, 244, 149);
   text-align: center;
@@ -609,14 +629,15 @@ div.search-header{
   margin-left: auto;
   margin-right: auto;
   /* margin-top: 2%; */
-  margin-bottom: 2%;
+  /* margin-bottom: 2%; */
 }
 div#root{
   background-color: rgba(106, 194, 139, .8);
 }
 
 .search-result-item{
-  background-color: rgba(106, 194, 139, 1);
+  /* background-color: rgba(106, 194, 139, 1); */
+  background-color: rgba(149, 116, 146, .9);
   padding: 8px;
   border-radius: 4px;
   border-style: solid;
@@ -629,7 +650,7 @@ div#root{
 
 .search-result-item:hover{
   box-shadow: 1px 1px 1px 1px;
-  background-color: rgba(93, 155, 113, 1);
+  background-color: rgba(124, 69, 94, 1);
 }
 
 #search-result-placeholder{
@@ -729,7 +750,12 @@ div#holder.left{
 
 #popover-trigger-focus{
   color: white;
+  font-size: 18px;
   background-color: rgba(132, 160, 205, 1);
+}
+
+.popover{
+  /* font-size: 20px; */
 }
 
 .popover-title{
@@ -884,7 +910,7 @@ div#address{
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  font-size: 2.3vh;
+  font-size: 3vh;
   font-style: italic;
   color: white;
   height: 2.3vh;
