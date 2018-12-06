@@ -67,6 +67,7 @@ componentDidMount(){
 
 
   render() {
+    console.log(process.env['NODE_ENV'])
     if (this.props.user) {
       return <Redirect push to={'/home'}/>
     } else {

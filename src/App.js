@@ -6,9 +6,10 @@ import Vent from './Components/Vent'
 import JournalSearch from './Components/JournalSearch'
 import { Route, withRouter, Switch } from 'react-router-dom';
 import MyNavBar from './Components/MyNavBar';
-import { fetchVerifyUser } from './FETCHES'
+// import { fetchVerifyUser } from './FETCHES'
 import { chartLabels, pieChartColors } from './data';
 import Wallow from './Components/Wallow';
+import URL from './helpers'
 
 class App extends Component {
   constructor(){
@@ -25,7 +26,12 @@ class App extends Component {
   setDatas = () => {
   let token = localStorage.getItem('token');
   if (token)
-    fetchVerifyUser(token)
+      return fetch(`${URL}/home`, {
+        headers: {
+          "Authorization" : `Bearer ${token}`
+        }
+      })
+      .then(res => res.json())
     .then(data => {
       this.setState({
       user: data.user
@@ -38,10 +44,17 @@ class App extends Component {
     )
     }
 
+
  componentDidMount(){
     let token = localStorage.getItem('token');
-    if (token)
-      fetchVerifyUser(token)
+    if (token){
+        return fetch(`${URL}/home`, {
+          headers: {
+            "Authorization" : `Bearer ${token}`
+          }
+        })
+        .then(res => res.json())
+
       .then(data => {
         this.setState({
         user: data.user
@@ -53,6 +66,8 @@ class App extends Component {
       })}
       )
     }
+    }
+
 
   getSavedEntryIDs = () => {
     let savedIDs = [];
