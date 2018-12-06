@@ -22,14 +22,14 @@ class Chart extends Component {
                   autoSkip: true,
                   maxTicksLimit: 5,
                   fontColor: 'white',
-                  fontSize: 13,
+                  fontSize: 18,
                   fontFamily: 'Antic Slab'
                 }
               }],
               yAxes: [{
                 ticks: {
                   fontColor: 'white',
-                  fontSize: 13,
+                  fontSize: 19,
                   fontFamily: 'Antic Slab',
                   beginAtZero: true,
                   callback: function(label, index, labels) {

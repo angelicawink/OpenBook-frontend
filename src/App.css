@@ -10,6 +10,17 @@ button.ui.orange.button{
 
 }
 
+#right-now{
+  /* background-color: white; */
+  font-size: 1.4em;
+  /* margin-bottom: 0px; */
+}
+
+#show-rank{
+  margin-top: 0px;
+  font-size: 2.4em;
+}
+
 /*  nav bar links */
 
 .navbar-nav>li>a{
@@ -24,7 +35,7 @@ select.form-group{
   border-color: white;
   border-width: 1.5px;
   /* line-height: 30px; */
-  font-size: 15px;
+  font-size: 1.4em;
   /* padding: 20px; */
   margin: 5px;
   text-align: center;
@@ -44,6 +55,7 @@ select.form-group{
 
 .results-header{
   margin: 0px;
+  font-size: 1.6em;
 }
 
 .syllable-input{
@@ -208,7 +220,7 @@ button#write-another:hover{
  button#new-entry, .chart-another, .new-entry, #save-poem, button#new-moment, #private, #cancel-entry, #submit-entry{
   background-color: transparent;
   border-color: white;
-  font-size: 17px;
+  font-size: 1.5em;
   margin: 3px;
   border-width: 1.5px;
   padding: 7px;
@@ -437,7 +449,7 @@ input#search-form.search-form.input{
   background-color: white;
   drop-shadow: none;
   width: 40vw;
-  font-size: 15px;
+  font-size: .6em;
   line-height: 20px;
   padding-left: 10px;
   padding-right: 10px;
@@ -805,6 +817,7 @@ div#root{
   /* background-color: rgba(106, 194, 139, 1); */
   background-color: rgba(149, 116, 146, .9);
   padding: 8px;
+  font-size: 1.25em;
   border-radius: 4px;
   border-style: solid;
   border-color: rgba(93, 155, 113, 1);
@@ -926,7 +939,7 @@ div#holder.left{
 
 #popover-trigger-focus{
   color: white;
-  font-size: 18px;
+  font-size: 1.5em;
   background-color: rgba(132, 160, 205, 1);
 }
 
@@ -936,6 +949,7 @@ div#holder.left{
 
 .popover-title{
   background-color: rgb(223, 203, 168);
+  font-size: 1.1em;
   color: rgb(132, 95, 66);
 }
 
@@ -943,7 +957,7 @@ div.page-header.saved-entry{
   color: rgba(92, 70, 60, .7);
   background-color: rgba(223, 203, 168, .9);
   box-shadow: .5px .5px .5px .5px;
-  font-size: 18px;
+  font-size: 1.7em;
   margin: 5px;
   padding: 35px 18px;
   border-radius: 3px;
@@ -978,14 +992,14 @@ div.page-header.saved-entry:hover{
 
 #letter-textarea{
   background-color: transparent;
-  font-size: 1.8em;
+  font-size: 1.95em;
   color: red;
-  line-height: 1.35em;
+  line-height: 1.65em;
   border-style: hidden;
   box-shadow: none;
   margin-left: auto;
   margin-right: auto;
-  margin-top: .8em;
+  margin-top: 1.3em;
   height: 94%;
   width: 112%;
 }
@@ -1000,7 +1014,7 @@ div.page-header.saved-entry:hover{
 
 #with-rage{
   position: relative;
-  padding-top: 3%;
+  padding-top: 6%;
   font-size: 25px;
 
 }
