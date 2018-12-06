@@ -11,9 +11,12 @@ button.ui.orange.button{
 }
 
 /*  nav bar links */
-.navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a{
+
+.navbar-nav>li>a{
   font-size: 25px;
-  margin-left: 8vw;
+  /* float: right !important; */
+  margin-left: 5.7vw;
+  /* margin-right: 1vw; */
 }
 
 select.form-group{
@@ -270,7 +273,9 @@ input.form-control{
   margin-bottom: 10px;
 }
 
-
+.navbar-brand, .navbar>.container {
+  margin-left: 6vw;
+}
 
 
 div.home-container.container{
@@ -294,6 +299,7 @@ border-width: 2px;
   /* font-family: 'PT Sans', sans-serif; */
   /* font-family: 'Nanum Gothic', sans-serif; */
   color: white ;
+
 }
 
 nav.navbar.navbar-default{
@@ -767,8 +773,9 @@ div#vent {
 }
 
 a.navbar-brand{
-  font-size: 35px !important;
+  font-size: 40px !important;
   color: white;
+  margin-left: 0px;
 }
 
 a{
