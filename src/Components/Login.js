@@ -86,7 +86,7 @@ componentDidMount(){
                 </div>
 
                 <div className="form-group">
-                  <button type="submit" className="btn btn-danger">Log In</button>
+                  <button type="submit" className="btn btn-warning">Log In</button>
                 </div>
 
               </form>

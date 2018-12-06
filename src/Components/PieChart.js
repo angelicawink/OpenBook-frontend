@@ -31,23 +31,34 @@ goodColor = () => {
   }
 }
 
+goodFont = () => {
+  if (this.state.showPositive) {return 'white'}
+}
+
+badFont = () => {
+  if (!this.state.showPositive) {return 'white'}
+}
+
 
   render(){
     return(
       <>
-        <h2 className="pie-chart-header">Where I am When I'm Feeling:</h2>
-        <button
-          id="good"
-          name="good"
-          style={{background: this.goodColor()}}
-          onClick={this.handleChange}>Good</button>
-        <button
-          id="bad"
-          name="bad"
-          style={{backgroundColor: this.badColor()}}
-          onClick={this.handleChange}>Bad</button>
+        <div className="pie-top">
+          <h2 className="pie-chart-header">Where I am When I'm Feeling:</h2>
+          <button
+            id="good"
+            name="good"
+            style={{background: this.goodColor(), color: this.goodFont()}}
+            onClick={this.handleChange}>Good</button>
+          <button
+            id="bad"
+            name="bad"
+            style={{backgroundColor: this.badColor(), color: this.badFont()}}
+            onClick={this.handleChange}>Bad</button>
+        </div>
 
     {this.state.showPositive && this.props.posPieChartData ?
+      <div className="pie-bottom">
         <Pie id="pie-chart"
             data={this.props.posPieChartData}
 
@@ -69,30 +80,33 @@ goodColor = () => {
             },
           }}
           />
+      </div>
         :
         null
       }
       {!this.state.showPositive ?
-        <Pie id="pie-chart"
-            data={this.props.negPieChartData}
+        <div className="pie-bottom">
+          <Pie id="pie-chart"
+              data={this.props.negPieChartData}
 
-          options={{
-            title: {
-              display: false,
-              text: `Where I am When I'm Feeling:`,
-              fontSize: 20,
-              fontColor: 'white'
-            },
-            legend: {
-              display: true,
-              position: 'right',
-              labels: {
-                fontSize: 15,
+            options={{
+              title: {
+                display: false,
+                text: `Where I am When I'm Feeling:`,
+                fontSize: 20,
                 fontColor: 'white'
+              },
+              legend: {
+                display: true,
+                position: 'right',
+                labels: {
+                  fontSize: 15,
+                  fontColor: 'white'
+                }
               }
-            }
-          }}
-          />
+            }}
+            />
+        </div>
         :
         null
       }

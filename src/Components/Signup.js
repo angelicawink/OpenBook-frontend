@@ -83,7 +83,7 @@ class Signup extends Component{
           </div>
 
           <div className="form-group">
-            <button type="submit" className="btn btn-warning">Sign Up</button>
+            <button type="submit" className="btn btn-danger">Sign Up</button>
           </div>
 
         </form>

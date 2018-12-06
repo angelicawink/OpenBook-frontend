@@ -4,7 +4,7 @@ import RhymeFinder from './RhymeFinder';
 
 class Poetry extends Component{
   state={
-    showPoemForm: false,
+    showPoemForm: true,
     wordToAdd: null
   }
 

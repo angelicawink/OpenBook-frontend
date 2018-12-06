@@ -23,9 +23,15 @@ class Poem extends Component {
 
   componentDidUpdate(prevProps){
     if (this.props.wordToAdd !== prevProps.wordToAdd){
-      this.setState({
-        content: this.state.content.concat(" " + this.props.wordToAdd)
-      })
+      if (this.state.content[this.state.content.length-1] === " "){
+        this.setState({
+          content: this.state.content.concat(this.props.wordToAdd)
+        })
+      } else {
+        this.setState({
+          content: this.state.content.concat(" " + this.props.wordToAdd)
+        })
+      }
     }
   }
 

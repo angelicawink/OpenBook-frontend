@@ -10,6 +10,12 @@ button.ui.orange.button{
 
 }
 
+/*  nav bar links */
+.navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a{
+  font-size: 25px;
+  margin-left: 8vw;
+}
+
 select.form-group{
   background-color: transparent;
   border-color: white;
@@ -150,12 +156,12 @@ input.form-control.syllable{
 } */
 
 #good{
-  background-color: rgba(100, 166, 150, .5);
-  border-color: rgba(82, 70, 100, .8);
+  background-color: rgba(100, 166, 150, .9);
+  border-color: rgba(13, 4, 39, 1);
   border-width: 2px 1px 2px 2px;
   border-radius: 5px 0px 0px 5px;
   font-size: 20px;
-  color: white;
+  color: rgba(13, 4, 39, 1);
   width: 80px;
   outline: none;
 
@@ -164,12 +170,12 @@ input.form-control.syllable{
 
 
 #bad{
-  background-color: rgba(100, 166, 150, .5);
-  border-color: rgba(16, 52, 44, .7);
+  background-color: rgba(100, 166, 150, .9);
+  border-color: rgba(13, 4, 39, 1);
   border-width: 2px 2px 2px 1px;
   border-radius: 0px 5px 5px 0px;
   font-size: 20px;
-  color: white;
+  color: rgba(13, 4, 39, 1);
   width: 80px;
   outline: none;
 }
@@ -761,7 +767,7 @@ div#vent {
 }
 
 a.navbar-brand{
-  font-size: 35px;
+  font-size: 35px !important;
   color: white;
 }
 
