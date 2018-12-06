@@ -1,6 +1,7 @@
+import URL from './helpers'
 
 export function fetchVerifyUser(token) {
-  return fetch(`http://localhost:3000/api/v1/home`, {
+  return fetch(`${URL}/home`, {
     headers: {
       "Authorization" : `Bearer ${token}`
     }

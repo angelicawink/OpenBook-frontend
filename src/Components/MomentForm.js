@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import { Button } from 'semantic-ui-react'
+import URL from '../helpers'
 
 class MomentForm extends Component {
   state={
@@ -23,7 +24,7 @@ class MomentForm extends Component {
     console.log(feelingsID)
     console.log(userID)
 
-    fetch('http://localhost:3000/api/v1/moments', {
+    fetch(`${URL}/moments`, {
       method: "POST",
         headers: {
           "Authorization" : `Bearer ${token}`,

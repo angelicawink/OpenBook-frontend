@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ResultItem from './ResultItem';
+import URL from '../helpers'
 
 class ResultstMaster extends Component{
   constructor(props){
@@ -27,7 +28,7 @@ class ResultstMaster extends Component{
       let savedObj = this.props.user.saved_entries.find(saved => saved.entry.id == entryID)
       let savedID = savedObj.id
 
-      fetch(`http://localhost:3000/api/v1/saved_entries/${savedID}`, {
+      fetch(`${URL}/saved_entries/${savedID}`, {
           method: "DELETE",
           headers: {
             "Content-Type" : "application/json",
@@ -37,7 +38,7 @@ class ResultstMaster extends Component{
         }).then(res => res.json()).then(savedObj => this.props.deleteSavedEntry(savedObj))
     }
     else {
-      fetch(`http://localhost:3000/api/v1/saved_entries`, {
+      fetch(`${URL}/saved_entries`, {
         method: "POST",
         headers: {
           "Content-Type" : "application/json",

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import URL from '../helpers'
 
 class Signup extends Component{
   constructor(props){
@@ -38,7 +39,7 @@ class Signup extends Component{
     let usernameInput = data.username
     let passwordInput = data.password
 
-    fetch('http://localhost:3000/api/v1/signup', {
+    fetch(`${URL}/signup`, {
       method: "POST",
       headers: {
         "Content-Type" : "application/json",

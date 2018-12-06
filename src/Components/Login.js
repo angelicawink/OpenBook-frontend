@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import Signup from './Signup';
+import URL from '../helpers'
+
 
 class Login extends Component {
   state={
@@ -35,7 +37,7 @@ componentDidMount(){
     let usernameInput = data.username
     let passwordInput = data.password
 
-    fetch('http://localhost:3000/api/v1/login', {
+    fetch(`${URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type" : "application/json",

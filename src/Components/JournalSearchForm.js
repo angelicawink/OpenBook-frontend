@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import URL from '../helpers'
+
 
 class JournalSearchForm extends Component {
   state={
@@ -15,7 +17,7 @@ class JournalSearchForm extends Component {
     event.preventDefault();
     let token = localStorage.getItem('token')
 
-    fetch(`http://localhost:3000/api/v1/entries`, {
+    fetch(`${URL}/entries`, {
       headers: {
         "Authorization" : `Bearer ${token}`
       }

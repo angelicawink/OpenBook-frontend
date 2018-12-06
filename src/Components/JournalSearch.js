@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import JournalSearchDisplay from './JournalSearchDisplay';
 import JournalSearchForm from './JournalSearchForm';
+import URL from '../helpers'
+
 
 class JournalSearch extends Component {
   constructor(props){
@@ -18,7 +20,7 @@ class JournalSearch extends Component {
 
     componentDidMount(){
       let token = localStorage.getItem('token')
-      fetch(`http://localhost:3000/api/v1/entries`, {
+      fetch(`${URL}/entries`, {
         headers: {
           "Authorization" : `Bearer ${token}`
         }

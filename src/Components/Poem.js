@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import URL from '../helpers'
 
 class Poem extends Component {
   constructor(props){
@@ -42,7 +43,7 @@ class Poem extends Component {
     let newContent = this.state.content;
 
 
-    fetch(`http://localhost:3000/api/v1/poems`, {
+    fetch(`${URL}/poems`, {
       method: "POST",
       headers: {
         "Content-Type" : "application/json",

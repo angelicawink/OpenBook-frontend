@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardBody } from 'reactstrap';
+import URL from '../helpers'
+
 // import { Icon } from 'semantic-ui-react';
 
 
@@ -76,7 +78,7 @@ class Diary extends Component {
       updatedPrivacy = 'true'
     }
 
-    fetch(`http://localhost:3000/api/v1/entries/${entryID}`, {
+    fetch(`${URL}/entries/${entryID}`, {
       method: "PATCH",
       headers: {
          "Content-Type" : "application/json",

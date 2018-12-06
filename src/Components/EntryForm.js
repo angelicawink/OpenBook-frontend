@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import URL from '../helpers'
 
 class EntryForm extends Component {
   state={
@@ -20,7 +21,7 @@ class EntryForm extends Component {
     let token = localStorage.getItem('token');
     let privacyInput = event.target.children[2].children[0].checked
 debugger
-    fetch(`http://localhost:3000/api/v1/entries`, {
+    fetch(`${URL}/entries`, {
       method: "POST",
         headers: {
           "Content-Type" : "application/json",

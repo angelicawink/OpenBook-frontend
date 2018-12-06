@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { OverlayTrigger, Popover } from 'react-bootstrap';
 // import InlineEdit from 'react-edit-inline';
 import EditableLabel from 'react-inline-editing';
+import URL from '../helpers'
+
 
 class SavedEntry extends Component {
 
@@ -11,7 +13,7 @@ class SavedEntry extends Component {
 
       console.log('Focused with text: ' + text);
 
-      fetch(`http://localhost:3000/api/v1/saved_entries/${savedEntryID}`, {
+      fetch(`${URL}/saved_entries/${savedEntryID}`, {
         headers: {
            "Content-Type" : "application/json",
           "Accept" : "application/json",
@@ -34,7 +36,7 @@ class SavedEntry extends Component {
 
       console.log(`fetch updating with ${newTitle}`)
 
-      fetch(`http://localhost:3000/api/v1/saved_entries/${savedEntryID}`, {
+      fetch(`${URL}/saved_entries/${savedEntryID}`, {
         method: "PATCH",
         headers: {
            "Content-Type" : "application/json",
