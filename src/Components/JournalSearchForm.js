@@ -55,7 +55,7 @@ class JournalSearchForm extends Component {
               className="search-form input"
               type="text"
               value={this.state.searchTerm}
-              placeholder="search all journals by keyword, ie: 'family', 'anxiety', 'boss'..."
+              placeholder="search all journals by keyword, ie: 'family', 'stress', 'holiday'..."
               onChange={this.handleChange}
               ></input>
             <button

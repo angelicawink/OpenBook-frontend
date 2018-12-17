@@ -12,13 +12,13 @@ class RhymeFinder extends Component {
   }
 
   findRhyme = (word) => {
-    fetch(`https://api.datamuse.com/words?rel_rhy=${word}`)
+    fetch(`https://cors-anywhere.herokuapp.com/https://api.datamuse.com/words?rel_rhy=${word}`)
     .then(res => res.json())
     .then(data => this.setState({results: data}))
   }
 
   findAdjective = (word) => {
-    fetch(`https://api.datamuse.com/words?rel_jjb=${word}`)
+    fetch(`https://cors-anywhere.herokuapp.com/https://api.datamuse.com/words?rel_jjb=${word}`)
     .then(res => res.json())
     .then(data => this.setState({results: data}))
   }

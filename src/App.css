@@ -141,7 +141,7 @@ input.form-control.syllable{
 #click-to-vent{
   font-size: 25px;
   color: lightyellow;
-  margin-top: 10vh;
+  margin-top: 5vh;
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
@@ -217,7 +217,22 @@ button#write-another:hover{
   background-color: rgba(100, 0, 28, .5);
 }
 
- button#new-entry, .chart-another, .new-entry, #save-poem, button#new-moment, #private, #cancel-entry, #submit-entry{
+ #cancel-entry{
+   background-color: transparent;
+   border-color: white;
+   font-size: 1.5em;
+   margin: 3px;
+   border-width: 1.5px;
+   padding: 7px;
+   border-radius: 3px;
+   color: white;
+   outline: none;
+   /* margin-right: -20px; */
+ }
+
+
+
+ button#new-entry, .chart-another, .new-entry, #submit-entry, #save-poem, button#new-moment, #private{
   background-color: transparent;
   border-color: white;
   font-size: 1.5em;
@@ -229,19 +244,25 @@ button#write-another:hover{
   outline: none;
 }
 
-#submit-entry{
+#cancel-entry{
   float: right;
-  margin-right: 15vw;
+  margin-top: -43px;
+  margin-right: 100px;
+}
+
+#submit-entry{
+  /* float: right;*/
+  /* margin-right: 100px; */
 }
 
 #private{
-  /* background-color: red; */
+  padding: 10px;
   width: fit-content;
   border-color: white;
   border-style: solid;
   float: left;
-  margin-left: 15vw;
-  /* margin-left: 10vw; */
+  margin-left: 100px;
+  margin-right: -170px;
 }
 
 #private-checkbox{
@@ -315,11 +336,11 @@ border-width: 2px;
 }
 
 nav.navbar.navbar-default{
-  padding: 5px;
+  padding: 15px;
   margin: 0px;
   background-color: rgba(132, 160, 205, 1);
   /* color: white; */
-  height: 65px;
+  height: 75px;
   /* box-shadow:   .5px .5px .5px .5px; */
 
 }
@@ -338,13 +359,33 @@ div.Box-1.top-left{
   overflow: auto;
 }
 
+element.style#pie-chart{
+  width: 100px;
+}
+
 canvas#pie-chart.chartjs-render-monitor{
-  min-height: 18vh;
+  /* min-height: 18vh;
   max-height: 28vh;
   min-width: 30vw;
   max-width: 30vw;
   margin-left: 12vw;
+  margin-top: 4vh; */
+
+    /* min-height: 10vh;
+    max-height: 10vh;
+    min-width: 10vw;
+    max-width: 10vw;
+    margin-left: 12vw;
+    margin-top: 4vh; */
+
+
+  width: 75% !important;
+  height: 75% !important;
+  margin-left: 8vw;
   margin-top: 4vh;
+
+  /* max-width: 100px;
+  max-height: 100px; */
 }
 
 div.Box-1.top-right{
@@ -488,7 +529,7 @@ div.col-xs-6.search{
   background-color: rgba(105,56,88, 1)
 }
 
-canvas.chartjs-render-monitor{
+canvas#line-chart.chartjs-render-monitor{
   min-height: 40vh;
   max-height: 40vh;
   min-width: 40vw;
@@ -532,8 +573,8 @@ label{
 }
 
 .card-body, p{
-  /* color: white; */
-  color: rgba(10, 21, 47, 1);
+  color: darkblue;
+  line-height: 23px;
   height: fit-content;
   font-size: 18px;
 }
@@ -760,12 +801,14 @@ div.diary-page.card, #new-diary-entry{
   border-radius: 5px;
   /* border-color: white; */
   /* border-style: solid; */
+
   border-width: .5px;
   margin-bottom: 1vh;
   margin-top: 5px;
   font-size: 1.4em;
   font-weight: bold;
-  color: rgba(10, 21, 47, 1);
+  /* color: rgba(10, 21, 47, 1); */
+  color: navy;
   /* display: flex; */
   /* box-shadow:   1px 1px 1px 1px; */
   padding: 3%;
@@ -994,12 +1037,12 @@ div.page-header.saved-entry:hover{
   background-color: transparent;
   font-size: 1.95em;
   color: red;
-  line-height: 1.65em;
+  line-height: 1.3em;
   border-style: hidden;
   box-shadow: none;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1.3em;
+  margin-top: .58em;
   height: 94%;
   width: 112%;
 }
@@ -1014,7 +1057,7 @@ div.page-header.saved-entry:hover{
 
 #with-rage{
   position: relative;
-  padding-top: 6%;
+  padding-top: 8.5%;
   font-size: 25px;
 
 }

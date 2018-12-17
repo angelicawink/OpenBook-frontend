@@ -101,8 +101,9 @@ badFont = () => {
                 display: true,
                 position: 'right',
                 labels: {
-                  fontSize: 15,
-                  fontColor: 'white'
+                  fontSize: 24,
+                  fontColor: 'white',
+                  fontFamily: 'Antic Slab'
                 }
               }
             }}

@@ -8,6 +8,7 @@ class Chart extends Component {
       <div className="chart">
         {this.props.lineChartData  ?
           <Line
+            id="line-chart"
           data={this.props.lineChartData}
 
           options={{
@@ -29,7 +30,7 @@ class Chart extends Component {
               yAxes: [{
                 ticks: {
                   fontColor: 'white',
-                  fontSize: 19,
+                  fontSize: 17,
                   fontFamily: 'Antic Slab',
                   beginAtZero: true,
                   callback: function(label, index, labels) {

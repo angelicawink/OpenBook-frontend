@@ -4,10 +4,6 @@ import React, { Component } from 'react';
 
 class YellowLetter extends Component {
 
-    handleFocus = (text) => {
-      console.log('Focused with text: ' + text);
-    }
-
 
 
     handleFocusOut = (title) => {
@@ -28,7 +24,7 @@ class YellowLetter extends Component {
               <textarea
                 id="letter-textarea"
                 className="form-control"
-                placeholder="...Type your your angriest vent letter here...">
+                placeholder="...Type your ventiest vent letter here...">
               </textarea>
 
               <div>
