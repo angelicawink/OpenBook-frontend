@@ -479,7 +479,6 @@ textarea#poem-textarea.poem-body.form-control::placeholder{
   color: rgba(254, 255, 149, .9);
   margin-left: 5vw;
   font-size: 45px;
-  /* line-height: 45px; */
 }
 
 .btn-default{
@@ -617,20 +616,18 @@ div.home-container.container {
 
 .login-div{
   margin-left: 30vw;
-  margin-top: 5vh;
-  /* border-style:solid; */
+  margin-top: 6vh;
   width: fit-content;
   border-radius: 8px;
   padding: 1%;
   background-color: rgba(132, 160, 205, 1);
-  /* text-align: center; */
 }
 
 .login-form{
   background-color: rgba(132, 160, 205, 1);
   border-radius: 8px;
   width: fit-content;
-  padding: 1%;
+  margin-top: 5vh;
   margin-top: 3vh;
 
 }
@@ -641,7 +638,7 @@ div.home-container.container {
   margin-top: 3vh;
   background-color: rgba(242, 147, 142, 1);
   width: fit-content;
-  padding: 1%;
+  /* padding: 1vh; */
 }
 
 /* h1.page-header */

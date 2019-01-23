@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import URL from '../helpers'
+import { Segment } from 'semantic-ui-react';
 
 class Signup extends Component{
   constructor(props){
@@ -67,7 +68,7 @@ class Signup extends Component{
 
   render(){
     return(
-      <div className="signup">
+      <Segment className="signup" raised style={{background: 'rgba(242, 147, 142, 1)'}}>
         <h2>Or Sign Up</h2>
         <form onSubmit={this.handleSubmit}>
 
@@ -88,7 +89,7 @@ class Signup extends Component{
           </div>
 
         </form>
-      </div>
+      </Segment>
     )
   }
 }

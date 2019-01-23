@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import Signup from "./Signup";
 import URL from "../helpers";
 import { fetchLogin } from "../fetches.js";
-import { Grid } from "semantic-ui-react";
+import { Grid, Segment } from "semantic-ui-react";
 
 class Login extends Component {
   state = {
@@ -60,10 +60,11 @@ class Login extends Component {
               Open Book. <small> we're with you.</small>
             </h1>
           </div>
+          <br/>
           <Grid>
-            <Grid.Column width={5} />
-            <Grid.Column width={6}>
-              <div className="login-form">
+            <Grid.Column width={6}/>
+            <Grid.Column textAlign="left">
+              <Segment className="login-form" raised style={{background: 'rgba(132, 160, 205, 1)'}}>
                 <h2>Log In</h2>
                 <form onSubmit={this.handleSubmit}>
                   <div className="form-group">
@@ -93,10 +94,13 @@ class Login extends Component {
                     </button>
                   </div>
                 </form>
-              </div>
+              </Segment>
+
 
               <Signup setUser={this.props.setUser} />
             </Grid.Column>
+            <Grid.Column width={6}/>
+
           </Grid>
         </div>
       );
