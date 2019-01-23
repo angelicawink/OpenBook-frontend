@@ -4,3 +4,8 @@
 - run `npm install`.
 - run `npm start` to run the app in the development mode.
 - Open http://localhost:3006 to view it in the browser.
+
+To view a filled out profile, login to the app using:
+
+- username: `carowink91`
+- password: `carowink`
