@@ -626,14 +626,20 @@ div.home-container.container {
   /* text-align: center; */
 }
 
+.login-form{
+  background-color: rgba(132, 160, 205, 1);
+  border-radius: 8px;
+  width: fit-content;
+  padding: 1%;
+  margin-top: 3vh;
+
+}
+
 
 .signup{
   border-radius: 8px;
-  margin-left: 36.5vw;
   margin-top: 3vh;
   background-color: rgba(242, 147, 142, 1);
-
-  /* border-style:solid; */
   width: fit-content;
   padding: 1%;
 }

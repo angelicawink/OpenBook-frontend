@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import Signup from "./Signup";
 import URL from "../helpers";
+import { fetchLogin } from "../fetches.js";
+import { Grid } from "semantic-ui-react";
 
 class Login extends Component {
   state = {
@@ -25,45 +27,26 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.handleLogin(this.state);
+    this.clearState();
+  };
 
+  clearState = () => {
     this.setState({
       username: "",
       password: ""
     });
   };
 
-  handleLogin = data => {
-    let usernameInput = data.username;
-    let passwordInput = data.password;
-    console.log(`username: ${usernameInput}`);
-    console.log(`password: ${passwordInput}`);
-
-    fetch(`${URL}/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        user: {
-          username: usernameInput,
-          password: passwordInput
-        }
-      })
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.error) {
-          alert("Invalid username or password");
-          this.setState({
-            username: "",
-            password: ""
-          });
-        } else {
-          localStorage.setItem("token", data.jwt);
-          this.props.setUser(data.user_info);
-        }
-      });
+  handleLogin = body => {
+    fetchLogin(body).then(data => {
+      if (data.error) {
+        alert("Invalid username or password");
+        this.clearState();
+      } else {
+        localStorage.setItem("token", data.jwt);
+        this.props.setUser(data.user_info);
+      }
+    });
   };
 
   render() {
@@ -77,42 +60,44 @@ class Login extends Component {
               Open Book. <small> we're with you.</small>
             </h1>
           </div>
+          <Grid>
+            <Grid.Column width={5} />
+            <Grid.Column width={6}>
+              <div className="login-form">
+                <h2>Log In</h2>
+                <form onSubmit={this.handleSubmit}>
+                  <div className="form-group">
+                    <label>Username:</label>
+                    <input
+                      type="text"
+                      className="form-control short"
+                      name="username"
+                      value={this.state.username}
+                      placeholder="username"
+                      onChange={this.handleChange}
+                    />
+                    <label>Password:</label>
+                    <input
+                      type="password"
+                      className="form-control short"
+                      name="password"
+                      value={this.state.password}
+                      placeholder="password"
+                      onChange={this.handleChange}
+                    />
+                  </div>
 
-          <div className="container">
-            <div className="col-sm-4 login-div">
-              <h2>Log In</h2>
-              <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                  <label>Username:</label>
-                  <input
-                    type="text"
-                    className="form-control short"
-                    name="username"
-                    value={this.state.username}
-                    placeholder="username"
-                    onChange={this.handleChange}
-                  />
-                  <label>Password:</label>
-                  <input
-                    type="password"
-                    className="form-control short"
-                    name="password"
-                    value={this.state.password}
-                    placeholder="password"
-                    onChange={this.handleChange}
-                  />
-                </div>
+                  <div className="form-group">
+                    <button type="submit" className="btn btn-warning">
+                      Log In
+                    </button>
+                  </div>
+                </form>
+              </div>
 
-                <div className="form-group">
-                  <button type="submit" className="btn btn-warning">
-                    Log In
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-
-          <Signup setUser={this.props.setUser} />
+              <Signup setUser={this.props.setUser} />
+            </Grid.Column>
+          </Grid>
         </div>
       );
     }
