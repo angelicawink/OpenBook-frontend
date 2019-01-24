@@ -23,3 +23,17 @@ export function fetchVerifyUser(token) {
     }
   }).then(res => res.json());
 }
+
+export function fetchEditPrivacy(token, entryID, updatedPrivacy) {
+  return fetch(`${URL}/entries/${entryID}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      private: updatedPrivacy
+    })
+  }).then(res => res.json());
+}

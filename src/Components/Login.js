@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import Signup from "./Signup";
-import URL from "../helpers";
 import { fetchLogin } from "../fetches.js";
 import { Grid, Segment } from "semantic-ui-react";
 
@@ -60,11 +59,15 @@ class Login extends Component {
               Open Book. <small> we're with you.</small>
             </h1>
           </div>
-          <br/>
+          <br />
           <Grid>
-            <Grid.Column width={6}/>
+            <Grid.Column width={6} />
             <Grid.Column textAlign="left">
-              <Segment className="login-form" raised style={{background: 'rgba(132, 160, 205, 1)'}}>
+              <Segment
+                className="login-form"
+                raised
+                style={{ background: "rgba(132, 160, 205, 1)" }}
+              >
                 <h2>Log In</h2>
                 <form onSubmit={this.handleSubmit}>
                   <div className="form-group">
@@ -96,11 +99,9 @@ class Login extends Component {
                 </form>
               </Segment>
 
-
               <Signup setUser={this.props.setUser} />
             </Grid.Column>
-            <Grid.Column width={6}/>
-
+            <Grid.Column width={6} />
           </Grid>
         </div>
       );
