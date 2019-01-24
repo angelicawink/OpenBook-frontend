@@ -53,3 +53,11 @@ export function fetchEditPrivacy(token, entryID, updatedPrivacy) {
     })
   }).then(res => res.json());
 }
+
+export function fetchGetEntries(token) {
+  return fetch(`${URL}/entries`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }).then(res => res.json());
+}
