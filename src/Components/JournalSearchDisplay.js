@@ -1,30 +1,23 @@
-import React, { Component } from 'react';
-import ResultsMaster from './ResultsMaster';
-// import JournalSearchForm from './JournalSearchForm';
-import SavedSearches from './SavedSearches';
+import React, { Component } from "react";
+import ResultsMaster from "./ResultsMaster";
+import SavedSearches from "./SavedSearches";
 
-class JournalSearchDisplay extends Component {
+const JournalSearchDisplay = props => {
+  return (
+    <React.Fragment>
+      <div className="container search-body">
+        <ResultsMaster
+          savedEntryIDs={props.savedEntryIDs}
+          addSavedEntry={props.addSavedEntry}
+          deleteSavedEntry={props.deleteSavedEntry}
+          results={props.results}
+          user={props.user}
+        />
 
-  render(){
-    return(
-      <React.Fragment>
-        <div className="container search-body">
-
-          <ResultsMaster
-            savedEntryIDs={this.props.savedEntryIDs}
-            addSavedEntry={this.props.addSavedEntry}
-            deleteSavedEntry={this.props.deleteSavedEntry}
-            results={this.props.results}
-            user={this.props.user}/>
-
-
-          <SavedSearches
-            user={this.props.user}/>
-
-        </div>
+        <SavedSearches user={props.user} />
+      </div>
     </React.Fragment>
-    )
-  }
-}
+  );
+};
 
-export default JournalSearchDisplay
+export default JournalSearchDisplay;

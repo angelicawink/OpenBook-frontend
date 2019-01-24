@@ -23,7 +23,6 @@ class JournalSearch extends Component {
   }
 
   getEntries = () => {
-    debugger;
     let token = localStorage.getItem("token");
     fetchGetEntries(token).then(entries => {
       let publicEntries = entries.filter(entry => entry.private == false);
