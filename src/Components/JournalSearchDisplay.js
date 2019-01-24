@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import ResultsMaster from "./ResultsMaster";
 import SavedSearches from "./SavedSearches";
 

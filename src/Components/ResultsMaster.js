@@ -1,93 +1,92 @@
-import React, { Component } from 'react';
-import ResultItem from './ResultItem';
-import URL from '../helpers'
+import React, { Component } from "react";
+import ResultItem from "./ResultItem";
+import URL from "../helpers";
 
-class ResultstMaster extends Component{
-  constructor(props){
+class ResultstMaster extends Component {
+  constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       selectedEntry: null
-    }
+    };
   }
 
-  setSelectedEntry = (entry) => {
+  setSelectedEntry = entry => {
     this.setState({
       selectedEntry: entry
-    })
-  }
+    });
+  };
 
-  handleClick = (event) => {
-    console.log(this.props.savedEntryIDs)
-
-    let entryID = ~~(event.target.dataset.entryid);
+  handleClick = event => {
+    let entryID = ~~event.target.dataset.entryid;
     let userID = this.props.user.id;
-    let token = localStorage.getItem('token');
-    let titleInput = "Click To Add Title"
+    let token = localStorage.getItem("token");
+    let titleInput = "Click To Add Title";
 
-    if (this.props.savedEntryIDs.includes(entryID)){
-      let savedObj = this.props.user.saved_entries.find(saved => saved.entry.id == entryID)
-      let savedID = savedObj.id
+    if (this.props.savedEntryIDs.includes(entryID)) {
+      let savedObj = this.props.user.saved_entries.find(
+        saved => saved.entry.id === entryID
+      );
+      let savedID = savedObj.id;
 
       fetch(`${URL}/saved_entries/${savedID}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type" : "application/json",
-            "Accept" : "application/json",
-            "Authorization" : `Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.g0U5SAOLozk3dz0mNUrvBSR-0CSewJ5eParRWg_abVk`
-          }
-        }).then(res => res.json()).then(savedObj => this.props.deleteSavedEntry(savedObj))
-    }
-    else {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.g0U5SAOLozk3dz0mNUrvBSR-0CSewJ5eParRWg_abVk`
+        }
+      })
+        .then(res => res.json())
+        .then(savedObj => this.props.deleteSavedEntry(savedObj));
+    } else {
       fetch(`${URL}/saved_entries`, {
         method: "POST",
         headers: {
-          "Content-Type" : "application/json",
-          "Accept" : "application/json",
-          "Authorization" : `Bearer ${token}`
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`
         },
         body: JSON.stringify({
           user_id: userID,
           entry_id: entryID,
           title: titleInput
         })
-      }).then(res => res.json()).then(entry => this.props.addSavedEntry(entry))
+      })
+        .then(res => res.json())
+        .then(entry => this.props.addSavedEntry(entry));
     }
-  }
+  };
 
-
-  render(){
-
-
-    return(
+  render() {
+    return (
       <div className="col-xs-6 search">
         <div id="holder" className="left">
           <h3 className="results-header">All Journals</h3>
 
           <div className="journal-search master">
-
-            {this.props.results ?
-              this.props.results.map((result, index) =>
-
-              <ResultItem
-                savedEntryIDs={this.props.savedEntryIDs}
-                key={index}
-                result={result}
-                user={this.props.user}
-                handleClick={this.handleClick}
-                saved={this.props.savedEntryIDs.includes(result.id)}
-                selectedEntry={this.state.selectedEntry}
-                setSelectedEntry={(entry) => this.setSelectedEntry(entry)}
+            {this.props.results ? (
+              this.props.results.map((result, index) => (
+                <ResultItem
+                  savedEntryIDs={this.props.savedEntryIDs}
+                  key={index}
+                  result={result}
+                  user={this.props.user}
+                  handleClick={this.handleClick}
+                  saved={this.props.savedEntryIDs.includes(result.id)}
+                  selectedEntry={this.state.selectedEntry}
+                  setSelectedEntry={entry => this.setSelectedEntry(entry)}
                 />
-
-              )
-              :
-              <h4 id="search-result-placeholder">No Results Yet, Try A Search!</h4>
-            }
+              ))
+            ) : (
+              <h4 id="search-result-placeholder">
+                No Results Yet, Try A Search!
+              </h4>
+            )}
           </div>
-          </div>
+        </div>
       </div>
-    )
+    );
   }
 }
 
-export default ResultstMaster
+export default ResultstMaster;

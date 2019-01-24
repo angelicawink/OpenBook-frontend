@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import JournalSearchDisplay from "./JournalSearchDisplay";
 import JournalSearchForm from "./JournalSearchForm";
-import URL from "../helpers";
 import { fetchGetEntries } from "../fetches.js";
 
 class JournalSearch extends Component {
@@ -25,7 +24,7 @@ class JournalSearch extends Component {
   getEntries = () => {
     let token = localStorage.getItem("token");
     fetchGetEntries(token).then(entries => {
-      let publicEntries = entries.filter(entry => entry.private == false);
+      let publicEntries = entries.filter(entry => entry.private === false);
       this.setEntries(publicEntries);
     });
   };
