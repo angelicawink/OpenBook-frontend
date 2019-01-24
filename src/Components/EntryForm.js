@@ -36,31 +36,13 @@ class EntryForm extends Component {
   };
 
   getTodaysDate = () => {
-    let date = Date().split(" ");
-    let displayDate = date[0] + ". " + date[1] + " " + date[2] + ", " + date[3];
-    return displayDate;
+    let date = new Date().toDateString();
+    return date;
   };
 
   getTodaysTime = () => {
-    let date = Date().split(" ");
-
-    let time = date[4].slice(0, 5).split(":");
-    let mins = time[1];
-    let hours;
-    let am_pm;
-
-    if (~~time[0] > 12) {
-      hours = time[0] - 12;
-      am_pm = " pm";
-    } else if (~~time[0] === 12) {
-      hours = time[0];
-      am_pm = " pm";
-    } else if (~~time[0] < 12) {
-      hours = time[0];
-      am_pm = " am";
-    }
-    let displayTime = hours + ":" + mins + am_pm;
-    return displayTime;
+    let time = new Date().toLocaleTimeString();
+    return time;
   };
 
   toggleCheckbox = () => {
