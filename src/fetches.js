@@ -16,6 +16,22 @@ export function fetchLogin(body) {
   }).then(res => res.json());
 }
 
+export function fetchPostNewEntry(userID, entryContent, privacyInput, token) {
+  return fetch(`${URL}/entries`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      user_id: userID,
+      content: entryContent,
+      private: privacyInput
+    })
+  }).then(res => res.json());
+}
+
 export function fetchVerifyUser(token) {
   return fetch(`${URL}/home`, {
     headers: {

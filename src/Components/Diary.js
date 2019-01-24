@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Card, CardBody } from "reactstrap";
-import URL from "../helpers";
 import { fetchEditPrivacy } from "../fetches.js";
 
 class Diary extends Component {
@@ -9,35 +8,17 @@ class Diary extends Component {
   };
 
   getDate = () => {
-    let date = new Date(
-      this.props.user.entries[this.state.currentEntryIndex].created_at
-    )
-      .toString()
-      .split(" ");
-    let displayDate = date[0] + ". " + date[1] + " " + date[2] + ", " + date[3];
-    return displayDate;
+    let timeStamp = this.props.user.entries[this.state.currentEntryIndex]
+      .created_at;
+    let date = new Date(timeStamp).toDateString();
+    return date;
   };
 
   getTime = () => {
-    let date = new Date(
-      this.props.user.entries[this.state.currentEntryIndex].created_at
-    )
-      .toString()
-      .split(" ");
-    let time = date[4].split(":");
-    let hour = time[0];
-    let min = time[1];
-    let am_pm;
-
-    if (hour > 12) {
-      am_pm = "pm";
-      hour = hour - 12;
-    } else {
-      am_pm = "am";
-    }
-
-    let displayTime = hour + ":" + min + " " + am_pm;
-    return displayTime;
+    let timeStamp = this.props.user.entries[this.state.currentEntryIndex]
+      .created_at;
+    let time = new Date(timeStamp).toLocaleTimeString();
+    return time;
   };
 
   getPreviousEntry = () => {
