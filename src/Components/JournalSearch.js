@@ -11,12 +11,6 @@ class JournalSearch extends Component {
     };
   }
 
-  setSearchResults = entries => {
-    this.setState({
-      results: entries
-    });
-  };
-
   componentDidMount() {
     this.getEntries();
   }
@@ -30,6 +24,12 @@ class JournalSearch extends Component {
   };
 
   setEntries = entries => {
+    this.setState({
+      results: entries
+    });
+  };
+
+  setSearchResults = entries => {
     this.setState({
       results: entries
     });
