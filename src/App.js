@@ -6,7 +6,7 @@ import Vent from "./Components/Vent";
 import JournalSearch from "./Components/JournalSearch";
 import { Route, withRouter, Switch } from "react-router-dom";
 import MyNavBar from "./Components/MyNavBar";
-// import { fetchVerifyUser } from './FETCHES'
+import Profile from "./Components/Profile";
 import { chartLabels, pieChartColors } from "./data";
 import Wallow from "./Components/Wallow";
 import URL from "./helpers";
@@ -120,6 +120,10 @@ class App extends Component {
   toSearch = () => {
     this.props.history.push("/search");
   };
+
+  toProfile = () => {
+    this.props.history.push("/profile")
+  }
 
   addEntry = newEntry => {
     this.setState({
@@ -328,6 +332,7 @@ class App extends Component {
             toVent={this.toVent}
             toSearch={this.toSearch}
             toWallow={this.toWallow}
+            toProfile={this.toProfile}
           />
         ) : null}
         <Switch>
@@ -389,6 +394,12 @@ class App extends Component {
             exact
             path="/wallow"
             render={props => <Wallow {...props} user={this.state.user} />}
+          />
+
+          <Route
+            exact
+            path="/profile"
+            render={props => <Profile {...props} />}
           />
         </Switch>
       </Fragment>

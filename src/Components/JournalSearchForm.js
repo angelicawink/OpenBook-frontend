@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import URL from "../helpers";
 import { fetchGetEntries } from "../fetches.js";
 
 class JournalSearchForm extends Component {

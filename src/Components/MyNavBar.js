@@ -17,6 +17,10 @@ class MyNavBar extends Component {
           <Navbar.Collapse>
             <Nav>
 
+              <NavItem onClick={this.props.toProfile}>
+                profile
+              </NavItem>
+
               <NavItem onClick={this.props.toVent}>
                 vent
               </NavItem>

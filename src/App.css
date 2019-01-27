@@ -24,9 +24,10 @@ button.ui.orange.button{
 /*  nav bar links */
 
 .navbar-nav>li>a{
-  font-size: 25px;
+  font-size: 20px;
   /* float: right !important; */
-  margin-left: 5.7vw;
+  /*  //////////////////////*/
+  /* margin-left: 5.7vw; */
   /* margin-right: 1vw; */
 }
 
@@ -599,10 +600,9 @@ h5.time-header{
 div.home-container.container {
   height: 100vh;
   width: 100vw;
-  /* padding: 20px; */
 }
 
-.home-body, .search-body, .login-body {
+.home-body, .search-body, .login-body, .profile-body {
   width: 100vw;
   height: 100vh;
 }
@@ -610,8 +610,6 @@ div.home-container.container {
 .login-body{
   align-items: center;
   padding: 4%;
-  /* text-align: center; */
-  /* margin-left: 40vw; */
 }
 
 .login-div{
