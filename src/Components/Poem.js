@@ -1,71 +1,51 @@
-import React, { Component } from 'react';
-import URL from '../helpers'
+import React, { Component } from "react";
+import { fetchPostNewPoem } from "../fetches";
 
 class Poem extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
-      content: '',
-      title: ''
-    }
+    this.state = {
+      content: "",
+      title: ""
+    };
   }
 
-  handleChange = (event) => {
-    this.setState({
-      content: event.target.value
-    })
-  }
+  handleChange = event => {
+    this.setState({ content: event.target.value });
+  };
 
-  setTitle = (event) => {
-    this.setState({
-      title: event.target.value
-    })
-  }
+  setTitle = event => {
+    this.setState({ title: event.target.value });
+  };
 
-  componentDidUpdate(prevProps){
-    if (this.props.wordToAdd !== prevProps.wordToAdd){
-      if (this.state.content[this.state.content.length-1] === " "){
+  componentDidUpdate(prevProps) {
+    if (this.props.wordToAdd !== prevProps.wordToAdd) {
+      if (this.state.content[this.state.content.length - 1] === " ") {
         this.setState({
           content: this.state.content.concat(this.props.wordToAdd)
-        })
+        });
       } else {
         this.setState({
           content: this.state.content.concat(" " + this.props.wordToAdd)
-        })
+        });
       }
     }
   }
 
   savePoem = () => {
-    let token = localStorage.getItem('token')
+    let token = localStorage.getItem("token");
     let userID = this.props.user.id;
     let newTitle = this.state.title;
     let newContent = this.state.content;
 
+    fetchPostNewPoem(token, userID, newTitle, newContent).then(data => {
+      this.props.addPoem(data);
+      this.props.togglePoetryDisplay();
+    });
+  };
 
-    fetch(`${URL}/poems`, {
-      method: "POST",
-      headers: {
-        "Content-Type" : "application/json",
-        "Accept" : "application/json",
-        "Authorization" : `Bearer ${token}`
-      },
-      body: JSON.stringify({
-        user_id: userID,
-        title: newTitle,
-        content: newContent
-      })
-    })
-    .then(res => res.json()).then(data => {
-      console.log(data);
-
-      this.props.addPoem(data)
-      this.props.togglePoetryDisplay()
-    })
-  }
-
-  render(){
-    return(
+  render() {
+    return (
       <>
         <div className="col-xs-7">
           <form className="form-group">
@@ -73,23 +53,23 @@ class Poem extends Component {
               type="text"
               placeholder="Type To Add Poem Title"
               className="poem-title form-control"
-              onChange={this.setTitle}/>
+              onChange={this.setTitle}
+            />
             <textarea
               id="poem-textarea"
               onChange={this.handleChange}
               className="poem-body form-control"
               placeholder="Type To Add Poem Body"
-              value={this.state.content}>
-            </textarea>
+              value={this.state.content}
+            />
           </form>
-          <button
-            onClick={this.savePoem}
-            id="save-poem"
-            >Save</button>
+          <button onClick={this.savePoem} id="save-poem">
+            Save
+          </button>
         </div>
       </>
-    )
+    );
   }
 }
 
-export default Poem
+export default Poem;

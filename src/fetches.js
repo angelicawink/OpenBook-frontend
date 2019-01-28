@@ -16,6 +16,22 @@ export function fetchLogin(body) {
   }).then(res => res.json());
 }
 
+export function fetchPostNewPoem(token, userID, newTitle, newContent) {
+  return fetch(`${URL}/poems`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      user_id: userID,
+      title: newTitle,
+      content: newContent
+    })
+  }).then(res => res.json());
+}
+
 export function fetchPostNewMoment(token, userID, feelingsID, settingID) {
   return fetch(`${URL}/moments`, {
     method: "POST",
