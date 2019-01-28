@@ -9,7 +9,6 @@ import MyNavBar from "./Components/MyNavBar";
 import Profile from "./Components/Profile";
 import { chartLabels, pieChartColors } from "./data";
 import Wallow from "./Components/Wallow";
-import URL from "./helpers";
 import { fetchVerifyUser } from "./fetches";
 
 class App extends Component {
