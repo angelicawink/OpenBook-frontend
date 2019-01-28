@@ -16,6 +16,22 @@ export function fetchLogin(body) {
   }).then(res => res.json());
 }
 
+export function fetchPostNewMoment(token, userID, feelingsID, settingID) {
+  return fetch(`${URL}/moments`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify({
+      user_id: userID,
+      feeling_id: feelingsID,
+      setting_id: settingID
+    })
+  }).then(res => res.json());
+}
+
 export function fetchPostNewEntry(userID, entryContent, privacyInput, token) {
   return fetch(`${URL}/entries`, {
     method: "POST",
