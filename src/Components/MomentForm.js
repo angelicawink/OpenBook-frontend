@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import URL from "../helpers";
 import { fetchPostNewMoment } from "../fetches";
 
 class MomentForm extends Component {
