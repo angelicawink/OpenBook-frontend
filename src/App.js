@@ -10,6 +10,7 @@ import Profile from "./Components/Profile";
 import { chartLabels, pieChartColors } from "./data";
 import Wallow from "./Components/Wallow";
 import URL from "./helpers";
+import { fetchVerifyUser } from "./fetches";
 
 class App extends Component {
   constructor() {
@@ -23,78 +24,40 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    this.setDatas();
+  }
+
   setDatas = () => {
     let token = localStorage.getItem("token");
-    if (token)
-      return fetch(`${URL}/home`, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
-        .then(res => res.json())
-        .then(data => {
-          this.setState(
-            {
-              user: data.user
-            },
-            () => {
-              this.getLineChartData();
-              this.getPosPieChartData();
-              this.getNegPieChartData();
-              this.getSavedEntryIDs();
-            }
-          );
-        });
+    if (token) this.getUserInfo(token);
   };
 
-  componentDidMount() {
-    let token = localStorage.getItem("token");
-    if (token) {
-      return fetch(`${URL}/home`, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
-        .then(res => res.json())
-
-        .then(data => {
-          this.setState(
-            {
-              user: data.user
-            },
-            () => {
-              this.getLineChartData();
-              this.getPosPieChartData();
-              this.getNegPieChartData();
-              this.getSavedEntryIDs();
-            }
-          );
-        });
-    }
-  }
+  getUserInfo = token => {
+    fetchVerifyUser(token).then(data => {
+      this.setState({ user: data.user }, () => {
+        this.getLineChartData();
+        this.getPosPieChartData();
+        this.getNegPieChartData();
+        this.getSavedEntryIDs();
+      });
+    });
+  };
 
   getSavedEntryIDs = () => {
     let savedIDs = [];
     this.state.user.saved_entries.forEach(saved => {
       savedIDs.push(saved.entry.id);
     });
-
     this.setSavedEntryIDs(savedIDs);
   };
 
-  setSavedEntryIDs = savedIDs => {
-    this.setState({
-      savedEntryIDs: savedIDs
-    });
+  setSavedEntryIDs = savedEntryIDs => {
+    this.setState({ savedEntryIDs });
   };
 
-  setUser = userInfo => {
-    this.setState(
-      {
-        user: userInfo
-      },
-      () => this.props.history.push("/home")
-    );
+  setUser = user => {
+    this.setState({ user }, () => this.props.history.push("/home"));
   };
 
   logout = () => {
@@ -122,8 +85,8 @@ class App extends Component {
   };
 
   toProfile = () => {
-    this.props.history.push("/profile")
-  }
+    this.props.history.push("/profile");
+  };
 
   addEntry = newEntry => {
     this.setState({
@@ -306,7 +269,6 @@ class App extends Component {
   };
 
   togglePrivacyInState = entryObj => {
-    console.log(this.state.user.entries);
     let entryID = entryObj.id;
     let entryIndex = this.state.user.entries.findIndex(
       entry => entry.id === entryID
