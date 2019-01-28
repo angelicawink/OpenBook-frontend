@@ -1,23 +1,17 @@
-import React, { Component } from 'react';
-import EnvelopeClosed from './EnvelopeClosed';
+import React from "react";
+import EnvelopeClosed from "./EnvelopeClosed";
 
-class MailLetterGif extends Component{
-
-  renderFlame = () => {
-      return <img
+const MailLetterGif = () => {
+  return (
+    <>
+      <EnvelopeClosed />
+      <img
         src="https://www.mechsauce.com/wp-content/uploads/2018/09/Campfire.gif"
         id="flames"
-        alt="flames"/>
-  }
+        alt="flames"
+      />
+    </>
+  );
+};
 
-  render(){
-    return(
-      <>
-        <EnvelopeClosed/>
-        {this.renderFlame()}
-      </>
-    )
-  }
-}
-
-export default MailLetterGif
+export default MailLetterGif;
