@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ResultItem from "./ResultItem";
-import URL from "../helpers";
+import { fetchDeleteSavedEntry, fetchPostNewSavedEntry } from "../fetches";
 
 class ResultstMaster extends Component {
   constructor(props) {
@@ -10,10 +10,8 @@ class ResultstMaster extends Component {
     };
   }
 
-  setSelectedEntry = entry => {
-    this.setState({
-      selectedEntry: entry
-    });
+  setSelectedEntry = selectedEntry => {
+    this.setState({ selectedEntry });
   };
 
   handleClick = event => {
@@ -27,33 +25,13 @@ class ResultstMaster extends Component {
         saved => saved.entry.id === entryID
       );
       let savedID = savedObj.id;
-
-      fetch(`${URL}/saved_entries/${savedID}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.g0U5SAOLozk3dz0mNUrvBSR-0CSewJ5eParRWg_abVk`
-        }
-      })
-        .then(res => res.json())
-        .then(savedObj => this.props.deleteSavedEntry(savedObj));
+      fetchDeleteSavedEntry(token, savedID).then(savedObj =>
+        this.props.deleteSavedEntry(savedObj)
+      );
     } else {
-      fetch(`${URL}/saved_entries`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          user_id: userID,
-          entry_id: entryID,
-          title: titleInput
-        })
-      })
-        .then(res => res.json())
-        .then(entry => this.props.addSavedEntry(entry));
+      fetchPostNewSavedEntry(token, userID, entryID, titleInput).then(entry =>
+        this.props.addSavedEntry(entry)
+      );
     }
   };
 

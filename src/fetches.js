@@ -16,6 +16,33 @@ export function fetchLogin(body) {
   }).then(res => res.json());
 }
 
+export function fetchDeleteSavedEntry(token, savedID) {
+  return fetch(`${URL}/saved_entries/${savedID}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`
+    }
+  }).then(res => res.json());
+}
+
+export function fetchPostNewSavedEntry(token, userID, entryID, titleInput) {
+  return fetch(`${URL}/saved_entries`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      user_id: userID,
+      entry_id: entryID,
+      title: titleInput
+    })
+  }).then(res => res.json());
+}
+
 export function fetchPostNewPoem(token, userID, newTitle, newContent) {
   return fetch(`${URL}/poems`, {
     method: "POST",
